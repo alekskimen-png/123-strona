@@ -3,326 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🥚 Jajko – Kompendium Wiedzy</title>
-    <meta name="description" content="Odkryj wszystko o jajkach – wartości odżywcze, przepisy, rodzaje i ciekawostki. Profesjonalne kompendium wiedzy o jajkach.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Kawa - Strona Główna</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <h1>☕ Świat Kawy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Strona Główna</a></li>
+                <li><a href="rodzaje.html">Rodzaje Kawy</a></li>
+                <li><a href="przepisy.html">Przepisy</a></li>
+                <li><a href="ciekawostki.html">Ciekawostki</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- ═══════════ NAVIGATION ═══════════ -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">🥚 Jajko</a>
-            <div class="nav-links">
-                <a href="index.html" class="active">Strona Główna</a>
-                <a href="rodzaje.html">Rodzaje</a>
-                <a href="przepisy.html">Przepisy</a>
-                <a href="ciekawostki.html">Ciekawostki</a>
-                <a href="ciasta.html">Ciasta</a>
-                <a href="kupek.html">Kupek</a>
-                <a href="gnojnik.html">Gnojnik</a>
-                <a href="messi.html">Messi</a>
-                <a href="chipasach.html">Chipasach</a>
-            </div>
-            <button class="nav-toggle" aria-label="Menu">☰</button>
-        </div>
-    </nav>
+    <main>
+        <section class="hero">
+            <h2>Witaj w świecie kawy!</h2>
+            <p>Odkryj bogactwo smaków, aromatów i tradycji związanych z jednym z najpopularniejszych napojów na świecie.</p>
+        </section>
 
-    <!-- ═══════════ HERO SECTION ═══════════ -->
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-float-container">
-            <div class="hero-float">🥚</div>
-            <div class="hero-float">🍳</div>
-            <div class="hero-float">🥚</div>
-            <div class="hero-float">🐔</div>
-            <div class="hero-float">🥚</div>
-            <div class="hero-float">🥚</div>
-        </div>
+        <section class="features">
+            <article>
+                <h3>🌱 Rodzaje Kawy</h3>
+                <p>Poznaj różne gatunki kawy - od Arabiki po Robustę.</p>
+                <a href="rodzaje.html" class="btn">Dowiedz się więcej</a>
+            </article>
+            <article>
+                <h3>🍳 Przepisy</h3>
+                <p>Naucz się przygotowywać idealne espresso, latte i inne.</p>
+                <a href="przepisy.html" class="btn">Zobacz przepisy</a>
+            </article>
+            <article>
+                <h3>💡 Ciekawostki</h3>
+                <p>Interesujące fakty o kawie, które Cię zaskoczą.</p>
+                <a href="ciekawostki.html" class="btn">Czytaj więcej</a>
+            </article>
+        </section>
+    </main>
 
-        <div class="hero-content">
-            <div class="hero-badge">✨ Kompendium Wiedzy</div>
-            <h1 class="hero-title">
-                Wszystko o<br>
-                <span class="hero-title-accent">Jajku</span>
-            </h1>
-            <p class="hero-subtitle">
-                Odkryj fascynujący świat jajek – od wartości odżywczych, przez rodzaje i przepisy, 
-                aż po niezwykłe ciekawostki. Twoje kompletne źródło wiedzy o jajkach.
-            </p>
-            <div class="hero-decoration">
-                <span class="deco-line"></span>
-                <span class="deco-dot">✦</span>
-                <span class="deco-line"></span>
-            </div>
-            <div class="hero-cta-group">
-                <a href="#poznaj" class="hero-cta primary">Poznaj jajko →</a>
-                <a href="ciekawostki.html" class="hero-cta secondary">Ciekawostki</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════ STATS BANNER ═══════════ -->
-    <section class="stats-banner">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number">12<span class="stat-plus">+</span></span>
-                    <span class="stat-label">Rodzajów jajek</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">50<span class="stat-plus">+</span></span>
-                    <span class="stat-label">Przepisów</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">100<span class="stat-plus">+</span></span>
-                    <span class="stat-label">Ciekawostek</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">6<span class="stat-plus">g</span></span>
-                    <span class="stat-label">Białka w jajku</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════ ABOUT SECTION ═══════════ -->
-    <section class="section" id="poznaj">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">✦ 01 ✦</span>
-                <h2 class="section-title">Dlaczego jajka <span class="text-gold">są wyjątkowe</span>?</h2>
-                <p class="section-subtitle">Jajko to prawdziwy superbohater wśród produktów spożywczych.</p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">💪</div>
-                    <h3 class="feature-title">Pełnowartościowe białko</h3>
-                    <p class="feature-desc">Jajko zawiera wszystkie niezbędne aminokwasy. To wzór doskonałego białka dla organizmu.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <h3 class="feature-title">Dla mózgu i wzroku</h3>
-                    <p class="feature-desc">Bogate w cholinę i luteinę – wspiera pracę mózgu i chroni wzrok przed starzeniem.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">❤️</div>
-                    <h3 class="feature-title">Zdrowe serce</h3>
-                    <p class="feature-desc">Nowe badania pokazują, że jajka nie podnoszą ryzyka chorób serca. Wręcz przeciwnie!</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3 class="feature-title">Nieskończone możliwości</h3>
-                    <p class="feature-desc">Gotowane, smażone, pieczone, w deserach – jajko pasuje wszędzie i zawsze smakuje.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3 class="feature-title">Najlepszy stosunek jakości do ceny</h3>
-                    <p class="feature-desc">Za kilka złotych otrzymujesz porcję doskonałego białka i składników odżywczych.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌱</div>
-                    <h3 class="feature-title">Niski ślad węglowy</h3>
-                    <p class="feature-desc">Produkcja jajek ma znacznie mniejszy wpływ na środowisko niż hodowla bydła.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════ EGG GRADES ═══════════ -->
-    <section class="section alt-bg">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">✦ 02 ✦</span>
-                <h2 class="section-title">Klasy <span class="text-gold">jajek</span></h2>
-                <p class="section-subtitle">Poznaj klasy wagowe i oznaczenia na skorupce jajka.</p>
-            </div>
-
-            <div class="grades-grid">
-                <div class="grade-card">
-                    <div class="grade-icon">🦅</div>
-                    <h3 class="grade-title">Klasa S</h3>
-                    <p class="grade-weight">poniżej 53g</p>
-                    <p class="grade-desc">Małe jajka, idealne do gotowania na twardo jako przekąska.</p>
-                </div>
-                <div class="grade-card highlight">
-                    <div class="grade-badge">Najpopularniejsze</div>
-                    <div class="grade-icon">🐓</div>
-                    <h3 class="grade-title">Klasa M</h3>
-                    <p class="grade-weight">53g – 63g</p>
-                    <p class="grade-desc">Średnie jajka, standard w większości przepisów. Uniwersalne.</p>
-                </div>
-                <div class="grade-card">
-                    <div class="grade-icon">🐔</div>
-                    <h3 class="grade-title">Klasa L</h3>
-                    <p class="grade-weight">63g – 73g</p>
-                    <p class="grade-desc">Duże jajka, idealne na jajecznicę czy do wypieków.</p>
-                </div>
-                <div class="grade-card">
-                    <div class="grade-icon">🦃</div>
-                    <h3 class="grade-title">Klasa XL</h3>
-                    <p class="grade-weight">powyżej 73g</p>
-                    <p class="grade-desc">Bardzo duże jajka, często od starszych kur lub ras mięsnych.</p>
-                </div>
-            </div>
-
-            <div class="code-info">
-                <span class="code-info-icon">🔢</span>
-                <div>
-                    <strong>Oznaczenia na jajku:</strong> 
-                    <span class="code-badge">0</span> Ekologiczne · 
-                    <span class="code-badge">1</span> Wolny wybieg · 
-                    <span class="code-badge">2</span> Ściółkowe · 
-                    <span class="code-badge">3</span> Klatkowe
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════ EGG BENEFITS ═══════════ -->
-    <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">✦ 03 ✦</span>
-                <h2 class="section-title">Wartości <span class="text-gold">odżywcze</span></h2>
-                <p class="section-subtitle">Co kryje się w jednym jajku? Sprawdź składniki odżywcze.</p>
-            </div>
-
-            <div class="nutrition-card">
-                <div class="nutrition-visual">
-                    <div class="egg-visual">
-                        <div class="egg-yolk">
-                            <span class="yolk-text">162<br><small>kcal</small></span>
-                        </div>
-                        <div class="egg-white"></div>
-                    </div>
-                </div>
-                <div class="nutrition-details">
-                    <div class="nutrition-item">
-                        <span class="nutrition-name">Białko</span>
-                        <div class="nutrition-bar">
-                            <div class="nutrition-fill" style="width: 85%"></div>
-                        </div>
-                        <span class="nutrition-value">12.5g</span>
-                    </div>
-                    <div class="nutrition-item">
-                        <span class="nutrition-name">Tłuszcze</span>
-                        <div class="nutrition-bar">
-                            <div class="nutrition-fill fat" style="width: 70%"></div>
-                        </div>
-                        <span class="nutrition-value">11g</span>
-                    </div>
-                    <div class="nutrition-item">
-                        <span class="nutrition-name">Węglowodany</span>
-                        <div class="nutrition-bar">
-                            <div class="nutrition-fill carbs" style="width: 5%"></div>
-                        </div>
-                        <span class="nutrition-value">0.6g</span>
-                    </div>
-                    <div class="nutrition-item">
-                        <span class="nutrition-name">Cholesterol</span>
-                        <div class="nutrition-bar">
-                            <div class="nutrition-fill cholesterol" style="width: 60%"></div>
-                        </div>
-                        <span class="nutrition-value">185mg</span>
-                    </div>
-                    <div class="nutrition-row">
-                        <div class="nutrition-mini">
-                            <strong>Witamina A</strong> 10%
-                        </div>
-                        <div class="nutrition-mini">
-                            <strong>Witamina D</strong> 15%
-                        </div>
-                        <div class="nutrition-mini">
-                            <strong>Witamina B12</strong> 20%
-                        </div>
-                        <div class="nutrition-mini">
-                            <strong>Selen</strong> 28%
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════ CTA SECTION ═══════════ -->
-    <section class="section cta-section">
-        <div class="container">
-            <div class="cta-box">
-                <span class="cta-emoji">🥚</span>
-                <h2 class="cta-title">Gotowy na <span class="text-gold">jajeczną</span> przygodę?</h2>
-                <p class="cta-text">Sprawdź nasze przepisy, poznaj rodzaje jajek i odkryj fascynujące ciekawostki.</p>
-                <div class="cta-buttons">
-                    <a href="przepisy.html" class="hero-cta primary">🍳 Przepisy</a>
-                    <a href="rodzaje.html" class="hero-cta secondary">📋 Rodzaje jajek</a>
-                    <a href="ciekawostki.html" class="hero-cta secondary">🤯 Ciekawostki</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════ FOOTER ═══════════ -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <span class="footer-logo">🥚 Jajko</span>
-                    <p class="footer-desc">Kompendium wiedzy o jajkach – od wartości odżywczych po przepisy i ciekawostki.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Strony</h4>
-                    <a href="index.html">Strona Główna</a>
-                    <a href="rodzaje.html">Rodzaje jajek</a>
-                    <a href="przepisy.html">Przepisy</a>
-                    <a href="ciekawostki.html">Ciekawostki</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Warto zobaczyć</h4>
-                    <a href="ciasta.html">Ciasta</a>
-                    <a href="kupek.html">Kupek</a>
-                    <a href="gnojnik.html">Gnojnik</a>
-                    <a href="messi.html">Messi</a>
-                    <a href="chipasach.html">Chipasach</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Jajko – Kompendium Wiedzy. Wszelkie prawa zastrzeżone.</p>
-            </div>
-        </div>
+    <footer>
+        <p>&copy; 2024 Świat Kawy. Wszystkie prawa zastrzeżone.</p>
     </footer>
-
-    <script>
-        // Mobile nav toggle
-        document.querySelector('.nav-toggle')?.addEventListener('click', () => {
-            document.querySelector('.nav-links')?.classList.toggle('open');
-        });
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', e => {
-                e.preventDefault();
-                const target = document.querySelector(anchor.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Intersection observer for animations
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.feature-card, .grade-card, .nutrition-card, .stat-item').forEach(el => {
-            el.classList.add('animate-on-scroll');
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
