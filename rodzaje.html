@@ -5,72 +5,285 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rodzaje jaj – Jajko</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;600;700&display=swap');
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: #fff9e6; color: #3e2723; }
-        header {
-            background: linear-gradient(135deg, #aed581, #81c784);
-            padding: 2rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f9f0;
+            color: #1b3a1b;
+            overflow-x: hidden;
         }
-        header h1 { font-size: 2.8rem; }
+
+        .bg-blobs {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .bg-blobs span {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.25;
+            animation: floatBlob 25s infinite ease-in-out;
+        }
+        .bg-blobs span:nth-child(1) {
+            width: 400px; height: 400px;
+            background: #a5d6a7;
+            top: -100px; right: -100px;
+        }
+        .bg-blobs span:nth-child(2) {
+            width: 300px; height: 300px;
+            background: #81c784;
+            bottom: -50px; left: -50px;
+            animation-delay: -8s;
+        }
+        .bg-blobs span:nth-child(3) {
+            width: 200px; height: 200px;
+            background: #c8e6c9;
+            top: 50%; left: 30%;
+            animation-delay: -16s;
+        }
+
+        @keyframes floatBlob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(40px, -40px) scale(1.1); }
+            50% { transform: translate(-30px, 20px) scale(0.95); }
+            75% { transform: translate(30px, 30px) scale(1.05); }
+        }
+
+        header {
+            background: linear-gradient(135deg, #81c784 0%, #388e3c 100%);
+            padding: 2.5rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(56, 142, 60, 0.3);
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: shimmer 8s infinite linear;
+        }
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #fff;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #e8f5e9;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
         nav {
-            background: #e8f5e9;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             padding: 1rem;
             text-align: center;
-            border-bottom: 3px solid #81c784;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(129, 199, 132, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
         nav a {
-            color: #3e2723;
+            color: #1b3a1b;
             text-decoration: none;
             margin: 0 1.2rem;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: color 0.2s;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
         }
-        nav a:hover { color: #2e7d32; }
-        .container { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        nav a:hover {
+            background: #a5d6a7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(129, 199, 132, 0.3);
         }
-        .card h2 { color: #2e7d32; margin-bottom: 1rem; }
-        .egg-types {
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .intro-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s;
+        }
+        .intro-card:hover {
+            transform: translateY(-4px);
+        }
+        .intro-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+        .intro-card p {
+            font-size: 1.05rem;
+            color: #1b3a1b;
+        }
+
+        .egg-types-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
-        .type-box {
-            background: white;
-            border-radius: 16px;
-            padding: 1.5rem;
+
+        .type-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 2rem;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            border-top: 5px solid #81c784;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+            cursor: default;
+            position: relative;
+            overflow: hidden;
         }
-        .type-box .emoji { font-size: 3rem; margin-bottom: 0.5rem; }
-        .type-box h3 { color: #1b5e20; margin-bottom: 0.5rem; }
-        .type-box p { font-size: 0.95rem; }
-        .back-link { text-align: center; margin: 2rem 0; }
-        .back-link a { color: #2e7d32; font-weight: 600; text-decoration: none; }
-        .back-link a:hover { text-decoration: underline; }
+        .type-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 5px;
+            background: linear-gradient(90deg, #81c784, #388e3c);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s;
+        }
+        .type-card:hover::before {
+            transform: scaleX(1);
+        }
+        .type-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(56, 142, 60, 0.15);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .type-card .emoji {
+            font-size: 3.5rem;
+            margin-bottom: 0.8rem;
+            display: block;
+            transition: transform 0.3s;
+        }
+        .type-card:hover .emoji {
+            transform: scale(1.2) rotate(-5deg);
+        }
+        .type-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #1b5e20;
+            margin-bottom: 0.6rem;
+        }
+        .type-card p {
+            font-size: 0.95rem;
+            color: #33691e;
+            line-height: 1.6;
+        }
+        .type-card .badge {
+            display: inline-block;
+            background: #a5d6a7;
+            padding: 0.2rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1b5e20;
+            margin-top: 0.8rem;
+        }
+
+        .back-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #2e7d32;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            border: 2px solid #81c784;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: #81c784;
+            color: #fff;
+            transform: translateX(-5px);
+        }
+
         footer {
-            background: #3e2723;
-            color: #fff9e6;
+            background: linear-gradient(135deg, #1b3a1b, #2e5e2e);
+            color: #e8f5e9;
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+            position: relative;
         }
-        @media (max-width: 600px) {
-            header h1 { font-size: 2rem; }
-            nav a { display: block; margin: 0.5rem 0; }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, #a5d6a7, #81c784, #a5d6a7);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.7s ease forwards;
+        }
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            header p { font-size: 1rem; }
+            nav a { display: inline-block; margin: 0.3rem 0.5rem; font-size: 0.9rem; padding: 0.4rem 0.8rem; }
+            .intro-card { padding: 1.5rem; }
+            .intro-card h2 { font-size: 1.4rem; }
+            .egg-types-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+
+<div class="bg-blobs">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 
 <header>
     <h1>🥚 Rodzaje jaj</h1>
@@ -86,46 +299,59 @@
 
 <div class="container">
 
-    <div class="card">
+    <div class="intro-card fade-in">
         <h2>🐔 Jaja kurze</h2>
-        <p>Najpopularniejsze na całym świecie. Występują w różnych kolorach skorupki – białe, brązowe, a nawet niebieskie. Smak i wartość odżywcza są podobne niezależnie od koloru.</p>
+        <p>Najpopularniejsze na całym świecie. Występują w różnych kolorach skorupki – białe, brązowe, a nawet niebieskie. Smak i wartość odżywcza są podobne niezależnie od koloru. To absolutna podstawa w każdej kuchni.</p>
     </div>
 
-    <div class="egg-types">
-        <div class="type-box">
-            <div class="emoji">🦆</div>
+    <div class="egg-types-grid">
+
+        <div class="type-card fade-in">
+            <span class="emoji">🦆</span>
             <h3>Jaja kacze</h3>
-            <p>Większe od kurzych, o intensywniejszym smaku i wyższej zawartości tłuszczu. Idealne do wypieków.</p>
+            <p>Większe od kurzych, o intensywniejszym smaku i wyższej zawartości tłuszczu. Idealne do wypieków – ciasta wychodzą bardziej wilgotne i puszyste.</p>
+            <span class="badge">🥇 Wypieki</span>
         </div>
-        <div class="type-box">
-            <div class="emoji">🦃</div>
+
+        <div class="type-card fade-in">
+            <span class="emoji">🦃</span>
             <h3>Jaja indycze</h3>
-            <p>Duże, o kremowej skorupce. Smak delikatny, podobny do kurzego, ale bardziej wyrazisty.</p>
+            <p>Duże, o kremowej skorupce. Smak delikatny, podobny do kurzego, ale bardziej wyrazisty. Świetnie sprawdzają się w omletach i jajecznicy.</p>
+            <span class="badge">🍳 Omlety</span>
         </div>
-        <div class="type-box">
-            <div class="emoji">🪿</div>
+
+        <div class="type-card fade-in">
+            <span class="emoji">🪿</span>
             <h3>Jaja gęsie</h3>
-            <p>Bardzo duże – jedno gęsie jajo to odpowiednik 2-3 kurzych. Smak bogaty, maślany.</p>
+            <p>Bardzo duże – jedno gęsie jajo to odpowiednik 2-3 kurzych. Smak bogaty, maślany, z intensywnie żółtym żółtkiem. Cenione w kuchni azjatyckiej.</p>
+            <span class="badge">🌟 Bogaty smak</span>
         </div>
-        <div class="type-box">
-            <div class="emoji">🐦</div>
+
+        <div class="type-card fade-in">
+            <span class="emoji">🐦</span>
             <h3>Jaja przepiórcze</h3>
-            <p>Maleńkie, w cętkowanej skorupce. Delikatne, często używane jako dekoracja dań.</p>
+            <p>Maleńkie, w cętkowanej skorupce. Delikatne, często używane jako dekoracja dań. Mają wyższą zawartość żółtka w stosunku do białka niż jaja kurze.</p>
+            <span class="badge">✨ Dekoracja</span>
         </div>
-        <div class="type-box">
-            <div class="emoji">🕊️</div>
+
+        <div class="type-card fade-in">
+            <span class="emoji">🕊️</span>
             <h3>Jaja gołębie</h3>
-            <p>Małe, białe, o subtelnym smaku. Rzadko spotykane w codziennej kuchni.</p>
+            <p>Małe, białe, o subtelnym smaku. Rzadko spotykane w codziennej kuchni, ale cenione w kuchni chińskiej i francuskiej jako delikatny przysmak.</p>
+            <span class="badge">🇫🇷 Rarytas</span>
         </div>
-        <div class="type-box">
-            <div class="emoji">🐊</div>
+
+        <div class="type-card fade-in">
+            <span class="emoji">🐊</span>
             <h3>Jaja strusie</h3>
-            <p>Największe jajo na świecie – jedno waży nawet 1,5 kg! Odpowiada ok. 24 kurzym jajom.</p>
+            <p>Największe jajo na świecie – jedno waży nawet 1,5 kg! Odpowiada ok. 24 kurzym jajom. Aby ugotować je na twardo, potrzeba aż 2 godzin!</p>
+            <span class="badge">🏆 Rekord</span>
         </div>
+
     </div>
 
-    <div class="back-link">
-        <a href="index.html">← Powrót do strony głównej</a>
+    <div class="back-section">
+        <a href="index.html" class="back-link">← Powrót do strony głównej</a>
     </div>
 
 </div>
