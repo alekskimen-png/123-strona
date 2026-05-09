@@ -3,128 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jajko – strona główna</title>
+    <title>Jajko – Strona główna</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #fff9e6;
-            color: #3e2723;
+            font-family: 'Inter', sans-serif;
+            background: #fefcf3;
+            color: #2c1810;
             line-height: 1.7;
+            overflow-x: hidden;
         }
+
+        /* === ANIMATED BACKGROUND === */
+        .bg-blobs {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .bg-blobs span {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: floatBlob 20s infinite ease-in-out;
+        }
+        .bg-blobs span:nth-child(1) {
+            width: 400px; height: 400px;
+            background: #f9d976;
+            top: -100px; left: -100px;
+            animation-delay: 0s;
+        }
+        .bg-blobs span:nth-child(2) {
+            width: 350px; height: 350px;
+            background: #f5a623;
+            bottom: -80px; right: -80px;
+            animation-delay: -7s;
+        }
+        .bg-blobs span:nth-child(3) {
+            width: 250px; height: 250px;
+            background: #ffcc80;
+            top: 40%; left: 60%;
+            animation-delay: -14s;
+        }
+
+        @keyframes floatBlob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(50px, -50px) scale(1.1); }
+            50% { transform: translate(-30px, 30px) scale(0.95); }
+            75% { transform: translate(40px, 40px) scale(1.05); }
+        }
+
+        /* === HEADER === */
         header {
-            background: linear-gradient(135deg, #fdd835, #f9a825);
-            padding: 2rem 1rem;
+            background: linear-gradient(135deg, #f9d976 0%, #f5a623 100%);
+            padding: 2.5rem 1rem;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(245, 166, 35, 0.3);
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: shimmer 6s infinite;
+        }
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         header h1 {
-            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 800;
+            color: #2c1810;
             letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 0 rgba(255,255,255,0.3);
         }
         header p {
-            font-size: 1.2rem;
-            opacity: 0.85;
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #4a2c1a;
+            position: relative;
+            z-index: 1;
+            margin-top: 0.3rem;
         }
-        .egg-hero {
-            display: flex;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-        .egg-hero svg {
-            width: 180px;
-            height: auto;
-            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
-        }
+
+        /* === NAV === */
         nav {
-            background: #fff3cd;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             padding: 1rem;
             text-align: center;
-            border-bottom: 3px solid #f9a825;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(245, 166, 35, 0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
         nav a {
-            color: #3e2723;
+            color: #2c1810;
             text-decoration: none;
             margin: 0 1.2rem;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: color 0.2s;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
         }
         nav a:hover {
-            color: #e65100;
+            background: #f9d976;
+            color: #2c1810;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
         }
+
+        /* === EGG HERO SVG === */
+        .egg-hero {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0 1rem;
+            animation: eggBounce 3s infinite ease-in-out;
+        }
+        @keyframes eggBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .egg-hero svg {
+            width: 150px;
+            height: auto;
+            filter: drop-shadow(0 12px 24px rgba(245, 166, 35, 0.3));
+        }
+
+        /* === CONTAINER === */
         .container {
-            max-width: 960px;
+            max-width: 1000px;
             margin: 2rem auto;
-            padding: 0 1rem;
+            padding: 0 1.5rem;
         }
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
+
+        /* === GLASS CARD === */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            border-left: 6px solid #f9a825;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .card h2 {
-            color: #bf360c;
-            margin-bottom: 1rem;
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
         }
-        .card ul {
-            padding-left: 1.5rem;
+        .glass-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #c0392b;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .card ul li {
-            margin-bottom: 0.5rem;
+        .glass-card p {
+            font-size: 1.05rem;
+            color: #3e2723;
         }
-        footer {
-            background: #3e2723;
-            color: #fff9e6;
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
-        }
-        .egg-facts {
+
+        /* === STATS GRID === */
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 1.5rem;
+            margin-top: 1rem;
         }
-        .fact-box {
-            background: white;
-            border-radius: 16px;
-            padding: 1.5rem;
+        .stat-item {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            padding: 1.8rem 1.2rem;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            border-top: 5px solid #fdd835;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+            cursor: default;
         }
-        .fact-box .number {
-            font-size: 2.5rem;
+        .stat-item:hover {
+            transform: scale(1.05);
+            background: rgba(249, 217, 118, 0.25);
+            box-shadow: 0 8px 24px rgba(245, 166, 35, 0.15);
+        }
+        .stat-item .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
             font-weight: 800;
-            color: #e65100;
+            background: linear-gradient(135deg, #f5a623, #e67e22);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-item p {
+            font-size: 0.95rem;
+            color: #5d4037;
+            margin-top: 0.3rem;
+        }
+
+        /* === CTA BUTTONS === */
+        .cta-section {
+            text-align: center;
+        }
+        .cta-section p {
+            margin-bottom: 1.8rem;
+            font-size: 1.1rem;
+        }
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
         }
         .btn {
-            display: inline-block;
-            background: #f9a825;
-            color: #3e2723;
-            padding: 0.7rem 2rem;
-            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #f9d976, #f5a623);
+            color: #2c1810;
+            padding: 0.9rem 2.2rem;
+            border-radius: 60px;
             text-decoration: none;
             font-weight: 700;
-            transition: background 0.3s;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 16px rgba(245, 166, 35, 0.3);
         }
         .btn:hover {
-            background: #fdd835;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(245, 166, 35, 0.45);
         }
-        @media (max-width: 600px) {
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #f5a623;
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: #f5a623;
+            color: #2c1810;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: linear-gradient(135deg, #2c1810, #4a2c1a);
+            color: #fefcf3;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, #f9d976, #f5a623, #f9d976);
+        }
+        footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* === SCROLL ANIMATION === */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.7s ease forwards;
+        }
+        .fade-in:nth-child(2) { animation-delay: 0.15s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1rem; }
+            nav a { display: inline-block; margin: 0.3rem 0.5rem; font-size: 0.9rem; padding: 0.4rem 0.8rem; }
+            .glass-card { padding: 1.8rem; }
+            .glass-card h2 { font-size: 1.4rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .egg-hero svg { width: 110px; }
+            .btn { padding: 0.7rem 1.5rem; font-size: 0.9rem; }
+        }
+        @media (max-width: 480px) {
             header h1 { font-size: 2rem; }
-            nav a { display: block; margin: 0.5rem 0; }
+            .stats-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+
+<!-- Animated blobs -->
+<div class="bg-blobs">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 
 <header>
     <h1>🥚 Jajko</h1>
@@ -140,46 +336,59 @@
 
 <div class="egg-hero">
     <svg viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="60" cy="95" rx="50" ry="60" fill="#fff9c4" stroke="#f9a825" stroke-width="3"/>
-        <ellipse cx="60" cy="80" rx="36" ry="42" fill="#fff3cd" opacity="0.5"/>
-        <circle cx="60" cy="65" r="6" fill="#f9a825" opacity="0.3"/>
+        <defs>
+            <linearGradient id="eggGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fff9c4"/>
+                <stop offset="100%" stop-color="#ffe082"/>
+            </linearGradient>
+            <radialGradient id="eggShine" cx="35%" cy="30%" r="50%">
+                <stop offset="0%" stop-color="rgba(255,255,255,0.6)"/>
+                <stop offset="100%" stop-color="transparent"/>
+            </radialGradient>
+        </defs>
+        <ellipse cx="60" cy="95" rx="50" ry="60" fill="url(#eggGrad)" stroke="#f5a623" stroke-width="2"/>
+        <ellipse cx="60" cy="95" rx="50" ry="60" fill="url(#eggShine)"/>
+        <circle cx="48" cy="72" r="8" fill="rgba(255,255,255,0.5)"/>
     </svg>
 </div>
 
 <div class="container">
 
-    <div class="card">
+    <div class="glass-card fade-in">
         <h2>📖 O jajku</h2>
-        <p>Jajko to jeden z najbardziej wszechstronnych i odżywczych produktów spożywczych. Jest symbolem życia, odrodzenia i początku. Od tysięcy lat stanowi ważny element diety ludzi na całym świecie – od prostych jajecznicy po wyszukane desery.</p>
+        <p>Jajko to jeden z najbardziej wszechstronnych i odżywczych produktów spożywczych. Jest symbolem życia, odrodzenia i początku. Od tysięcy lat stanowi ważny element diety ludzi na całym świecie – od prostych jajecznicy po wyszukane desery. Kulinarny kameleon, który łączy kultury i pokolenia.</p>
     </div>
 
-    <div class="card">
+    <div class="glass-card fade-in">
         <h2>🔢 Jajko w liczbach</h2>
-        <div class="egg-facts">
-            <div class="fact-box">
+        <div class="stats-grid">
+            <div class="stat-item">
                 <div class="number">~70</div>
                 <p>kcal w jednym jajku</p>
             </div>
-            <div class="fact-box">
+            <div class="stat-item">
                 <div class="number">6 g</div>
                 <p>białka w jednym jajku</p>
             </div>
-            <div class="fact-box">
+            <div class="stat-item">
                 <div class="number">5 g</div>
                 <p>tłuszczu (w tym zdrowe kwasy)</p>
             </div>
-            <div class="fact-box">
+            <div class="stat-item">
                 <div class="number">13</div>
-                <p>niezbędnych witamin i minerałów</p>
+                <p>witamin i minerałów</p>
             </div>
         </div>
     </div>
 
-    <div class="card" style="text-align: center;">
+    <div class="glass-card fade-in cta-section">
         <h2>🍳 Chcesz poznać więcej?</h2>
-        <p style="margin-bottom: 1.5rem;">Sprawdź rodzaje jaj, najlepsze przepisy i fascynujące ciekawostki!</p>
-        <a href="rodzaje.html" class="btn">Zobacz rodzaje jaj →</a>
-        <a href="przepisy.html" class="btn" style="margin-left: 0.5rem;">Przepisy →</a>
+        <p>Sprawdź rodzaje jaj, najlepsze przepisy i fascynujące ciekawostki!</p>
+        <div class="btn-group">
+            <a href="rodzaje.html" class="btn">🥚 Rodzaje jaj →</a>
+            <a href="przepisy.html" class="btn btn-outline">🍳 Przepisy →</a>
+            <a href="ciekawostki.html" class="btn btn-outline">✨ Ciekawostki →</a>
+        </div>
     </div>
 
 </div>
