@@ -1,3 +1,6 @@
+import tkinter as tk
+from tkinter import messagebox
+
 def dodaj(a, b):
     return a + b
 
@@ -12,39 +15,58 @@ def podziel(a, b):
         return "Nie można dzielić przez zero!"
     return a / b
 
-def main():
-    print("=== PROSTY KALKULATOR ===")
-    print("Dostępne działania:")
-    print("1. Dodawanie (+)")
-    print("2. Odejmowanie (-)")
-    print("3. Mnożenie (*)")
-    print("4. Dzielenie (/)")
-    print()
-
+def wykonaj_dzialanie(dzialanie):
     try:
-        a = float(input("Podaj pierwszą liczbę: "))
-        b = float(input("Podaj drugą liczbę: "))
+        a = float(entry_a.get())
+        b = float(entry_b.get())
 
-        print("\nWybierz działanie:")
-        print("1 - Dodawanie")
-        print("2 - Odejmowanie")
-        print("3 - Mnożenie")
-        print("4 - Dzielenie")
+        if dzialanie == "+":
+            wynik = dodaj(a, b)
+        elif dzialanie == "-":
+            wynik = odejmij(a, b)
+        elif dzialanie == "*":
+            wynik = pomnoz(a, b)
+        elif dzialanie == "/":
+            wynik = podziel(a, b)
 
-        wybor = input("Twój wybór (1-4): ")
-
-        if wybor == "1":
-            print(f"\nWynik: {a} + {b} = {dodaj(a, b)}")
-        elif wybor == "2":
-            print(f"\nWynik: {a} - {b} = {odejmij(a, b)}")
-        elif wybor == "3":
-            print(f"\nWynik: {a} * {b} = {pomnoz(a, b)}")
-        elif wybor == "4":
-            print(f"\nWynik: {a} / {b} = {podziel(a, b)}")
-        else:
-            print("Nieprawidłowy wybór!")
+        label_wynik.config(text=f"Wynik: {wynik}")
     except ValueError:
-        print("Błąd: Wprowadź poprawne liczby!")
+        messagebox.showerror("Błąd", "Wprowadź poprawne liczby!")
 
-if __name__ == "__main__":
-    main()
+# GUI
+root = tk.Tk()
+root.title("Kalkulator")
+root.geometry("320x280")
+root.resizable(False, False)
+
+tk.Label(root, text="Kalkulator", font=("Arial", 16, "bold")).pack(pady=10)
+
+frame = tk.Frame(root)
+frame.pack(pady=5)
+
+tk.Label(frame, text="Pierwsza liczba:").grid(row=0, column=0, padx=5, pady=5, sticky="e")
+entry_a = tk.Entry(frame, width=15)
+entry_a.grid(row=0, column=1, padx=5, pady=5)
+
+tk.Label(frame, text="Druga liczba:").grid(row=1, column=0, padx=5, pady=5, sticky="e")
+entry_b = tk.Entry(frame, width=15)
+entry_b.grid(row=1, column=1, padx=5, pady=5)
+
+frame_przyciski = tk.Frame(root)
+frame_przyciski.pack(pady=10)
+
+tk.Button(frame_przyciski, text="+", width=5, font=("Arial", 12),
+          command=lambda: wykonaj_dzialanie("+")).grid(row=0, column=0, padx=5)
+tk.Button(frame_przyciski, text="-", width=5, font=("Arial", 12),
+          command=lambda: wykonaj_dzialanie("-")).grid(row=0, column=1, padx=5)
+tk.Button(frame_przyciski, text="*", width=5, font=("Arial", 12),
+          command=lambda: wykonaj_dzialanie("*")).grid(row=0, column=2, padx=5)
+tk.Button(frame_przyciski, text="/", width=5, font=("Arial", 12),
+          command=lambda: wykonaj_dzialanie("/")).grid(row=0, column=3, padx=5)
+
+label_wynik = tk.Label(root, text="Wynik: —", font=("Arial", 14, "bold"), fg="green")
+label_wynik.pack(pady=15)
+
+tk.Button(root, text="Wyjdź", command=root.destroy, bg="#e74c3c", fg="white", width=10).pack(pady=5)
+
+root.mainloop()
