@@ -172,364 +172,183 @@
         }
 
         .ciasta-card-icon {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
-            display: block;
         }
 
-        .ciasta-card-title {
+        .ciasta-card h3 {
             font-size: 1.3rem;
             font-weight: 700;
-            color: white;
             margin-bottom: 0.5rem;
+            color: white;
         }
 
-        .ciasta-card-subtitle {
-            font-size: 0.85rem;
-            color: var(--ciasta-pink);
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .ciasta-card-desc {
+        .ciasta-card .ciasta-card-desc {
             color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.6;
+            margin-bottom: 1rem;
         }
 
-        .ciasta-card-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .ciasta-card-tag {
+        .ciasta-card .ciasta-card-tag {
             display: inline-block;
             padding: 0.25rem 0.75rem;
-            background: rgba(244, 114, 182, 0.1);
-            border: 1px solid rgba(244, 114, 182, 0.15);
             border-radius: 50px;
             font-size: 0.75rem;
             font-weight: 600;
+            background: rgba(244, 114, 182, 0.1);
             color: var(--ciasta-pink);
-        }
-
-        /* Recipe cards - larger */
-        .przepis-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .przepis-card {
-            background: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
-            padding: 2.5rem;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .przepis-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-sweet);
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .przepis-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(244, 114, 182, 0.2);
-            box-shadow: var(--shadow-lg);
-            background: var(--bg-card-hover);
-        }
-
-        .przepis-card:hover::before {
-            opacity: 1;
-        }
-
-        .przepis-header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            gap: 1rem;
-        }
-
-        .przepis-icon {
-            font-size: 3rem;
-            flex-shrink: 0;
-        }
-
-        .przepis-difficulty {
-            display: inline-block;
-            padding: 0.3rem 1rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-        }
-
-        .przepis-difficulty.easy {
-            background: rgba(34, 197, 94, 0.15);
-            color: var(--accent-green);
-            border: 1px solid rgba(34, 197, 94, 0.2);
-        }
-
-        .przepis-difficulty.medium {
-            background: rgba(245, 158, 11, 0.15);
-            color: var(--accent-gold);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-        }
-
-        .przepis-difficulty.hard {
-            background: rgba(239, 68, 68, 0.15);
-            color: var(--accent-red);
-            border: 1px solid rgba(239, 68, 68, 0.2);
-        }
-
-        .przepis-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
-        .przepis-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .przepis-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.35rem;
-        }
-
-        .przepis-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1.25rem;
-        }
-
-        .przepis-ingredients {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: var(--radius-sm);
-            padding: 1.25rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .przepis-ingredients h4 {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--ciasta-pink);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.75rem;
-        }
-
-        .przepis-ingredients ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.4rem;
-        }
-
-        .przepis-ingredients li {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            padding-left: 1rem;
-            position: relative;
-        }
-
-        .przepis-ingredients li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--ciasta-pink);
-        }
-
-        /* Fun facts */
-        .ciasta-fun-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .ciasta-fun-card {
-            background: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .ciasta-fun-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(253, 230, 138, 0.2);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .ciasta-fun-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .ciasta-fun-number {
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: var(--gradient-ciasta);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.25rem;
-        }
-
-        .ciasta-fun-label {
-            font-size: 1rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
-        .ciasta-fun-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        /* Timeline */
-        .ciasta-timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .ciasta-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--ciasta-pink), var(--ciasta-cream), var(--ciasta-brown));
-        }
-
-        .ciasta-timeline-item {
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .ciasta-timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .ciasta-timeline-content {
-            width: 45%;
-            background: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-md);
-            padding: 1.5rem;
-            transition: var(--transition);
-        }
-
-        .ciasta-timeline-content:hover {
-            transform: translateY(-3px);
-            border-color: rgba(244, 114, 182, 0.2);
-            box-shadow: var(--shadow-md);
-        }
-
-        .ciasta-timeline-year {
-            display: inline-block;
-            padding: 0.25rem 1rem;
-            background: rgba(244, 114, 182, 0.15);
             border: 1px solid rgba(244, 114, 182, 0.2);
-            border-radius: 50px;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+        }
+
+        /* Ranking table */
+        .ciasta-ranking {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 0.5rem;
+        }
+
+        .ciasta-ranking thead th {
+            text-align: left;
+            padding: 1rem 1.5rem;
             font-size: 0.8rem;
             font-weight: 700;
-            color: var(--ciasta-pink);
-            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--glass-border);
         }
 
-        .ciasta-timeline-dot {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--gradient-ciasta);
-            border: 3px solid var(--bg-primary);
-            z-index: 2;
-            top: 1.5rem;
+        .ciasta-ranking tbody tr {
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            cursor: default;
         }
 
-        .ciasta-timeline-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.5rem;
+        .ciasta-ranking tbody tr:hover {
+            background: var(--bg-card-hover);
+            transform: scale(1.01);
         }
 
-        .ciasta-timeline-desc {
-            font-size: 0.9rem;
+        .ciasta-ranking tbody td {
+            padding: 1.2rem 1.5rem;
             color: var(--text-secondary);
-            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .ciasta-ranking tbody td:first-child {
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--ciasta-pink);
+        }
+
+        .ciasta-ranking tbody td:last-child {
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        .ciasta-ranking .rank-name {
+            font-weight: 600;
+            color: white;
+        }
+
+        .ciasta-ranking .rank-stars {
+            color: var(--ciasta-pink);
+            letter-spacing: 2px;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-10px) rotate(-3deg); }
+            75% { transform: translateY(-30px) rotate(4deg); }
         }
 
         @media (max-width: 768px) {
-            .ciasta-timeline::before {
-                left: 20px;
+            .ciasta-ranking thead {
+                display: none;
             }
-            .ciasta-timeline-item,
-            .ciasta-timeline-item:nth-child(even) {
-                flex-direction: row;
-                padding-left: 50px;
+            .ciasta-ranking tbody tr {
+                display: block;
+                margin-bottom: 1rem;
+                padding: 1rem;
             }
-            .ciasta-timeline-content {
-                width: 100%;
+            .ciasta-ranking tbody td {
+                display: block;
+                padding: 0.25rem 0;
+                border-radius: 0 !important;
             }
-            .ciasta-timeline-dot {
-                left: 20px;
+            .ciasta-ranking tbody td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--text-muted);
+                display: inline-block;
+                width: 100px;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
             }
-            .przepis-ingredients ul {
-                grid-template-columns: 1fr;
+            .ciasta-ranking tbody td:first-child {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- ===== NAGŁÓWEK ===== -->
+    <header class="ciasta-hero">
+        <div class="ciasta-hero-bg"></div>
+        <div class="container ciasta-hero-content">
+            <span class="ciasta-hero-badge">🍰 SŁODKI ŚWIAT</span>
+            <h1 class="ciasta-hero-title">Świat<br/>Ciast i Wypieków</h1>
+            <div class="ciasta-hero-subinfo">
+                <span>🥚 Jajka</span>
+                <span class="ciasta-subinfo-dot">•</span>
+                <span>🌾 Mąka</span>
+                <span class="ciasta-subinfo-dot">•</span>
+                <span>🧈 Masło</span>
+                <span class="ciasta-subinfo-dot">•</span>
+                <span>🍫 Czekolada</span>
+            </div>
+            <p class="ciasta-hero-subtitle">
+                Ciasta to nie tylko deser – to sztuka, tradycja i radość. Od delikatnych biszkoptów
+                po bogate serniki, od klasycznych szarlotek po nowoczesne torty. Poznaj słodki świat wypieków!
+            </p>
+            <div class="ciasta-hero-decoration">
+                <span class="deco-line"></span>
+                <span class="deco-dot">✦</span>
+                <span class="deco-line"></span>
+            </div>
+            <a href="#ciasta" class="hero-cta">Poznaj ciasta ↓</a>
+        </div>
+        <div class="ciasta-float-container">
+            <span class="ciasta-float">🍰</span>
+            <span class="ciasta-float">🥮</span>
+            <span class="ciasta-float">🧁</span>
+            <span class="ciasta-float">🍪</span>
+            <span class="ciasta-float">🍩</span>
+            <span class="ciasta-float">🥧</span>
+            <span class="ciasta-float">🍫</span>
+            <span class="ciasta-float">🍒</span>
+        </div>
+    </header>
+
     <!-- ===== NAVIGACJA ===== -->
     <nav id="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="nav-logo">🍰 Świat Ciast</a>
+            <a href="#" class="nav-logo">🍰 Ciasta i Wypieki</a>
             <ul class="nav-links">
-                <li><a href="#rodzaje">Rodzaje</a></li>
+                <li><a href="#ciasta">Ciasta</a></li>
+                <li><a href="#torty">Torty</a></li>
+                <li><a href="#ranking">Ranking</a></li>
                 <li><a href="#przepisy">Przepisy</a></li>
-                <li><a href="#ciekawostki">Ciekawostki</a></li>
-                <li><a href="#historia">Historia</a></li>
-                <li><a href="index.html">← Powrót</a></li>
+                <li><a href="index.html" style="color: var(--accent-gold); font-weight: 700;">⚽ Futbol</a></li>
+                <li><a href="gnojnik.html" style="color: var(--accent-green); font-weight: 700;">🍄 Gnojnik</a></li>
+                <li><a href="chipasach.html" style="color: #eab308; font-weight: 700;">🥔 Chipsy</a></li>
             </ul>
             <button class="nav-toggle" aria-label="Menu" onclick="toggleNav()">
                 <span></span>
@@ -539,145 +358,223 @@
         </div>
     </nav>
 
-    <!-- ===== HERO ===== -->
-    <header class="ciasta-hero">
-        <div class="ciasta-hero-bg"></div>
-        <div class="container ciasta-hero-content">
-            <span class="ciasta-hero-badge">🍰 Słodki Świat Wypieków</span>
-            <h1 class="ciasta-hero-title">Ciasta<br/>z Pasją</h1>
-            <div class="ciasta-hero-subinfo">
-                <span>🥮 Ponad 1000 przepisów</span>
-                <span class="ciasta-subinfo-dot">•</span>
-                <span>🌍 Z całego świata</span>
-                <span class="ciasta-subinfo-dot">•</span>
-                <span>👨‍🍳 Dla każdego</span>
-            </div>
-            <p class="ciasta-hero-subtitle">
-                "Życie jest słodkie, zwłaszcza gdy dzielimy się ciastem z bliskimi. <br/>
-                Odkryj magię domowych wypieków – tradycyjnych i nowoczesnych."
-            </p>
-            <div class="ciasta-hero-decoration">
-                <span class="deco-line"></span>
-                <span class="deco-dot">✦</span>
-                <span class="deco-line"></span>
-            </div>
-            <a href="#rodzaje" class="hero-cta">Poznaj świat ciast ↓</a>
-        </div>
-        <div class="ciasta-float-container">
-            <span class="ciasta-float">🍰</span>
-            <span class="ciasta-float">🥮</span>
-            <span class="ciasta-float">🧁</span>
-            <span class="ciasta-float">🍪</span>
-            <span class="ciasta-float">🎂</span>
-            <span class="ciasta-float">🍩</span>
-            <span class="ciasta-float">🥐</span>
-            <span class="ciasta-float">✨</span>
-        </div>
-    </header>
-
-    <!-- ===== RODZAJE CIAST ===== -->
-    <section id="rodzaje" class="section">
+    <!-- ===== CIASTA ===== -->
+    <section id="ciasta" class="section">
         <div class="container">
             <div class="section-header">
                 <span class="section-number">01</span>
-                <h2 class="section-title">🧁 Rodzaje Ciast</h2>
-                <p class="section-subtitle">Poznaj różnorodność wypieków – od klasycznych biszkoptów po wykwintne torty</p>
+                <h2 class="section-title">🍰 Najpopularniejsze Ciasta</h2>
+                <p class="section-subtitle">Klasyka, która nigdy się nie nudzi</p>
             </div>
 
             <div class="ciasta-grid">
 
                 <div class="ciasta-card">
-                    <span class="ciasta-card-icon">🍰</span>
-                    <h3 class="ciasta-card-title">Biszkopty</h3>
-                    <span class="ciasta-card-subtitle">Lekkie i puszyste</span>
+                    <div class="ciasta-card-icon">🍫</div>
+                    <h3>Szarlotka</h3>
                     <p class="ciasta-card-desc">
-                        Podstawa wielu deserów. Biszkopt to lekkie, napowietrzone ciasto, które stanowi 
-                        bazę dla tortów, roladek i przekładańców. Idealnie chłonie kremy i poncze.
+                        Kruche ciasto z warstwą jabłek, cynamonu i kruszonki. Klasyk polskiej kuchni –
+                        najlepsza z gałką lodów waniliowych lub bitą śmietaną.
                     </p>
-                    <div class="ciasta-card-tags">
-                        <span class="ciasta-card-tag">Klasyczne</span>
-                        <span class="ciasta-card-tag">Waniliowe</span>
-                        <span class="ciasta-card-tag">Czekoladowe</span>
+                    <div>
+                        <span class="ciasta-card-tag">Jabłka</span>
+                        <span class="ciasta-card-tag">Cynamon</span>
+                        <span class="ciasta-card-tag">Kruszonka</span>
                     </div>
                 </div>
 
                 <div class="ciasta-card">
-                    <span class="ciasta-card-icon">🥮</span>
-                    <h3 class="ciasta-card-title">Drożdżowe</h3>
-                    <span class="ciasta-card-subtitle">Puszyste i aromatyczne</span>
+                    <div class="ciasta-card-icon">🧀</div>
+                    <h3>Sernik</h3>
                     <p class="ciasta-card-desc">
-                        Ciasta wyrabiane z drożdżami, które wymagają czasu na wyrośnięcie. 
-                        Efekt? Puszyste, miękkie wypieki o niepowtarzalnym aromacie. 
-                        Idealne z kruszonką lub owocami.
+                        Kremowy ser, kruchy spód i dowolne dodatki – rodzynki, czekolada, owoce.
+                        Sernik wiedeński, nowojorski, królewski – każdy znajdzie swój ulubiony.
                     </p>
-                    <div class="ciasta-card-tags">
-                        <span class="ciasta-card-tag">Z kruszonką</span>
-                        <span class="ciasta-card-tag">Z rabarbarem</span>
-                        <span class="ciasta-card-tag">Baba</span>
+                    <div>
+                        <span class="ciasta-card-tag">Twaróg</span>
+                        <span class="ciasta-card-tag">Kremowy</span>
+                        <span class="ciasta-card-tag">Klasyka</span>
                     </div>
                 </div>
 
                 <div class="ciasta-card">
-                    <span class="ciasta-card-icon">🎂</span>
-                    <h3 class="ciasta-card-title">Torty</h3>
-                    <span class="ciasta-card-subtitle">Wykwintne i eleganckie</span>
+                    <div class="ciasta-card-icon">🍓</div>
+                    <h3>Biszkopt z Owocami</h3>
                     <p class="ciasta-card-desc">
-                        Prawdziwe arcydzieła sztuki cukierniczej. Wielowarstwowe, przełożone 
-                        kremami, owocami i masami. Torty to synonim celebracji i wyjątkowych chwil.
+                        Lekki i puszysty biszkopt przełożony bitą śmietaną i sezonowymi owocami.
+                        Idealny na letnie przyjęcia i urodziny.
                     </p>
-                    <div class="ciasta-card-tags">
-                        <span class="ciasta-card-tag">Czekoladowy</span>
-                        <span class="ciasta-card-tag">Owocowy</span>
-                        <span class="ciasta-card-tag">Bezowy</span>
+                    <div>
+                        <span class="ciasta-card-tag">Lekkie</span>
+                        <span class="ciasta-card-tag">Owoce</span>
+                        <span class="ciasta-card-tag">Bita śmietana</span>
                     </div>
                 </div>
 
                 <div class="ciasta-card">
-                    <span class="ciasta-card-icon">🧁</span>
-                    <h3 class="ciasta-card-title">Muffiny & Babeczki</h3>
-                    <span class="ciasta-card-subtitle">Małe co nieco</span>
+                    <div class="ciasta-card-icon">🥮</div>
+                    <h3>Makowiec</h3>
                     <p class="ciasta-card-desc">
-                        Porcjowane słodkości idealne na każdą okazję. Muffiny są wilgotne i 
-                        treściwe, babeczki lekkie – oba warianty można dowolnie modyfikować 
-                        dodatkami.
+                        Tradycyjne ciasto z masą makową, bakaliami i lukrem. Nieodłączny element
+                        świąt Bożego Narodzenia w Polsce.
                     </p>
-                    <div class="ciasta-card-tags">
-                        <span class="ciasta-card-tag">Z borówkami</span>
-                        <span class="ciasta-card-tag">Czekoladowe</span>
-                        <span class="ciasta-card-tag">Fit</span>
+                    <div>
+                        <span class="ciasta-card-tag">Mak</span>
+                        <span class="ciasta-card-tag">Bakalie</span>
+                        <span class="ciasta-card-tag">Święta</span>
                     </div>
                 </div>
 
                 <div class="ciasta-card">
-                    <span class="ciasta-card-icon">🍪</span>
-                    <h3 class="ciasta-card-title">Ciasteczka</h3>
-                    <span class="ciasta-card-subtitle">Chrupiąca przyjemność</span>
+                    <div class="ciasta-card-icon">🍩</div>
+                    <h3>Pączki</h3>
                     <p class="ciasta-card-desc">
-                        Małe, chrupiące lub miękkie – ciasteczka to jedne z najpopularniejszych 
-                        wypieków na świecie. Idealne do kawy, herbaty lub jako szybka przekąska.
+                        Słodkie, puszyste drożdżówki nadziewane konfiturą, budyniem lub czekoladą.
+                        Królują w Tłusty Czwartek, ale smakują przez cały rok.
                     </p>
-                    <div class="ciasta-card-tags">
-                        <span class="ciasta-card-tag">Czekoladowe</span>
-                        <span class="ciasta-card-tag">Owsiane</span>
-                        <span class="ciasta-card-tag">Kruche</span>
+                    <div>
+                        <span class="ciasta-card-tag">Drożdżowe</span>
+                        <span class="ciasta-card-tag">Nadzienie</span>
+                        <span class="ciasta-card-tag">Tłusty Czwartek</span>
                     </div>
                 </div>
 
                 <div class="ciasta-card">
-                    <span class="ciasta-card-icon">🥐</span>
-                    <h3 class="ciasta-card-title">Francuskie & Półfrancuskie</h3>
-                    <span class="ciasta-card-subtitle">Maślane i kruche</span>
+                    <div class="ciasta-card-icon">🎂</div>
+                    <h3>Tort Czekoladowy</h3>
                     <p class="ciasta-card-desc">
-                        Delikatne, warstwowe ciasta z dużą ilością masła. Croissanty, 
-        napoleonki, jabłeczniki – każdy kęs to eksplozja smaku i maślanej konsystencji.
+                        Wilgotny, intensywnie czekoladowy tort z ganache, kremem lub musem.
+                        Marzenie każdego łasucha i idealny deser na specjalne okazje.
                     </p>
-                    <div class="ciasta-card-tags">
-                        <span class="ciasta-card-tag">Croissant</span>
-                        <span class="ciasta-card-tag">Napoleonka</span>
-                        <span class="ciasta-card-tag">Jabłecznik</span>
+                    <div>
+                        <span class="ciasta-card-tag">Czekolada</span>
+                        <span class="ciasta-card-tag">Mus</span>
+                        <span class="ciasta-card-tag">Ganache</span>
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TORTY ===== -->
+    <section id="torty" class="section alt-bg">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">🎂 Najpiękniejsze Torty</h2>
+                <p class="section-subtitle">Kulinarne arcydzieła, które zachwycają wyglądem i smakiem</p>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 2rem; text-align: center; transition: var(--transition);">
+                    <div style="font-size: 3rem; margin-bottom: 0.75rem;">🎂</div>
+                    <h4 style="font-size: 1.1rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">Tort Wiedeński</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Krem maślany, bezy, orzechy. Klasyk polskich wesel.</p>
+                </div>
+
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 2rem; text-align: center; transition: var(--transition);">
+                    <div style="font-size: 3rem; margin-bottom: 0.75rem;">🍫</div>
+                    <h4 style="font-size: 1.1rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">Sacher</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Czekoladowy, z morelową konfiturą. Austriacka legenda.</p>
+                </div>
+
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 2rem; text-align: center; transition: var(--transition);">
+                    <div style="font-size: 3rem; margin-bottom: 0.75rem;">🌰</div>
+                    <h4 style="font-size: 1.1rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">Tort Orzechowy</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Z orzechów włoskich, z kremem budyniowym.</p>
+                </div>
+
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 2rem; text-align: center; transition: var(--transition);">
+                    <div style="font-size: 3rem; margin-bottom: 0.75rem;">🍰</div>
+                    <h4 style="font-size: 1.1rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">Tort Owocowy</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Lekki biszkopt, galaretka, sezonowe owoce.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RANKING ===== -->
+    <section id="ranking" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">🏆 Ranking Ciast</h2>
+                <p class="section-subtitle">Subiektywny ranking najpopularniejszych ciast w Polsce</p>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto; overflow-x: auto;">
+                <table class="ciasta-ranking">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ciasto</th>
+                            <th>Rodzaj</th>
+                            <th>Ocena</th>
+                            <th>Okazja</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🥇</td>
+                            <td><span class="rank-name">Szarlotka</span></td>
+                            <td>Kruche</td>
+                            <td><span class="rank-stars">★★★★★</span></td>
+                            <td>Każda pora roku</td>
+                        </tr>
+                        <tr>
+                            <td>🥈</td>
+                            <td><span class="rank-name">Sernik</span></td>
+                            <td>Serowe</td>
+                            <td><span class="rank-stars">★★★★★</span></td>
+                            <td>Rodzinne spotkania</td>
+                        </tr>
+                        <tr>
+                            <td>🥉</td>
+                            <td><span class="rank-name">Makowiec</span></td>
+                            <td>Drożdżowe</td>
+                            <td><span class="rank-stars">★★★★☆</span></td>
+                            <td>Święta Bożego Narodzenia</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><span class="rank-name">Tort Czekoladowy</span></td>
+                            <td>Kremowe</td>
+                            <td><span class="rank-stars">★★★★★</span></td>
+                            <td>Urodziny</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><span class="rank-name">Pączki</span></td>
+                            <td>Drożdżowe</td>
+                            <td><span class="rank-stars">★★★★☆</span></td>
+                            <td>Tłusty Czwartek</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><span class="rank-name">Biszkopt z Owocami</span></td>
+                            <td>Biszkoptowe</td>
+                            <td><span class="rank-stars">★★★★☆</span></td>
+                            <td>Imprezy, przyjęcia</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td><span class="rank-name">Karpatka</span></td>
+                            <td>Ptysiowe</td>
+                            <td><span class="rank-stars">★★★★☆</span></td>
+                            <td>Deser do kawy</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td><span class="rank-name">Piernik</span></td>
+                            <td>Miodowe</td>
+                            <td><span class="rank-stars">★★★☆☆</span></td>
+                            <td>Święta Bożego Narodzenia</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -686,365 +583,116 @@
     <section id="przepisy" class="section alt-bg">
         <div class="container">
             <div class="section-header">
-                <span class="section-number">02</span>
-                <h2 class="section-title">📖 Sprawdzone Przepisy</h2>
-                <p class="section-subtitle">Wypróbowane receptury na najlepsze domowe ciasta</p>
-            </div>
-
-            <div class="przepis-grid">
-
-                <!-- Przepis 1 -->
-                <div class="przepis-card">
-                    <div class="przepis-header">
-                        <span class="przepis-icon">🍫</span>
-                        <span class="przepis-difficulty easy">Łatwe</span>
-                    </div>
-                    <h3 class="przepis-title">Murzynek – Klasyczne Ciasto Czekoladowe</h3>
-                    <div class="przepis-meta">
-                        <span>⏱ 60 min</span>
-                        <span>🔥 180°C</span>
-                        <span>📦 Blacha 25×35 cm</span>
-                    </div>
-                    <p class="przepis-desc">
-                        Wilgotne, intensywnie czekoladowe ciasto, które zawsze się udaje. 
-                        Popularny murzynek to idealny deser do kawy na każdą okazję.
-                    </p>
-                    <div class="przepis-ingredients">
-                        <h4>Składniki</h4>
-                        <ul>
-                            <li>2 szklanki mąki</li>
-                            <li>1 szklanka cukru</li>
-                            <li>1 szklanka mleka</li>
-                            <li>½ szklanki oleju</li>
-                            <li>3 jajka</li>
-                            <li>3 łyżki kakao</li>
-                            <li>2 łyżeczki proszku do pieczenia</li>
-                            <li>100 g gorzkiej czekolady</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Przepis 2 -->
-                <div class="przepis-card">
-                    <div class="przepis-header">
-                        <span class="przepis-icon">🫐</span>
-                        <span class="przepis-difficulty medium">Średnie</span>
-                    </div>
-                    <h3 class="przepis-title">Jagodzianki – Puszyste Bułeczki z Jagodami</h3>
-                    <div class="przepis-meta">
-                        <span>⏱ 120 min</span>
-                        <span>🔥 190°C</span>
-                        <span>📦 12 sztuk</span>
-                    </div>
-                    <p class="przepis-desc">
-                        Kultowe polskie bułeczki drożdżowe z jagodami i kruszonką. 
-                        Prawdziwy smak lata, który przenosi nas do wspomnień z dzieciństwa.
-                    </p>
-                    <div class="przepis-ingredients">
-                        <h4>Składniki</h4>
-                        <ul>
-                            <li>500 g mąki pszennej</li>
-                            <li>25 g drożdży świeżych</li>
-                            <li>200 ml mleka</li>
-                            <li>80 g cukru</li>
-                            <li>2 żółtka</li>
-                            <li>60 g masła</li>
-                            <li>300 g jagód</li>
-                            <li>Kruszonka</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Przepis 3 -->
-                <div class="przepis-card">
-                    <div class="przepis-header">
-                        <span class="przepis-icon">🍎</span>
-                        <span class="przepis-difficulty easy">Łatwe</span>
-                    </div>
-                    <h3 class="przepis-title">Szarlotka – Tradycyjna z Kruszonką</h3>
-                    <div class="przepis-meta">
-                        <span>⏱ 75 min</span>
-                        <span>🔥 180°C</span>
-                        <span>📦 Tortownica 26 cm</span>
-                    </div>
-                    <p class="przepis-desc">
-                        Klasyka polskiej cukierni. Kruche ciasto, aromatyczne jabłka 
-                        z cynamonem i chrupiąca kruszonka – prostota, która zachwyca.
-                    </p>
-                    <div class="przepis-ingredients">
-                        <h4>Składniki</h4>
-                        <ul>
-                            <li>2 szklanki mąki</li>
-                            <li>200 g masła</li>
-                            <li>¾ szklanki cukru</li>
-                            <li>2 jajka</li>
-                            <li>1 kg jabłek</li>
-                            <li>łyżeczka cynamonu</li>
-                            <li>1 łyżeczka proszku do pieczenia</li>
-                            <li>Cukier puder</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Przepis 4 -->
-                <div class="przepis-card">
-                    <div class="przepis-header">
-                        <span class="przepis-icon">🥥</span>
-                        <span class="przepis-difficulty hard">Trudne</span>
-                    </div>
-                    <h3 class="przepis-title">Rafaello – Kokosowa Przyjemność</h3>
-                    <div class="przepis-meta">
-                        <span>⏱ 90 min + chłodzenie</span>
-                        <span>🔥 Bez pieczenia</span>
-                        <span>📦 Blacha 20×30 cm</span>
-                    </div>
-                    <p class="przepis-desc">
-                        Wyrafinowane ciasto bez pieczenia inspirowane kultowym smakiem. 
-                        Kokos, biała czekolada i migdały tworzą niebiańskie połączenie.
-                    </p>
-                    <div class="przepis-ingredients">
-                        <h4>Składniki</h4>
-                        <ul>
-                            <li>200 g herbatników</li>
-                            <li>400 ml śmietany 30%</li>
-                            <li>250 g mascarpone</li>
-                            <li>100 g wiórków kokosowych</li>
-                            <li>200 g białej czekolady</li>
-                            <li>50 g migdałów</li>
-                            <li>2 łyżki cukru pudru</li>
-                            <li>Masło</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== CIEKAWOSTKI ===== -->
-    <section id="ciekawostki" class="section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">03</span>
-                <h2 class="section-title">🤔 Ciekawostki o Ciastach</h2>
-                <p class="section-subtitle">Co warto wiedzieć o ulubionych słodkościach?</p>
-            </div>
-
-            <div class="ciasta-fun-grid">
-
-                <div class="ciasta-fun-card">
-                    <span class="ciasta-fun-icon">🎂</span>
-                    <div class="ciasta-fun-number">4000</div>
-                    <div class="ciasta-fun-label">lat tradycji</div>
-                    <p class="ciasta-fun-desc">
-                        Najstarsze znalezione ślady wypieku ciast pochodzą ze starożytnego Egiptu 
-                        sprzed ponad 4000 lat. Były to proste placki miodowe.
-                    </p>
-                </div>
-
-                <div class="ciasta-fun-card">
-                    <span class="ciasta-fun-icon">🇵🇱</span>
-                    <div class="ciasta-fun-number">250+</div>
-                    <div class="ciasta-fun-label">tradycyjnych polskich ciast</div>
-                    <p class="ciasta-fun-desc">
-                        Polska kuchnia może poszczycić się ogromną różnorodnością tradycyjnych 
-                        wypieków – od serników po makowce i pierniki.
-                    </p>
-                </div>
-
-                <div class="ciasta-fun-card">
-                    <span class="ciasta-fun-icon">🧁</span>
-                    <div class="ciasta-fun-number">73</div>
-                    <div class="ciasta-fun-label">miliardy ciasteczek rocznie</div>
-                    <p class="ciasta-fun-desc">
-                        Tyle ciasteczek produkuje się każdego roku na świecie. 
-                        To ponad 10 ciasteczek na każdego mieszkańca Ziemi!
-                    </p>
-                </div>
-
-                <div class="ciasta-fun-card">
-                    <span class="ciasta-fun-icon">🍫</span>
-                    <div class="ciasta-fun-number">1879</div>
-                    <div class="ciasta-fun-label">rok – pierwszy tort czekoladowy</div>
-                    <p class="ciasta-fun-desc">
-                        Pierwszy w historii tort czekoladowy powstał w Wiedniu. 
-                        Dziś czekolada jest najpopularniejszym dodatkiem do ciast na świecie.
-                    </p>
-                </div>
-
-                <div class="ciasta-fun-card">
-                    <span class="ciasta-fun-icon">👑</span>
-                    <div class="ciasta-fun-number">6,5m</div>
-                    <div class="ciasta-fun-label">najwyższy tort świata</div>
-                    <p class="ciasta-fun-desc">
-                        Najwyższy tort na świecie mierzył 6,5 metra i ważył ponad 6 ton. 
-                        Został wykonany w USA w 2016 roku.
-                    </p>
-                </div>
-
-                <div class="ciasta-fun-card">
-                    <span class="ciasta-fun-icon">🏆</span>
-                    <div class="ciasta-fun-number">Sernik</div>
-                    <div class="ciasta-fun-label">najstarsze ciasto świata</div>
-                    <p class="ciasta-fun-desc">
-                        Sernik to jedno z najstarszych ciast – jego przepis znaleziono 
-                        w starożytnych greckich zapiskach sprzed 2000 lat p.n.e.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== HISTORIA CIAST ===== -->
-    <section id="historia" class="section alt-bg">
-        <div class="container">
-            <div class="section-header">
                 <span class="section-number">04</span>
-                <h2 class="section-title">📜 Historia Ciast</h2>
-                <p class="section-subtitle">Jak na przestrzeni wieków zmieniała się sztuka cukiernicza?</p>
+                <h2 class="section-title">📖 Przepis na Idealne Ciasto</h2>
+                <p class="section-subtitle">Uniwersalne wskazówki dla początkujących i zaawansowanych</p>
             </div>
 
-            <div class="ciasta-timeline">
+            <div style="max-width: 700px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-lg); padding: 2.5rem;">
 
-                <div class="ciasta-timeline-item">
-                    <div class="ciasta-timeline-content">
-                        <span class="ciasta-timeline-year">~2000 p.n.e.</span>
-                        <h3 class="ciasta-timeline-title">Starożytny Egipt</h3>
-                        <p class="ciasta-timeline-desc">
-                            Egipcjanie piekli pierwsze placki z miodem, owocami i orzechami. 
-                            Były one ofiarowane bogom i spożywane podczas świąt.
-                        </p>
-                    </div>
-                    <div class="ciasta-timeline-dot"></div>
+                <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
+                    <span style="font-size: 2rem;">📝</span>
+                    <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px;">Składniki</span>
                 </div>
 
-                <div class="ciasta-timeline-item">
-                    <div class="ciasta-timeline-content">
-                        <span class="ciasta-timeline-year">~500 p.n.e.</span>
-                        <h3 class="ciasta-timeline-title">Starożytna Grecja</h3>
-                        <p class="ciasta-timeline-desc">
-                            Grecy wynaleźli sernik – ser mieszany z miodem i pszenicą, 
-                            pieczony w glinianych naczyniach. Podawano go sportowcom na igrzyskach.
-                        </p>
-                    </div>
-                    <div class="ciasta-timeline-dot"></div>
+                <ul style="list-style: none; margin-bottom: 2rem;">
+                    <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); display: flex; gap: 0.75rem;">
+                        <span style="color: var(--ciasta-pink);">✓</span>
+                        <span><strong style="color: white;">2 szklanki</strong> mąki pszennej</span>
+                    </li>
+                    <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); display: flex; gap: 0.75rem;">
+                        <span style="color: var(--ciasta-pink);">✓</span>
+                        <span><strong style="color: white;">1 szklanka</strong> cukru</span>
+                    </li>
+                    <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); display: flex; gap: 0.75rem;">
+                        <span style="color: var(--ciasta-pink);">✓</span>
+                        <span><strong style="color: white;">200g</strong> masła</span>
+                    </li>
+                    <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); display: flex; gap: 0.75rem;">
+                        <span style="color: var(--ciasta-pink);">✓</span>
+                        <span><strong style="color: white;">4 sztuki</strong> jajek</span>
+                    </li>
+                    <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); display: flex; gap: 0.75rem;">
+                        <span style="color: var(--ciasta-pink);">✓</span>
+                        <span><strong style="color: white;">1 łyżeczka</strong> proszku do pieczenia</span>
+                    </li>
+                    <li style="padding: 0.75rem 0; color: var(--text-secondary); display: flex; gap: 0.75rem;">
+                        <span style="color: var(--ciasta-pink);">✓</span>
+                        <span><strong style="color: white;">Dowolne</strong> dodatki: owoce, czekolada, bakalie</span>
+                    </li>
+                </ul>
+
+                <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem;">
+                    <span style="font-size: 2rem;">🍳</span>
+                    <span style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px;">Przygotowanie</span>
                 </div>
 
-                <div class="ciasta-timeline-item">
-                    <div class="ciasta-timeline-content">
-                        <span class="ciasta-timeline-year">XIV wiek</span>
-                        <h3 class="ciasta-timeline-title">Średniowiecze – Rozwój cukiernictwa</h3>
-                        <p class="ciasta-timeline-desc">
-                            W Europie zaczęto używać masła i jajek do wypieków. 
-                            Cukier stał się dostępny dla bogatszych warstw społecznych.
-                        </p>
-                    </div>
-                    <div class="ciasta-timeline-dot"></div>
-                </div>
-
-                <div class="ciasta-timeline-item">
-                    <div class="ciasta-timeline-content">
-                        <span class="ciasta-timeline-year">XIX wiek</span>
-                        <h3 class="ciasta-timeline-title">Rewolucja cukiernicza</h3>
-                        <p class="ciasta-timeline-desc">
-                            Wynalezienie proszku do pieczenia i rozwój technologii piekarniczych 
-                            sprawiły, że ciasta stały się lżejsze i bardziej puszyste. 
-                            Powstały klasyki: sernik wiedeński, tort Sachera, napoleonka.
-                        </p>
-                    </div>
-                    <div class="ciasta-timeline-dot"></div>
-                </div>
-
-                <div class="ciasta-timeline-item">
-                    <div class="ciasta-timeline-content">
-                        <span class="ciasta-timeline-year">XX wiek</span>
-                        <h3 class="ciasta-timeline-title">Złota era cukiernictwa</h3>
-                        <p class="ciasta-timeline-desc">
-                            Rozkwit cukiernictwa na całym świecie. Powstają kultowe ciasta 
-                            jak Murzynek, Karpatka, Tiramisu, Cheesecake. Ciasta stają się 
-                            dostępne dla wszystkich.
-                        </p>
-                    </div>
-                    <div class="ciasta-timeline-dot"></div>
-                </div>
-
-                <div class="ciasta-timeline-item">
-                    <div class="ciasta-timeline-content">
-                        <span class="ciasta-timeline-year">Współczesność</span>
-                        <h3 class="ciasta-timeline-title">Nowe trendy</h3>
-                        <p class="ciasta-timeline-desc">
-                            Współczesne cukiernictwo to fuzja tradycji z nowoczesnością. 
-                            Bezglutenowe, wegańskie, fit – ciasta dla każdego. Sztuka 
-                            cukiernicza nigdy nie była bardziej kreatywna i dostępna!
-                        </p>
-                    </div>
-                    <div class="ciasta-timeline-dot"></div>
-                </div>
+                <ol style="list-style: none; counter-reset: step;">
+                    <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); display: flex; gap: 0.75rem; counter-increment: step;">
+                        <span style="color: var(--ciasta-pink); font-weight: 700; min-width: 1.5rem;">1.</span>
+                        <span>Rozgrzej piekarnik do <strong style="color: white;">180°C</strong>.</span>
+                    </li>
+                    <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); display: flex; gap: 0.75rem; counter-increment: step;">
+                        <span style="color: var(--ciasta-pink); font-weight: 700; min-width: 1.5rem;">2.</span>
+                        <span>Ubij masło z cukrem na puszystą masę.</span>
+                    </li>
+                    <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); display: flex; gap: 0.75rem; counter-increment: step;">
+                        <span style="color: var(--ciasta-pink); font-weight: 700; min-width: 1.5rem;">3.</span>
+                        <span>Dodawaj jajka po jednym, ciągle mieszając.</span>
+                    </li>
+                    <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); display: flex; gap: 0.75rem; counter-increment: step;">
+                        <span style="color: var(--ciasta-pink); font-weight: 700; min-width: 1.5rem;">4.</span>
+                        <span>Przesiej mąkę z proszkiem i delikatnie wymieszaj.</span>
+                    </li>
+                    <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); display: flex; gap: 0.75rem; counter-increment: step;">
+                        <span style="color: var(--ciasta-pink); font-weight: 700; min-width: 1.5rem;">5.</span>
+                        <span>Dodaj ulubione dodatki i przełóż do formy.</span>
+                    </li>
+                    <li style="padding: 0.75rem 0; color: var(--text-secondary); display: flex; gap: 0.75rem; counter-increment: step;">
+                        <span style="color: var(--ciasta-pink); font-weight: 700; min-width: 1.5rem;">6.</span>
+                        <span>Piecz przez <strong style="color: white;">40-50 minut</strong> – i gotowe! 🎉</span>
+                    </li>
+                </ol>
 
             </div>
         </div>
     </section>
 
     <!-- ===== STOPKA ===== -->
-    <footer class="contact-section" style="padding: 3rem 2rem; text-align: center;">
+    <footer style="background: var(--bg-alt); border-top: 1px solid var(--glass-border); padding: 3rem 0; text-align: center;">
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">✦</span>
-                <h2 class="section-title">🍰 Smacznego!</h2>
-                <p class="section-subtitle">
-                    Życie jest jak ciasto – im więcej się nim dzielisz, tym jest słodsze. 🍰
-                </p>
-            </div>
-            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-top: 1rem;">
-                <a href="index.html" style="color: var(--ciasta-pink); font-weight: 600; font-size: 1.1rem;">← Strona Główna</a>
-            </div>
-            <p style="margin-top: 2rem; color: var(--text-muted); font-size: 0.85rem;">
-                &copy; 2024 Świat Ciast – słodka podróż przez tradycję i smaki
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🍰</div>
+            <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 600px; margin: 0 auto 1rem;">
+                Pieczenie to magia – z prostych składników tworzysz coś wyjątkowego.
+                Nie bój się eksperymentować w kuchni! Każdy może upiec swoje ulubione ciasto. 🧑‍🍳
             </p>
+            <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">
+                <a href="index.html" style="color: var(--accent-gold);">⚽ Football Legends</a>
+                <a href="gnojnik.html" style="color: var(--accent-green);">🍄 Gnojnik</a>
+                <a href="chipasach.html" style="color: #eab308;">🥔 Chipsy</a>
+            </div>
+            <div style="margin-top: 1.5rem; color: var(--text-muted); font-size: 0.75rem;">
+                &copy; 2025 Ciasta i Wypieki – słodki świat dla każdego
+            </div>
         </div>
     </footer>
 
     <!-- ===== SKRYPTY ===== -->
     <script>
-        // Nawigacja mobilna
         function toggleNav() {
-            const nav = document.querySelector('#navbar');
-            nav.classList.toggle('nav-open');
+            const nav = document.querySelector('.nav-links');
+            nav.classList.toggle('active');
         }
 
-        // Zmiana tła navbara przy scrollu
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 60) {
+            if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
         });
-
-        // Intersection Observer dla animacji
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.ciasta-card, .przepis-card, .ciasta-fun-card, .ciasta-timeline-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-            observer.observe(el);
-        });
     </script>
-
 </body>
 </html>
