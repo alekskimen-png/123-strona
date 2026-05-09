@@ -3,39 +3,52 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Świat Kupy 💩</title>
+    <title>Legendy Światowego Futbolu ⚽</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="header-bg"></div>
-        <div class="container header-content">
-            <span class="header-badge">💩 Odkryj tajemnicę</span>
-            <h1 class="header-title">Świat Kupy</h1>
-            <p class="header-subtitle">Podróż przez układ pokarmowy, historię i biologię</p>
-            <div class="header-decoration">
+    <!-- ===== NAGŁÓWEK ===== -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <span class="hero-badge">⚽ GOATs of Football</span>
+            <h1 class="hero-title">Legendy<br/>Światowego Futbolu</h1>
+            <p class="hero-subtitle">
+                Najlepsi piłkarze w historii, którzy zmienili oblicze tej pięknej gry.
+                Ich talent, poświęcenie i osiągnięcia na zawsze zapisały się w annałach sportu.
+            </p>
+            <div class="hero-decoration">
                 <span class="deco-line"></span>
                 <span class="deco-dot">✦</span>
                 <span class="deco-line"></span>
             </div>
-            <a href="#historia" class="header-cta">Poznaj więcej ↓</a>
+            <a href="#legendy" class="hero-cta">Poznaj legendy ↓</a>
+        </div>
+        <div class="hero-float-container">
+            <span class="hero-float">⚽</span>
+            <span class="hero-float">🏆</span>
+            <span class="hero-float">🌟</span>
+            <span class="hero-float">🇧🇷</span>
+            <span class="hero-float">🇦🇷</span>
+            <span class="hero-float">🇵🇹</span>
+            <span class="hero-float">🇫🇷</span>
+            <span class="hero-float">🇳🇱</span>
         </div>
     </header>
 
-    <!-- NAVIGATION -->
+    <!-- ===== NAVIGACJA ===== -->
     <nav id="navbar">
         <div class="container nav-container">
-            <a href="#" class="nav-logo">💩 Świat Kupy</a>
+            <a href="#" class="nav-logo">⚽ Football Legends</a>
             <ul class="nav-links">
-                <li><a href="#historia">Historia</a></li>
-                <li><a href="#rodzaje">Rodzaje</a></li>
-                <li><a href="#przepisy">Sytuacje</a></li>
-                <li><a href="#ciekawostki">Ciekawostki</a></li>
+                <li><a href="#legendy">Legendy</a></li>
+                <li><a href="#osiagniecia">Osiągnięcia</a></li>
+                <li><a href="#cytaty">Cytaty</a></li>
+                <li><a href="#ranking">Ranking</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
             </ul>
             <button class="nav-toggle" aria-label="Menu" onclick="toggleNav()">
@@ -46,403 +59,788 @@
         </div>
     </nav>
 
-    <!-- HERO -->
-    <section id="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-            <span class="hero-badge">✦ Natura i fizjologia</span>
-            <h2 class="hero-title">Kupa to nie tylko odpad</h2>
-            <p class="hero-desc">To fascynujący wskaźnik zdrowia, temat badań naukowych i miliony lat ewolucji.</p>
-        </div>
-    </section>
-
-    <!-- HISTORIA -->
-    <section id="historia" class="scroll-section">
+    <!-- ===== LEGENDY ===== -->
+    <section id="legendy" class="section">
         <div class="container">
             <div class="section-header">
                 <span class="section-number">01</span>
-                <h2 class="section-title">📜 Historia Kupy</h2>
-                <p class="section-subtitle">Od dinozaurów do współczesnych toalet</p>
+                <h2 class="section-title">🏆 Najwięksi w Historii</h2>
+                <p class="section-subtitle">Piłkarze, którzy na zawsze zmienili świat futbolu</p>
             </div>
-            <div class="history-grid">
-                <div class="history-image">
-                    <div class="history-image-inner">
-                        <span class="history-emoji">💩</span>
-                        <span class="history-emoji history-emoji-2">🦕</span>
-                        <span class="history-emoji history-emoji-3">🚽</span>
+
+            <div class="players-grid">
+
+                <!-- Pelé -->
+                <div class="player-card">
+                    <div class="player-img-wrapper">
+                        <div class="player-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Pele_by_John_Mathew_Smith_%26_Steve_Wood_%28cropped%29.jpg/800px-Pele_by_John_Mathew_Smith_%26_Steve_Wood_%28cropped%29.jpg')"></div>
+                        <div class="player-country">🇧🇷 Brazylia</div>
+                        <div class="player-number">#1</div>
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Pelé</h3>
+                        <span class="player-years">1940–2022</span>
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <span class="stat-value">3x</span>
+                                <span class="stat-label">Mistrz Świata</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">767</span>
+                                <span class="stat-label">Gole (oficjalne)</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">1279</span>
+                                <span class="stat-label">Gole (łącznie)</span>
+                            </div>
+                        </div>
+                        <p class="player-desc">
+                            "Król Futbolu" – jedyny piłkarz w historii, który trzykrotnie zdobył Mistrzostwo Świata
+                            (1958, 1962, 1970). Uznawany za jednego z najlepszych sportowców wszech czasów.
+                            Jego niesamowita technika, wizja gry i zdolność do zdobywania bramek uczyniły go ikoną.
+                        </p>
+                        <div class="player-achievements">
+                            <span>🏆 MŚ 1958, 1962, 1970</span>
+                            <span>🌟 Król Strzelców MŚ 1958</span>
+                            <span>💫 Rekord: 1279 goli w karierze</span>
+                        </div>
                     </div>
                 </div>
-                <div class="history-text">
-                    <p>
-                        Kupa towarzyszy życiu na Ziemi od <strong>setek milionów lat</strong>. Najstarsze skamieniałe odchody,
-                        zwane <strong>koprolitami</strong>, pochodzą z okresu kambru i dostarczają naukowcom bezcennych
-                        informacji o diecie i zachowaniach prehistorycznych stworzeń.
-                    </p>
-                    <p>
-                        W <strong>starożytności</strong> odchody były wykorzystywane jako nawóz, budulec, a nawet
-                        składnik leków. Rzymianie wynaleźli pierwszą kanalizację – <em>Cloaca Maxima</em> –
-                        która odprowadzała nieczystości z miasta. W średniowieczu wylewanie
-                        zawartości nocników na ulicę było na porządku dziennym.
-                    </p>
-                    <p>
-                        Przełomem okazał się wynalazek <strong>toalety spłukiwanej</strong> przez sir Johna Haringtona
-                        w 1596 roku, a później udoskonalenie jej przez Thomasa Crappera w XIX wieku.
-                        Dziś kupa to nie tylko śmieć – to <strong>cenne źródło informacji medycznych</strong>
-                        i przedmiot badań naukowych.
-                    </p>
-                    <p class="history-stat">
-                        <span class="stat-number">5 kg</span>
-                        <span class="stat-label">kupy dziennie produkuje jeden słoń afrykański</span>
-                    </p>
+
+                <!-- Maradona -->
+                <div class="player-card reverse">
+                    <div class="player-img-wrapper">
+                        <div class="player-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Maradona-Mundial-86-con-la-copa.JPG/800px-Maradona-Mundial-86-con-la-copa.JPG')"></div>
+                        <div class="player-country">🇦🇷 Argentyna</div>
+                        <div class="player-number">#2</div>
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Diego Maradona</h3>
+                        <span class="player-years">1960–2020</span>
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <span class="stat-value">1x</span>
+                                <span class="stat-label">Mistrz Świata</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">1986</span>
+                                <span class="stat-label">Rok chwały</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">345</span>
+                                <span class="stat-label">Gole w karierze</span>
+                            </div>
+                        </div>
+                        <p class="player-desc">
+                            Jeden z najbardziej utalentowanych piłkarzy w dziejach. Poprowadził Argentynę
+                            do mistrzostwa świata w 1986 roku, grając jedne z najbardziej legendarnych meczów
+                            w historii. Jego "ręka Boga" i "gol stulecia" przeciwko Anglii to momenty,
+                            które znają wszyscy fani futbolu.
+                        </p>
+                        <div class="player-achievements">
+                            <span>🏆 MŚ 1986</span>
+                            <span>⚽ Gol Stulecia (1986)</span>
+                            <span>⭐ 2x Król Strzelców Serie A</span>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Messi -->
+                <div class="player-card">
+                    <div class="player-img-wrapper">
+                        <div class="player-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg/800px-Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg')"></div>
+                        <div class="player-country">🇦🇷 Argentyna</div>
+                        <div class="player-number">#3</div>
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Lionel Messi</h3>
+                        <span class="player-years">ur. 1987</span>
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <span class="stat-value">8x</span>
+                                <span class="stat-label">Złota Piłka</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">1x</span>
+                                <span class="stat-label">Mistrz Świata</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">850+</span>
+                                <span class="stat-label">Gole w karierze</span>
+                            </div>
+                        </div>
+                        <p class="player-desc">
+                            Wielu uważa go za najlepszego piłkarza wszech czasów. Rekordzista pod względem
+                            zdobytych Złotych Piłek (8). W 2022 roku spełnił swoje największe marzenie,
+                            prowadząc Argentynę do mistrzostwa świata w jednym z najbardziej emocjonujących
+                            finałów w historii. Jego magia na boisku nie zna granic.
+                        </p>
+                        <div class="player-achievements">
+                            <span>🏆 MŚ 2022, Copa América 2021, 2024</span>
+                            <span>🌟 8x Złota Piłka</span>
+                            <span>⚽ 4x Liga Mistrzów</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cristiano Ronaldo -->
+                <div class="player-card reverse">
+                    <div class="player-img-wrapper">
+                        <div class="player-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Cristiano_Ronaldo_2018.jpg/800px-Cristiano_Ronaldo_2018.jpg')"></div>
+                        <div class="player-country">🇵🇹 Portugalia</div>
+                        <div class="player-number">#4</div>
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Cristiano Ronaldo</h3>
+                        <span class="player-years">ur. 1985</span>
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <span class="stat-value">5x</span>
+                                <span class="stat-label">Złota Piłka</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">1x</span>
+                                <span class="stat-label">Mistrz Europy</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">900+</span>
+                                <span class="stat-label">Gole w karierze</span>
+                            </div>
+                        </div>
+                        <p class="player-desc">
+                            Mistrz ciężkiej pracy i niezłomnej determinacji. Jeden z dwóch piłkarzy z ponad
+                            900 golami w karierze. Zdobył wszystko co możliwe w Europie, a także poprowadził
+                            Portugalię do mistrzostwa Europy w 2016 roku. Jego atletyzm, siła i niesamowity
+                            skok uczyniły go jednym z najbardziej kompletnych napastników w historii.
+                        </p>
+                        <div class="player-achievements">
+                            <span>🏆 Euro 2016, LN 2019</span>
+                            <span>🌟 5x Złota Piłka</span>
+                            <span>⚽ 5x Liga Mistrzów</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Johan Cruyff -->
+                <div class="player-card">
+                    <div class="player-img-wrapper">
+                        <div class="player-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Johan_Cruijff_%281974%29.jpg/800px-Johan_Cruijff_%281974%29.jpg')"></div>
+                        <div class="player-country">🇳🇱 Holandia</div>
+                        <div class="player-number">#5</div>
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Johan Cruyff</h3>
+                        <span class="player-years">1947–2016</span>
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <span class="stat-value">3x</span>
+                                <span class="stat-label">Złota Piłka</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">3x</span>
+                                <span class="stat-label">Liga Mistrzów</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">1974</span>
+                                <span class="stat-label">Wicemistrz Świata</span>
+                            </div>
+                        </div>
+                        <p class="player-desc">
+                            Symbol "Total Football" – rewolucyjnej filozofii gry, która zmieniła futbol.
+                            Jako piłkarz i trener wywarł ogromny wpływ na historię FC Barcelony i reprezentacji
+                            Holandii. Jego "zwód Cruyffa" do dziś jest uczony młodych adeptów futbolu.
+                            Trzykrotny zdobywca Złotej Piłki.
+                        </p>
+                        <div class="player-achievements">
+                            <span>🏆 3x Złota Piłka (1971, 1973, 1974)</span>
+                            <span>⚽ 3x Mistrz Europy z Ajaxem</span>
+                            <span>💫 Twórca "Total Football"</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zidane -->
+                <div class="player-card reverse">
+                    <div class="player-img-wrapper">
+                        <div class="player-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Zinedine_Zidane_by_Tasnim_News_Agency_%28cropped%29.jpg/800px-Zinedine_Zidane_by_Tasnim_News_Agency_%28cropped%29.jpg')"></div>
+                        <div class="player-country">🇫🇷 Francja</div>
+                        <div class="player-number">#6</div>
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Zinedine Zidane</h3>
+                        <span class="player-years">ur. 1972</span>
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <span class="stat-value">1x</span>
+                                <span class="stat-label">Mistrz Świata</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">1x</span>
+                                <span class="stat-label">Złota Piłka</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">3x</span>
+                                <span class="stat-label">Liga Mistrzów (trener)</span>
+                            </div>
+                        </div>
+                        <p class="player-desc">
+                            Artysta futbolu – jego technika, elegancja i wizja gry były nie z tego świata.
+                            Dwa gole w finale MŚ 1998 zapewniły Francji tytuł. Jego "roulette" (obrót)
+                            i legendarny volej w finale Ligi Mistrzów 2002 na zawsze zapisały się
+                            w historii. Jako trener zdobył 3 Ligę Mistrzów z rzędu z Realem Madryt.
+                        </p>
+                        <div class="player-achievements">
+                            <span>🏆 MŚ 1998, Euro 2000</span>
+                            <span>🌟 Złota Piłka 1998</span>
+                            <span>⚽ 3x LM jako trener (2016–2018)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ronaldinho -->
+                <div class="player-card">
+                    <div class="player-img-wrapper">
+                        <div class="player-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ronaldinho_in_2011.jpg/800px-Ronaldinho_in_2011.jpg')"></div>
+                        <div class="player-country">🇧🇷 Brazylia</div>
+                        <div class="player-number">#7</div>
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Ronaldinho</h3>
+                        <span class="player-years">ur. 1980</span>
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <span class="stat-value">1x</span>
+                                <span class="stat-label">Mistrz Świata</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">1x</span>
+                                <span class="stat-label">Złota Piłka</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">1x</span>
+                                <span class="stat-label">Liga Mistrzów</span>
+                            </div>
+                        </div>
+                        <p class="player-desc">
+                            Piłkarz, który uosabiał radość i magię futbolu. Jego uśmiech i niesamowite
+                            sztuczki techniczne zachwycały fanów na całym świecie. "Elastico", "no-look pass"
+                            i niesamowite free kicki – Ronaldinho bawił się piłką jak nikt inny.
+                            Poprowadził Barcelonę do mistrzostwa Ligi Mistrzów w 2006 roku.
+                        </p>
+                        <div class="player-achievements">
+                            <span>🏆 MŚ 2002</span>
+                            <span>🌟 Złota Piłka 2005</span>
+                            <span>⚽ Liga Mistrzów 2006</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beckenbauer -->
+                <div class="player-card reverse">
+                    <div class="player-img-wrapper">
+                        <div class="player-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Franz_Beckenbauer_%282006%29.jpg/800px-Franz_Beckenbauer_%282006%29.jpg')"></div>
+                        <div class="player-country">🇩🇪 Niemcy</div>
+                        <div class="player-number">#8</div>
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Franz Beckenbauer</h3>
+                        <span class="player-years">1945–2024</span>
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <span class="stat-value">1x</span>
+                                <span class="stat-label">Mistrz Świata</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">2x</span>
+                                <span class="stat-label">Złota Piłka</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">2x</span>
+                                <span class="stat-label">MŚ jako trener</span>
+                            </div>
+                        </div>
+                        <p class="player-desc">
+                            "Der Kaiser" – jeden z najwybitniejszych obrońców i zarazem jeden z nielicznych,
+                            którzy zdobyli Mistrzostwo Świata zarówno jako piłkarz (1974), jak i trener (1990).
+                            Stworzył pozycję "libero" (wolnego obrońcy), rewolucjonizując grę obronną.
+                            Jego elegancja i opanowanie na boisku były legendarne.
+                        </p>
+                        <div class="player-achievements">
+                            <span>🏆 MŚ 1974 (piłkarz), 1990 (trener)</span>
+                            <span>🌟 2x Złota Piłka (1972, 1976)</span>
+                            <span>⚽ 3x Mistrz Europy z Bayernem</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ronaldo Nazário -->
+                <div class="player-card">
+                    <div class="player-img-wrapper">
+                        <div class="player-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Ronaldo_ive.jpg/800px-Ronaldo_ive.jpg')"></div>
+                        <div class="player-country">🇧🇷 Brazylia</div>
+                        <div class="player-number">#9</div>
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Ronaldo Nazário</h3>
+                        <span class="player-years">ur. 1976</span>
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <span class="stat-value">2x</span>
+                                <span class="stat-label">Mistrz Świata</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">2x</span>
+                                <span class="stat-label">Złota Piłka</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">352</span>
+                                <span class="stat-label">Gole w karierze</span>
+                            </div>
+                        </div>
+                        <p class="player-desc">
+                            "Fenomen" – w prime'ie był najlepszym napastnikiem świata. Jego niesamowita
+                            szybkość, drybling i wykończenie były nie do zatrzymania. Po dwóch poważnych
+                            kontuzjach kolana wrócił do gry i poprowadził Brazylię do piątego mistrzostwa
+                            świata w 2002 roku, zdobywając 8 goli w turnieju.
+                        </p>
+                        <div class="player-achievements">
+                            <span>🏆 MŚ 1994, 2002</span>
+                            <span>🌟 2x Złota Piłka (1997, 2002)</span>
+                            <span>⚽ Król Strzelców MŚ 2002 (8 goli)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Di Stéfano -->
+                <div class="player-card reverse">
+                    <div class="player-img-wrapper">
+                        <div class="player-img" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Alfredo_Di_St%C3%A9fano_1958.jpg/800px-Alfredo_Di_St%C3%A9fano_1958.jpg')"></div>
+                        <div class="player-country">🇦🇷 Argentyna / 🇪🇸 Hiszpania</div>
+                        <div class="player-number">#10</div>
+                    </div>
+                    <div class="player-info">
+                        <h3 class="player-name">Alfredo Di Stéfano</h3>
+                        <span class="player-years">1926–2014</span>
+                        <div class="player-stats">
+                            <div class="player-stat">
+                                <span class="stat-value">5x</span>
+                                <span class="stat-label">Mistrz Europy</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">2x</span>
+                                <span class="stat-label">Złota Piłka</span>
+                            </div>
+                            <div class="player-stat">
+                                <span class="stat-value">308</span>
+                                <span class="stat-label">Gole dla Realu</span>
+                            </div>
+                        </div>
+                        <p class="player-desc">
+                            "Saeta Rubia" (Blond Strzała) – legenda Realu Madryt, który zdominował europejską
+                            piłkę w latach 50. Zdobył 5 Pucharów Europy z rzędu z Realem Madryt (1956–1960).
+                            Uznawany za jednego z najbardziej kompletnych piłkarzy w historii – potrafił grać
+                            na każdej pozycji na boisku.
+                        </p>
+                        <div class="player-achievements">
+                            <span>🏆 5x Puchar Europy z rzędu</span>
+                            <span>🌟 2x Złota Piłka (1957, 1959)</span>
+                            <span>⚽ 8x Mistrz Hiszpanii</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- RODZAJE -->
-    <section id="rodzaje" class="scroll-section alt-bg">
+    <!-- ===== OSIĄGNIĘCIA ===== -->
+    <section id="osiagniecia" class="section alt-bg">
         <div class="container">
             <div class="section-header">
                 <span class="section-number">02</span>
-                <h2 class="section-title">🔬 Rodzaje Kupy</h2>
-                <p class="section-subtitle">Skala Bristolu – naukowa klasyfikacja konsystencji stolca</p>
+                <h2 class="section-title">📊 Porównanie Osiągnięć</h2>
+                <p class="section-subtitle">Statystyki najlepszych z najlepszych</p>
             </div>
-            <div class="cards-grid">
-                <div class="card">
-                    <div class="card-icon">⚪</div>
-                    <h3 class="card-title">Typ 1 – Orzeszki</h3>
-                    <div class="card-tag">Zaparcia</div>
-                    <p class="card-desc">
-                        Twarde, oddzielne grudki, przypominające orzechy. Trudne do wydalenia – oznaka
-                        silnych zaparć i odwodnienia organizmu.
-                    </p>
-                    <div class="card-stats">
-                        <span>💩◐◐◐◐</span>
-                        <span class="card-stats-label">Wilgotność</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🥜</div>
-                    <h3 class="card-title">Typ 2 – Kiełbaska</h3>
-                    <div class="card-tag card-tag-energy">Lekkie zaparcia</div>
-                    <p class="card-desc">
-                        Kształt przypominający kiełbasę, ale zbity i grudkowaty. Wskazuje na
-                        lekkie zaparcia i niewystarczającą ilość błonnika w diecie.
-                    </p>
-                    <div class="card-stats">
-                        <span>💩💩◐◐◐</span>
-                        <span class="card-stats-label">Konsystencja</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🌭</div>
-                    <h3 class="card-title">Typ 3 – Z pęknięciami</h3>
-                    <div class="card-tag card-tag-rare">Optymalny</div>
-                    <p class="card-desc">
-                        Kształt kiełbaski z widocznymi pęknięciami na powierzchni.
-                        Uważany za <strong>idealny</strong> – łatwy do wydalenia, dobrze uformowany.
-                    </p>
-                    <div class="card-stats">
-                        <span>💩💩💩◐◐</span>
-                        <span class="card-stats-label">Idealność</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🐍</div>
-                    <h3 class="card-title">Typ 4 – Gładka</h3>
-                    <div class="card-tag card-tag-special">Cel</div>
-                    <p class="card-desc">
-                        Gładka, miękka kiełbaska. To <strong>wzór zdrowej kupy</strong>!
-                        Świadczy o zbilansowanej diecie i dobrym nawodnieniu.
-                    </p>
-                    <div class="card-stats">
-                        <span>💩💩💩💩◐</span>
-                        <span class="card-stats-label">Zdrowie</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🍦</div>
-                    <h3 class="card-title">Typ 5 – Miękkie grudki</h3>
-                    <div class="card-tag">Biegunka lekka</div>
-                    <p class="card-desc">
-                        Miękkie, wyraźne grudki o ostrych krawędziach. Może wskazywać na
-                        lekką biegunkę lub nadmiar błonnika.
-                    </p>
-                    <div class="card-stats">
-                        <span>💩💩💩💩💩</span>
-                        <span class="card-stats-label">Płynność</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-icon">💧</div>
-                    <h3 class="card-title">Typ 6 – Papkowata</h3>
-                    <div class="card-tag card-tag-energy">Biegunka</div>
-                    <p class="card-desc">
-                        Papkowata, nieregularna konsystencja. Oznaka stanu zapalnego
-                        lub infekcji jelitowej – warto skonsultować z lekarzem.
-                    </p>
-                    <div class="card-stats">
-                        <span>💧💧💧💧💧</span>
-                        <span class="card-stats-label">Uwaga</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🌊</div>
-                    <h3 class="card-title">Typ 7 – Wodnista</h3>
-                    <div class="card-tag card-tag-rare">Ostra biegunka</div>
-                    <p class="card-desc">
-                        Całkowicie płynny stolec, bez stałych fragmentów. Wymaga
-                        nawodnienia i natychmiastowej konsultacji medycznej.
-                    </p>
-                    <div class="card-stats">
-                        <span>🌊🌊🌊🌊🌊</span>
-                        <span class="card-stats-label">Niebezpieczeństwo</span>
-                    </div>
-                </div>
+
+            <div class="stats-table-wrapper">
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th>Piłkarz</th>
+                            <th>Złota Piłka</th>
+                            <th>MŚ</th>
+                            <th>LM/Puchar Europy</th>
+                            <th>Gole (klub+rep.)</th>
+                            <th>Lata aktywności</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pelé</strong> 🇧🇷</td>
+                            <td>—</td>
+                            <td>3 🏆</td>
+                            <td>2</td>
+                            <td>767</td>
+                            <td>1956–1977</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Maradona</strong> 🇦🇷</td>
+                            <td>—</td>
+                            <td>1 🏆</td>
+                            <td>1</td>
+                            <td>345</td>
+                            <td>1976–1997</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>Messi</strong> 🇦🇷</td>
+                            <td>8 🏆</td>
+                            <td>1 🏆</td>
+                            <td>4</td>
+                            <td>850+</td>
+                            <td>2004–</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C. Ronaldo</strong> 🇵🇹</td>
+                            <td>5 🏆</td>
+                            <td>—</td>
+                            <td>5</td>
+                            <td>900+</td>
+                            <td>2002–</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cruyff</strong> 🇳🇱</td>
+                            <td>3 🏆</td>
+                            <td>—</td>
+                            <td>3</td>
+                            <td>400</td>
+                            <td>1964–1984</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Zidane</strong> 🇫🇷</td>
+                            <td>1 🏆</td>
+                            <td>1 🏆</td>
+                            <td>1</td>
+                            <td>156</td>
+                            <td>1988–2006</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ronaldinho</strong> 🇧🇷</td>
+                            <td>1 🏆</td>
+                            <td>1 🏆</td>
+                            <td>1</td>
+                            <td>301</td>
+                            <td>1998–2015</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Beckenbauer</strong> 🇩🇪</td>
+                            <td>2 🏆</td>
+                            <td>1 🏆</td>
+                            <td>3</td>
+                            <td>104</td>
+                            <td>1964–1983</td>
+                        </tr>
+                        <tr>
+                            <td><strong>R. Nazário</strong> 🇧🇷</td>
+                            <td>2 🏆</td>
+                            <td>2 🏆</td>
+                            <td>—</td>
+                            <td>414</td>
+                            <td>1993–2011</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Di Stéfano</strong> 🇦🇷/🇪🇸</td>
+                            <td>2 🏆</td>
+                            <td>—</td>
+                            <td>5 🏆</td>
+                            <td>513</td>
+                            <td>1945–1966</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+            <p class="table-note">* Stan na 2025 rok. 🏆 = rekord lub wyróżnienie w danej kategorii.</p>
         </div>
     </section>
 
-    <!-- SYTUACJE (dawniej PRZEPISY) -->
-    <section id="przepisy" class="scroll-section">
+    <!-- ===== CYTATY ===== -->
+    <section id="cytaty" class="section">
         <div class="container">
             <div class="section-header">
                 <span class="section-number">03</span>
-                <h2 class="section-title">🚽 Sytuacje KUPowe</h2>
-                <p class="section-subtitle">Każdy to zna – zabawne i krępujące momenty z życia</p>
+                <h2 class="section-title">💬 Nieśmiertelne Cytaty</h2>
+                <p class="section-subtitle">Słowa, które przeszły do historii futbolu</p>
             </div>
-            <div class="drinks-grid">
-                <div class="drink-card">
-                    <div class="drink-icon-wrapper">
-                        <span class="drink-icon">🚽</span>
-                        <span class="drink-badge">Klasyk</span>
-                    </div>
-                    <h3 class="drink-title">Toaleta publiczna</h3>
-                    <p class="drink-desc">Sytuacja, gdy musisz iść, ale jedyna dostępna toaleta jest brudna, a obok ktoś głośno rozmawia przez telefon.</p>
-                    <div class="drink-meta">
-                        <span>😬 Stres</span>
-                        <span>🔇 Cicho!</span>
+
+            <div class="quotes-grid">
+                <div class="quote-card">
+                    <p class="quote-text">"Futbol to jest taka gra, w której dwie drużyny grają 90 minut i na końcu zawsze wygrywają Niemcy."</p>
+                    <div class="quote-author">
+                        <span class="quote-name">Gary Lineker</span>
+                        <span class="quote-role">Angielski napastnik</span>
                     </div>
                 </div>
-                <div class="drink-card">
-                    <div class="drink-icon-wrapper">
-                        <span class="drink-icon drink-icon-cream">🏪</span>
-                        <span class="drink-badge">Awaryjna</span>
-                    </div>
-                    <h3 class="drink-title">Przyjaciół prosisz</h3>
-                    <p class="drink-desc">Jesteś w sklepie, nagle czujesz to w brzuchu. Dzwonisz do przyjaciela: "Stary, mam awarię, ratuj!"</p>
-                    <div class="drink-meta">
-                        <span>📞 Panika</span>
-                        <span>🏃 Sprint</span>
+
+                <div class="quote-card">
+                    <p class="quote-text">"Im bardziej się staram, tym więcej szczęścia mam."</p>
+                    <div class="quote-author">
+                        <span class="quote-name">Pelé</span>
+                        <span class="quote-role">Król Futbolu</span>
                     </div>
                 </div>
-                <div class="drink-card">
-                    <div class="drink-icon-wrapper">
-                        <span class="drink-icon drink-icon-milk">🏠</span>
-                        <span class="drink-badge">Własna</span>
-                    </div>
-                    <h3 class="drink-title">Domowy azyl</h3>
-                    <p class="drink-desc">Własna toaleta, wygodny fotel, telefon w dłoni. Nikt nie przeszkadza. Kwintesencja komfortu.</p>
-                    <div class="drink-meta">
-                        <span>😌 Relaks</span>
-                        <span>📱 15 min</span>
+
+                <div class="quote-card">
+                    <p class="quote-text">"Gra w piłkę nożną jest prosta, ale grać prostą piłkę nożną jest najtrudniej."</p>
+                    <div class="quote-author">
+                        <span class="quote-name">Johan Cruyff</span>
+                        <span class="quote-role">Legenda Holandii</span>
                     </div>
                 </div>
-                <div class="drink-card">
-                    <div class="drink-icon-wrapper">
-                        <span class="drink-icon drink-icon-water">🚗</span>
-                        <span class="drink-badge">Awaryjna</span>
-                    </div>
-                    <h3 class="drink-title">Korek na autostradzie</h3>
-                    <p class="drink-desc">Stoisz w korku, a twoje jelita mówią "teraz albo nigdy". Szukasz dzikiej roślinności przy drodze.</p>
-                    <div class="drink-meta">
-                        <span>😰 Panika</span>
-                        <span>🌿 Las</span>
+
+                <div class="quote-card">
+                    <p class="quote-text">"Widzę piłkę, widzę bramkę. Chcę zdobyć gola. To jest moja filozofia."</p>
+                    <div class="quote-author">
+                        <span class="quote-name">Cristiano Ronaldo</span>
+                        <span class="quote-role">Portugalski fenomen</span>
                     </div>
                 </div>
-                <div class="drink-card">
-                    <div class="drink-icon-wrapper">
-                        <span class="drink-icon drink-icon-flat">🏕️</span>
-                        <span class="drink-badge">Survival</span>
-                    </div>
-                    <h3 class="drink-title">Kupa na biwaku</h3>
-                    <p class="drink-desc">Kemping, noc, trzeba załatwić potrzebę. Kopiesz dołek, rozglądasz się czy ktoś nie patrzy.</p>
-                    <div class="drink-meta">
-                        <span>🌙 Noc</span>
-                        <span>🕳️ Dołek</span>
+
+                <div class="quote-card">
+                    <p class="quote-text">"Piłka nożna to gra o szacunek. Jeśli traktujesz innych z szacunkiem, oni odwdzięczą ci się tym samym."</p>
+                    <div class="quote-author">
+                        <span class="quote-name">Lionel Messi</span>
+                        <span class="quote-role">Argentyński magik</span>
                     </div>
                 </div>
-                <div class="drink-card">
-                    <div class="drink-icon-wrapper">
-                        <span class="drink-icon drink-icon-choco">🐕</span>
-                        <span class="drink-badge">Psia</span>
+
+                <div class="quote-card">
+                    <p class="quote-text">"Piłka jest jak narkotyk – raz spróbujesz i już nie możesz przestać."</p>
+                    <div class="quote-author">
+                        <span class="quote-name">Diego Maradona</span>
+                        <span class="quote-role">Bóg futbolu</span>
                     </div>
-                    <h3 class="drink-title">Sprzątanie po psie</h3>
-                    <p class="drink-desc">Spacer z psem, on robi kupę, a ty z workiem schylasz się pod okiem przechodniów. Człowieku, weź worek!</p>
-                    <div class="drink-meta">
-                        <span>🦮 Pies</span>
-                        <span>🛍️ worek</span>
+                </div>
+
+                <div class="quote-card">
+                    <p class="quote-text">"Kiedy byłem mały, myślałem, że piłka nożna to tylko gra. Teraz wiem, że to coś więcej – to życie."</p>
+                    <div class="quote-author">
+                        <span class="quote-name">Zinedine Zidane</span>
+                        <span class="quote-role">Francuski artysta</span>
+                    </div>
+                </div>
+
+                <div class="quote-card">
+                    <p class="quote-text">"Piłka nożna to nie tylko sport, to pasja, która łączy ludzi na całym świecie."</p>
+                    <div class="quote-author">
+                        <span class="quote-name">Ronaldinho</span>
+                        <span class="quote-role">Brazylijski czarodziej</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CIEKAWOSTKI -->
-    <section id="ciekawostki" class="scroll-section alt-bg">
+    <!-- ===== RANKING ===== -->
+    <section id="ranking" class="section alt-bg">
         <div class="container">
             <div class="section-header">
                 <span class="section-number">04</span>
-                <h2 class="section-title">💡 Ciekawostki o Kupie</h2>
-                <p class="section-subtitle">Zaskakujące fakty, które musisz poznać</p>
+                <h2 class="section-title">🏅 Ranking Legend</h2>
+                <p class="section-subtitle">Subiektywny ranking Top 10 najlepszych piłkarzy w historii</p>
             </div>
-            <div class="facts-grid">
-                <div class="fact-card">
-                    <div class="fact-number">1</div>
-                    <p>Przeciętny człowiek produkuje ok. <strong>400 g</strong> kupy dziennie – to około 150 kg rocznie!</p>
+
+            <div class="ranking-list">
+                <div class="ranking-item" style="--rank-color: #ffd700;">
+                    <div class="rank-number">1</div>
+                    <div class="rank-medal">🥇</div>
+                    <div class="rank-info">
+                        <h4>Lionel Messi</h4>
+                        <span>🇦🇷 Argentyna | 8x Złota Piłka | MŚ 2022</span>
+                    </div>
+                    <div class="rank-rating">10/10</div>
                 </div>
-                <div class="fact-card">
-                    <div class="fact-number">2</div>
-                    <p>Kupa w <strong>80%</strong> składa się z wody. Reszta to martwe bakterie, błonnik i niestrawione resztki jedzenia.</p>
+
+                <div class="ranking-item" style="--rank-color: #c0c0c0;">
+                    <div class="rank-number">2</div>
+                    <div class="rank-medal">🥈</div>
+                    <div class="rank-info">
+                        <h4>Cristiano Ronaldo</h4>
+                        <span>🇵🇹 Portugalia | 5x Złota Piłka | Euro 2016</span>
+                    </div>
+                    <div class="rank-rating">9.9/10</div>
                 </div>
-                <div class="fact-card">
-                    <div class="fact-number">3</div>
-                    <p>Największe koprolity (skamieniałe odchody) dinozaurów mają ponad <strong>1 metr</strong> długości!</p>
+
+                <div class="ranking-item" style="--rank-color: #cd7f32;">
+                    <div class="rank-number">3</div>
+                    <div class="rank-medal">🥉</div>
+                    <div class="rank-info">
+                        <h4>Pelé</h4>
+                        <span>🇧🇷 Brazylia | 3x MŚ | Król Futbolu</span>
+                    </div>
+                    <div class="rank-rating">9.8/10</div>
                 </div>
-                <div class="fact-card">
-                    <div class="fact-number">4</div>
-                    <p>W <strong>Japonii</strong> istnieje muzeum kupy – <em>Unko Museum</em> w Jokohamie, które jest w pełni interaktywne.</p>
+
+                <div class="ranking-item">
+                    <div class="rank-number">4</div>
+                    <div class="rank-info">
+                        <h4>Diego Maradona</h4>
+                        <span>🇦🇷 Argentyna | MŚ 1986 | Gol Stulecia</span>
+                    </div>
+                    <div class="rank-rating">9.7/10</div>
                 </div>
-                <div class="fact-card">
-                    <div class="fact-number">5</div>
-                    <p><strong>Kolor</strong> kupy może wiele powiedzieć o zdrowiu: brązowy = zdrowa, czarny = krwawienie, zielony = infekcja.</p>
+
+                <div class="ranking-item">
+                    <div class="rank-number">5</div>
+                    <div class="rank-info">
+                        <h4>Johan Cruyff</h4>
+                        <span>🇳🇱 Holandia | 3x Złota Piłka | Total Football</span>
+                    </div>
+                    <div class="rank-rating">9.5/10</div>
                 </div>
-                <div class="fact-card">
-                    <div class="fact-number">6</div>
-                    <p>Kupa <strong>pandy wielkiej</strong> jest żółta i składa się głównie z niestrawionego bambusa – jedzą go 14 godzin dziennie.</p>
+
+                <div class="ranking-item">
+                    <div class="rank-number">6</div>
+                    <div class="rank-info">
+                        <h4>Zinedine Zidane</h4>
+                        <span>🇫🇷 Francja | MŚ 1998 | Złota Piłka 1998</span>
+                    </div>
+                    <div class="rank-rating">9.4/10</div>
                 </div>
-                <div class="fact-card fact-card-wide">
-                    <div class="fact-number">7</div>
-                    <p><strong>19 listopada</strong> obchodzimy Światowy Dzień Toalet 🚽 – warto docenić dostęp do czystej sanitacji!</p>
+
+                <div class="ranking-item">
+                    <div class="rank-number">7</div>
+                    <div class="rank-info">
+                        <h4>Ronaldo Nazário</h4>
+                        <span>🇧🇷 Brazylia | 2x MŚ | Fenomen</span>
+                    </div>
+                    <div class="rank-rating">9.3/10</div>
+                </div>
+
+                <div class="ranking-item">
+                    <div class="rank-number">8</div>
+                    <div class="rank-info">
+                        <h4>Franz Beckenbauer</h4>
+                        <span>🇩🇪 Niemcy | MŚ 1974 | Der Kaiser</span>
+                    </div>
+                    <div class="rank-rating">9.2/10</div>
+                </div>
+
+                <div class="ranking-item">
+                    <div class="rank-number">9</div>
+                    <div class="rank-info">
+                        <h4>Alfredo Di Stéfano</h4>
+                        <span>🇦🇷/🇪🇸 | 5x Puchar Europy | Legenda Realu</span>
+                    </div>
+                    <div class="rank-rating">9.1/10</div>
+                </div>
+
+                <div class="ranking-item">
+                    <div class="rank-number">10</div>
+                    <div class="rank-info">
+                        <h4>Ronaldinho</h4>
+                        <span>🇧🇷 Brazylia | MŚ 2002 | Złota Piłka 2005</span>
+                    </div>
+                    <div class="rank-rating">9.0/10</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- KONTAKT -->
-    <section id="kontakt" class="scroll-section">
+    <!-- ===== KONTAKT ===== -->
+    <section id="kontakt" class="section">
         <div class="container">
             <div class="section-header">
                 <span class="section-number">05</span>
-                <h2 class="section-title">✉️ Masz pytania o kupę?</h2>
-                <p class="section-subtitle">Napisz do nas – chętnie podzielimy się wiedzą</p>
+                <h2 class="section-title">📬 Kontakt</h2>
+                <p class="section-subtitle">Masz swojego faworyta? Podziel się swoim zdaniem!</p>
             </div>
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <span class="contact-icon">📧</span>
-                        <div>
-                            <strong>E-mail</strong>
-                            <p>kupa@swiatkupy.pl</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📞</span>
-                        <div>
-                            <strong>Telefon</strong>
-                            <p>+48 123 456 789</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📍</span>
-                        <div>
-                            <strong>Adres</strong>
-                            <p>ul. Gówniana 42, 00-001 Warszawa</p>
-                        </div>
-                    </div>
-                    <div class="contact-social">
-                        <span class="contact-social-icon">📘</span>
-                        <span class="contact-social-icon">🐦</span>
-                        <span class="contact-social-icon">📸</span>
-                    </div>
-                </div>
-                <form class="contact-form" onsubmit="event.preventDefault(); alert('Dziękujemy za wiadomość! 💩');">
-                    <input type="text" placeholder="Twoje imię" required />
-                    <input type="email" placeholder="Twój e-mail" required />
-                    <textarea rows="5" placeholder="Twoja wiadomość o kupie..." required></textarea>
-                    <button type="submit">Wyślij wiadomość 💩</button>
-                </form>
+
+            <div class="contact-content">
+                <p class="contact-text">
+                    Każdy fan futbolu ma swojego ulubionego piłkarza. Kto według Ciebie jest
+                    najlepszy w historii? Czy zgadzasz się z naszym rankingiem? Napisz do nas!
+                </p>
+                <a href="mailto:football@legends.com" class="contact-btn">📧 football@legends.com</a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
+    <!-- ===== STOPKA ===== -->
+    <footer class="footer">
         <div class="container footer-content">
-            <div class="footer-brand">
-                <span class="footer-logo">💩 Świat Kupy</span>
-                <p class="footer-desc">Twoje źródło wiedzy o wszystkim, co związane z kupą. Fakty, ciekawostki i humor w jednym.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Mapa strony</h4>
-                <a href="#historia">Historia</a>
-                <a href="#rodzaje">Rodzaje</a>
-                <a href="#przepisy">Sytuacje</a>
-                <a href="#ciekawostki">Ciekawostki</a>
-            </div>
-            <div class="footer-links">
-                <h4>Media społecznościowe</h4>
-                <a href="#">KupaBook</a>
-                <a href="#">InstaGówno</a>
-                <a href="#">KuTwitter</a>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Świat Kupy 💩 – Wszelkie prawa zastrzeżone (nawet te w toalecie).</p>
-                <p class="footer-motto">Pamiętaj – każdy robi kupę. Nawet królowa. 👑💩</p>
+            <div class="footer-emoji">⚽</div>
+            <p class="footer-text">
+                Legendy Światowego Futbolu &copy; 2025 | Strona stworzona z pasji do piłki nożnej
+            </p>
+            <p class="footer-tagline">
+                ⚽🏆🌟 "Piłka nożna to najpiękniejszy sport świata" 🌟🏆⚽
+            </p>
+            <div class="footer-socials">
+                <a href="#" title="Facebook">📘</a>
+                <a href="#" title="Instagram">📸</a>
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="YouTube">▶️</a>
             </div>
         </div>
     </footer>
 
+    <!-- ===== SKRYPTY ===== -->
     <script>
-        /* Nav toggle */
+        /* ===== Nawigacja mobilna ===== */
         function toggleNav() {
-            const toggle = document.querySelector('.nav-toggle');
-            const links = document.querySelector('.nav-links');
-            toggle.classList.toggle('active');
-            links.classList.toggle('open');
+            const nav = document.querySelector('.nav-links');
+            const btn = document.querySelector('.nav-toggle');
+            nav.classList.toggle('active');
+            btn.classList.toggle('active');
         }
 
-        /* Nav scroll */
-        const nav = document.getElementById('navbar');
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', () => {
-            const curr = window.scrollY;
-            if (curr > 80) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-            lastScroll = curr;
+        /* ===== Zamykanie menu po kliknięciu linku ===== */
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+                document.querySelector('.nav-toggle').classList.remove('active');
+            });
         });
 
-        /* Scroll Reveal */
-        const revealElements = document.querySelectorAll('.scroll-section');
+        /* ===== Zmiana navbaru przy scrollu ===== */
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        /* ===== Scroll Reveal ===== */
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.15 });
+        }, observerOptions);
 
-        revealElements.forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(40px)';
-            el.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+        document.querySelectorAll('.player-card, .quote-card, .ranking-item, .section-header').forEach(el => {
+            el.classList.add('reveal');
             observer.observe(el);
         });
+
+        /* ===== Gładkie przewijanie ===== */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
     </script>
+
 </body>
 </html>
