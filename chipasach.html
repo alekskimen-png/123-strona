@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chipsy - Chrupiący Świat Przekąsek 🥔</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* ===== CHIPSY - DODATKOWE STYLE ===== */
+        :root {
+            --chips-yellow: #eab308;
+            --chips-orange: #f97316;
+            --chips-red: #ef4444;
+            --chips-salt: #e2e8f0;
+            --chips-green: #22c55e;
+            --gradient-chips: linear-gradient(135deg, #eab308, #f97316, #ef4444);
+            --gradient-crunch: linear-gradient(135deg, #f97316, #eab308, #22c55e);
+        }
+
+        /* Hero */
+        .chips-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 2rem 6rem;
+            background: linear-gradient(135deg, #0a0e1a 0%, #0f172a 30%, #1a2235 60%, #0f172a 100%);
+        }
+
+        .chips-hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(234, 179, 8, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(249, 115, 22, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(239, 68, 68, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .chips-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .chips-hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(234, 179, 8, 0.1);
+            border: 1px solid rgba(234, 179, 8, 0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--chips-yellow);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .chips-hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #eab308 0%, #f97316 40%, #ef4444 70%, #f1f5f9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .chips-hero-subinfo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .chips-subinfo-dot {
+            color: var(--chips-orange);
+            font-weight: 700;
+        }
+
+        .chips-hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .chips-hero-decoration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Floating elements */
+        .chips-float-container {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .chips-float {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.12;
+            animation: heroFloat 18s infinite ease-in-out;
+        }
+
+        .chips-float:nth-child(1) { top: 8%; left: 8%; animation-delay: 0s; font-size: 2.5rem; }
+        .chips-float:nth-child(2) { top: 15%; right: 12%; animation-delay: 2.5s; font-size: 3.2rem; }
+        .chips-float:nth-child(3) { bottom: 12%; left: 15%; animation-delay: 5s; font-size: 2rem; }
+        .chips-float:nth-child(4) { bottom: 20%; right: 10%; animation-delay: 1.5s; font-size: 2.8rem; }
+        .chips-float:nth-child(5) { top: 45%; left: 4%; animation-delay: 3.5s; font-size: 3.5rem; }
+        .chips-float:nth-child(6) { top: 55%; right: 4%; animation-delay: 4.5s; font-size: 2.2rem; }
+        .chips-float:nth-child(7) { top: 25%; left: 50%; animation-delay: 6s; font-size: 2rem; }
+        .chips-float:nth-child(8) { top: 70%; left: 30%; animation-delay: 7s; font-size: 1.8rem; }
+
+        /* Chips cards grid */
+        .chips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .chips-card {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chips-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-chips);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .chips-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(234, 179, 8, 0.2);
+            box-shadow: var(--shadow-lg);
+            background: var(--bg-card-hover);
+        }
+
+        .chips-card:hover::before {
+            opacity: 1;
+        }
+
+        .chips-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .chips-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .chips-card .chips-card-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .chips-card .chips-card-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(234, 179, 8, 0.1);
+            color: var(--chips-yellow);
+            border: 1px solid rgba(234, 179, 8, 0.2);
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .chips-card .chips-card-tag.green {
+            background: rgba(34, 197, 94, 0.1);
+            color: var(--chips-green);
+            border-color: rgba(34, 197, 94, 0.2);
+        }
+
+        .chips-card .chips-card-tag.red {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--chips-red);
+            border-color: rgba(239, 68, 68, 0.2);
+        }
+
+        .chips-card .chips-card-tag.orange {
+            background: rgba(249, 115, 22, 0.1);
+            color: var(--chips-orange);
+            border-color: rgba(249, 115, 22, 0.2);
+        }
+
+        /* Ranking table */
+        .chips-ranking {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 0.5rem;
+        }
+
+        .chips-ranking thead th {
+            text-align: left;
+            padding: 1rem 1.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .chips-ranking tbody tr {
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .chips-ranking tbody tr:hover {
+            background: var(--bg-card-hover);
+            transform: scale(1.01);
+        }
+
+        .chips-ranking tbody td {
+            padding: 1.2rem 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .chips-ranking tbody td:first-child {
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--chips-yellow);
+        }
+
+        .chips-ranking tbody td:last-child {
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        .chips-ranking .rank-name {
+            font-weight: 600;
+            color: white;
+        }
+
+        .chips-ranking .rank-stars {
+            color: var(--chips-yellow);
+            letter-spacing: 2px;
+        }
+
+        /* Fun facts */
+        .chips-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .chips-fact {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .chips-fact:hover {
+            transform: translateY(-5px);
+            border-color: rgba(234, 179, 8, 0.2);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .chips-fact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .chips-fact h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .chips-fact p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Flavor showcase */
+        .flavor-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .flavor-item {
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .flavor-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(249, 115, 22, 0.2);
+            box-shadow: var(--shadow-lg);
+            background: var(--bg-card-hover);
+        }
+
+        .flavor-item .flavor-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .flavor-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+
+        .flavor-item .flavor-brand {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-10px) rotate(-3deg); }
+            75% { transform: translateY(-30px) rotate(4deg); }
+        }
+
+        @media (max-width: 768px) {
+            .chips-ranking thead {
+                display: none;
+            }
+            .chips-ranking tbody tr {
+                display: block;
+                margin-bottom: 1rem;
+                padding: 1rem;
+            }
+            .chips-ranking tbody td {
+                display: block;
+                padding: 0.25rem 0;
+                border-radius: 0 !important;
+            }
+            .chips-ranking tbody td::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--text-muted);
+                display: inline-block;
+                width: 100px;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            .chips-ranking tbody td:first-child {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAGŁÓWEK ===== -->
+    <header class="chips-hero">
+        <div class="chips-hero-bg"></div>
+        <div class="container chips-hero-content">
+            <span class="chips-hero-badge">🥔 CHRUPIĄCA PRZYGODA</span>
+            <h1 class="chips-hero-title">Świat<br/>Chipsów</h1>
+            <div class="chips-hero-subinfo">
+                <span>🥔 Ziemniaki</span>
+                <span class="chips-subinfo-dot">•</span>
+                <span>🧂 Sól</span>
+                <span class="chips-subinfo-dot">•</span>
+                <span>🔥 Olej</span>
+                <span class="chips-subinfo-dot">•</span>
+                <span>✨ Smak</span>
+            </div>
+            <p class="chips-hero-subtitle">
+                Chrupiące, złociste, uzależniające. Chipsy to jedna z najpopularniejszych przekąsek na świecie.
+                Od prostych ziemniaczanych plasterków po egzotyczne smaki – poznaj ich fascynujący świat!
+            </p>
+            <div class="chips-hero-decoration">
+                <span class="deco-line"></span>
+                <span class="deco-dot">✦</span>
+                <span class="deco-line"></span>
+            </div>
+            <a href="#chipsy" class="hero-cta">Poznaj chipsy ↓</a>
+        </div>
+        <div class="chips-float-container">
+            <span class="chips-float">🥔</span>
+            <span class="chips-float">🧂</span>
+            <span class="chips-float">🔥</span>
+            <span class="chips-float">🍟</span>
+            <span class="chips-float">🥨</span>
+            <span class="chips-float">🌶️</span>
+            <span class="chips-float">🧀</span>
+            <span class="chips-float">🥑</span>
+        </div>
+    </header>
+
+    <!-- ===== NAVIGACJA ===== -->
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">🥔 Chipsy World</a>
+            <ul class="nav-links">
+                <li><a href="#chipsy">Chipsy</a></li>
+                <li><a href="#historia">Historia</a></li>
+                <li><a href="#ranking">Ranking</a></li>
+                <li><a href="#smaki">Smaki</a></li>
+                <li><a href="#fakty">Fakty</a></li>
+                <li><a href="index.html" style="color: var(--accent-gold); font-weight: 700;">⚽ Futbol</a></li>
+                <li><a href="ciasta.html" style="color: #f472b6; font-weight: 700;">🍰 Ciasta</a></li>
+                <li><a href="gnojnik.html" style="color: var(--accent-green); font-weight: 700;">🍄 Gnojnik</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Menu" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== CHIPSY ===== -->
+    <section id="chipsy" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">🥔 Rodzaje Chipsów</h2>
+                <p class="section-subtitle">Każdy znajdzie coś dla siebie – od klasyki po egzotykę</p>
+            </div>
+
+            <div class="chips-grid">
+
+                <div class="chips-card">
+                    <div class="chips-card-icon">🥔</div>
+                    <h3>Chipsy Ziemniaczane Klasyczne</h3>
+                    <p class="chips-card-desc">
+                        Cienko krojone ziemniaki smażone w głębokim oleju. Najpopularniejszy rodzaj chipsów.
+                        Solone lub z dodatkami – podstawa każdej imprezy.
+                    </p>
+                    <div>
+                        <span class="chips-card-tag">Klasyka</span>
+                        <span class="chips-card-tag green">Sól</span>
+                        <span class="chips-card-tag">Chrupiące</span>
+                    </div>
+                </div>
+
+                <div class="chips-card">
+                    <div class="chips-card-icon">🥨</div>
+                    <h3>Chipsy Pofalowane (Crinkle Cut)</h3>
+                    <p class="chips-card-desc">
+                        Grubsze, pofalowane plasterki ziemniaka. Mają więcej tekstury i lepiej trzymają
+                        sosy oraz dipy. Idealne do barbecue i serowych dodatków.
+                    </p>
+                    <div>
+                        <span class="chips-card-tag orange">Grube</span>
+                        <span class="chips-card-tag">Falowane</span>
+                        <span class="chips-card-tag red">Do dipu</span>
+                    </div>
+                </div>
+
+                <div class="chips-card">
+                    <div class="chips-card-icon">🔥</div>
+                    <h3>Chipsy Pikantne</h3>
+                    <p class="chips-card-desc">
+                        Dla odważnych! Chipsy z dodatkiem chili, papryczki jalapeño, habanero
+                        lub ghost pepper. Im ostrzej, tym lepiej!
+                    </p>
+                    <div>
+                        <span class="chips-card-tag red">Ostre</span>
+                        <span class="chips-card-tag orange">Chili</span>
+                        <span class="chips-card-tag">🔥 Habanero</span>
+                    </div>
+                </div>
+
+                <div class="chips-card">
+                    <div class="chips-card-icon">🧀</div>
+                    <h3>Chipsy Serowe</h3>
+                    <p class="chips-card-desc">
+                        Posypane serem cheddar, parmezanem lub mieszanką serów. Często wzbogacone
+                        o cebulę lub śmietanę. Doskonałe do oglądania filmów.
+                    </p>
+                    <div>
+                        <span class="chips-card-tag">Ser</span>
+                        <span class="chips-card-tag green">Cheddar</span>
+                        <span class="chips-card-tag">Śmietana</span>
+                    </div>
+                </div>
+
+                <div class="chips-card">
+                    <div class="chips-card-icon">🌿</div>
+                    <h3>Chipsy Warzywne</h3>
+                    <p class="chips-card-desc">
+                        Alternatywa dla tradycyjnych chipsów. Robione z batatów, buraków, marchwi,
+                        jarmużu czy pietruszki. Często pieczone, nie smażone.
+                    </p>
+                    <div>
+                        <span class="chips-card-tag green">Zdrowe</span>
+                        <span class="chips-card-tag">Batat</span>
+                        <span class="chips-card-tag">Pieczone</span>
+                    </div>
+                </div>
+
+                <div class="chips-card">
+                    <div class="chips-card-icon">🌽</div>
+                    <h3>Chipsy Kukurydziane (Tortilla)</h3>
+                    <p class="chips-card-desc">
+                        Z mąki kukurydzianej, często w kształcie trójkątów. Podstawa kuchni meksykańskiej –
+                        doskonałe z guacamole, salsą lub serem nacho.
+                    </p>
+                    <div>
+                        <span class="chips-card-tag orange">Kukurydza</span>
+                        <span class="chips-card-tag red">Nachos</span>
+                        <span class="chips-card-tag green">Guacamole</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HISTORIA ===== -->
+    <section id="historia" class="section alt-bg">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">📖 Historia Chipsów</h2>
+                <p class="section-subtitle">Jak powstała najpopularniejsza przekąska świata?</p>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+
+                <div style="background: var(--bg-card); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 2.5rem; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--gradient-chips);"></div>
+
+                    <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                        <div style="background: rgba(234, 179, 8, 0.1); border-radius: var(--radius-sm); padding: 0.75rem 1.25rem; text-align: center; min-width: 80px;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: var(--chips-yellow);">1853</div>
+                            <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Rok</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">Legenda o złym humorze</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                                Historia chipsów sięga 1853 roku, kiedy to George Crum, szef kuchni w restauracji
+                                Moon's Lake House w Saratoga Springs w stanie Nowy Jork, miał dość klienta,
+                                który ciągle zwracał mu ziemniaki jako zbyt grubo pokrojone.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.5rem; flex-wrap: wrap;">
+                        <div style="background: rgba(249, 115, 22, 0.1); border-radius: var(--radius-sm); padding: 0.75rem 1.25rem; text-align: center; min-width: 80px;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: var(--chips-orange);">⚡</div>
+                            <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Akcja</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">Zemsta szefa kuchni</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                                Zdenerwowany Crum pokroił ziemniaki na cieniutkie plasterki, usmażył je na chrupko
+                                i obficie posolił – myśląc, że klient na pewno je odrzuci. Ku jego zdziwieniu,
+                                klient był zachwycony! Tak narodziły się "Saratoga Chips".
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; align-items: flex-start; flex-wrap: wrap;">
+                        <div style="background: rgba(34, 197, 94, 0.1); border-radius: var(--radius-sm); padding: 0.75rem 1.25rem; text-align: center; min-width: 80px;">
+                            <div style="font-size: 1.5rem; font-weight: 800; color: var(--chips-green);">📦</div>
+                            <div style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Dziś</div>
+                        </div>
+                        <div style="flex: 1;">
+                            <h3 style="font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: 0.5rem;">Globalny fenomen</h3>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7;">
+                                Dziś chipsy są sprzedawane w każdym zakątku świata. W Polsce króluje marka Lay's,
+                                a także lokalne marki jak Chipsy Beskidzkie. Rynek chipsów jest wart miliardy dolarów,
+                                a liczba smaków przekracza ludzką wyobraźnię!
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RANKING ===== -->
+    <section id="ranking" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">🏆 Ranking Najlepszych Chipsów</h2>
+                <p class="section-subtitle">Subiektywny ranking najlepszych chipsów dostępnych w Polsce</p>
+            </div>
+
+            <div style="max-width: 900px; margin: 0 auto; overflow-x: auto;">
+                <table class="chips-ranking">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nazwa</th>
+                            <th>Smak</th>
+                            <th>Ocena</th>
+                            <th>Opis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🥇</td>
+                            <td><span class="rank-name">Lay's Papryka</span></td>
+                            <td>Paprykowe</td>
+                            <td><span class="rank-stars">★★★★★</span></td>
+                            <td>Klasyk polskich podwórek. Idealny balans słoności i papryki.</td>
+                        </tr>
+                        <tr>
+                            <td>🥈</td>
+                            <td><span class="rank-name">Pringles Sour Cream & Onion</span></td>
+                            <td>Śmietana z cebulką</td>
+                            <td><span class="rank-stars">★★★★★</span></td>
+                            <td>Kultowe opakowanie i aksamitny smak. Nie do podrobienia.</td>
+                        </tr>
+                        <tr>
+                            <td>🥉</td>
+                            <td><span class="rank-name">Lay's Strong – Chili & Lime</span></td>
+                            <td>Chili z limonką</td>
+                            <td><span class="rank-stars">★★★★☆</span></td>
+                            <td>Ostry, cytrusowy kop. Dla tych, którzy lubią ostre wrażenia.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><span class="rank-name">Doritos Nacho Cheese</span></td>
+                            <td>Ser nacho</td>
+                            <td><span class="rank-stars">★★★★☆</span></td>
+                            <td>Król imprez. Nie da się zjeść tylko jednego.</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><span class="rank-name">Chipsy Beskidzkie Solone</span></td>
+                            <td>Solone</td>
+                            <td><span class="rank-stars">★★★★☆</span></td>
+                            <td>Polska klasyka. Proste, ale genialne w swojej prostocie.</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><span class="rank-name">Lay's Kraby</span></td>
+                            <td>Krabowe</td>
+                            <td><span class="rank-stars">★★★★☆</span></td>
+                            <td>Kultowe różowe chipsy. Albo je kochasz, albo nienawidzisz.</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td><span class="rank-name">Tyrrells Sea Salt & Cider Vinegar</span></td>
+                            <td>Sól z octem jabłkowym</td>
+                            <td><span class="rank-stars">★★★☆☆</span></td>
+                            <td>Premium. Kwaśne i wytrawne – dla koneserów.</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td><span class="rank-name">Cheetos Flamin' Hot</span></td>
+                            <td>Ostre serowe</td>
+                            <td><span class="rank-stars">★★★★★</span></td>
+                            <td>Uzależniające i diabelsko ostre. Palce będą pomarańczowe.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SMAKI ===== -->
+    <section id="smaki" class="section alt-bg">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">🌍 Najciekawsze Smaki Świata</h2>
+                <p class="section-subtitle">Chipsy mają tysiące smaków – te są najbardziej niezwykłe</p>
+            </div>
+
+            <div class="flavor-gallery">
+
+                <div class="flavor-item">
+                    <div class="flavor-icon">🥒</div>
+                    <h4>Ogórek Konserwowy</h4>
+                    <span class="flavor-brand">Polska, Beskidzkie</span>
+                </div>
+
+                <div class="flavor-item">
+                    <div class="flavor-icon">🍄</div>
+                    <h4>Grzyby Leśne</h4>
+                    <span class="flavor-brand">Polska, regionalne</span>
+                </div>
+
+                <div class="flavor-item">
+                    <div class="flavor-icon">🥓</div>
+                    <h4>Bacon & Maple</h4>
+                    <span class="flavor-brand">USA, Lay's</span>
+                </div>
+
+                <div class="flavor-item">
+                    <div class="flavor-icon">🐙</div>
+                    <h4>Takoyaki (Ośmiornica)</h4>
+                    <span class="flavor-brand">Japonia</span>
+                </div>
+
+                <div class="flavor-item">
+                    <div class="flavor-icon">🍣</div>
+                    <h4>Wasabi & Soy Sauce</h4>
+                    <span class="flavor-brand">Japonia</span>
+                </div>
+
+                <div class="flavor-item">
+                    <div class="flavor-icon">🥭</div>
+                    <h4>Mango Chili</h4>
+                    <span class="flavor-brand">Meksyk</span>
+                </div>
+
+                <div class="flavor-item">
+                    <div class="flavor-icon">🧀</div>
+                    <h4>Poutine</h4>
+                    <span class="flavor-brand">Kanada</span>
+                </div>
+
+                <div class="flavor-item">
+                    <div class="flavor-icon">🍯</div>
+                    <h4>Miód & Musztarda</h4>
+                    <span class="flavor-brand">Niemcy</span>
+                </div>
+
+                <div class="flavor-item">
+                    <div class="flavor-icon">🦐</div>
+                    <h4>Krewetki w Cieście</h4>
+                    <span class="flavor-brand">Tajlandia</span>
+                </div>
+
+                <div class="flavor-item">
+                    <div class="flavor-icon">🍖</div>
+                    <h4>Kebab z Sosem Czosnkowym</h4>
+                    <span class="flavor-brand">Polska, edycje limitowane</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAKTY ===== -->
+    <section id="fakty" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">🧠 Ciekawostki o Chipsach</h2>
+                <p class="section-subtitle">Fakty, które zaskoczą nawet największych fanów</p>
+            </div>
+
+            <div class="chips-facts">
+
+                <div class="chips-fact">
+                    <div class="chips-fact-icon">💰</div>
+                    <h4>Miliardowe imperium</h4>
+                    <p>Globalny rynek chipsów ziemniaczanych jest wart ponad <strong>30 miliardów dolarów</strong> rocznie.</p>
+                </div>
+
+                <div class="chips-fact">
+                    <div class="chips-fact-icon">🥔</div>
+                    <h4>Ziemniaki w liczbach</h4>
+                    <p>Do wyprodukowania jednej torby chipsów (200g) potrzeba około <strong>4-5 ziemniaków</strong>.</p>
+                </div>
+
+                <div class="chips-fact">
+                    <div class="chips-fact-icon">🇵🇱</div>
+                    <h4>Polska miłość do chipsów</h4>
+                    <p>Przeciętny Polak zjada około <strong>3 kg chipsów</strong> rocznie. Najpopularniejszym smakiem jest paprykowy!</p>
+                </div>
+
+                <div class="chips-fact">
+                    <div class="chips-fact-icon">🎨</div>
+                    <h4>Różowe chipsy</h4>
+                    <p>Kultowe chipsy o smaku krabowym (Lay's Kraby) zawdzięczają swój różowy kolor <strong>naturalnemu barwnikowi</strong> z buraka.</p>
+                </div>
+
+                <div class="chips-fact">
+                    <div class="chips-fact-icon">🫧</div>
+                    <h4>Pringles to nie chipsy?</h4>
+                    <p>Pringles składają się tylko w <strong>42% z ziemniaka</strong>. Reszta to mąka pszenna, skrobia i olej. W Europie są klasyfikowane jako "przekąska ziemniaczana", a nie chipsy.</p>
+                </div>
+
+                <div class="chips-fact">
+                    <div class="chips-fact-icon">🏆</div>
+                    <h4>Rekord Guinnessa</h4>
+                    <p>Największe opakowanie chipsów ważyło <strong>1,2 tony</strong> i zostało wyprodukowane w Korei Południowej w 2010 roku.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STOPKA ===== -->
+    <footer style="background: var(--bg-alt); border-top: 1px solid var(--glass-border); padding: 3rem 0; text-align: center;">
+        <div class="container">
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🥔</div>
+            <p style="color: var(--text-muted); font-size: 0.9rem; max-width: 600px; margin: 0 auto 1rem;">
+                Chipsy łączą ludzi. Niezależnie od tego, czy wolisz solone, paprykowe czy śmietanowe –
+                każdy ma swoją ulubioną chrupiącą przekąskę. Smacznego! 🧂
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">
+                <a href="index.html" style="color: var(--accent-gold);">⚽ Football Legends</a>
+                <a href="ciasta.html" style="color: #f472b6;">🍰 Ciasta</a>
+                <a href="gnojnik.html" style="color: var(--accent-green);">🍄 Gnojnik</a>
+                <a href="messsi.html" style="color: var(--accent-cyan);">🐐 Messi</a>
+            </div>
+            <div style="margin-top: 1.5rem; color: var(--text-muted); font-size: 0.75rem;">
+                &copy; 2025 Chipsy World – dedykowane wszystkim, którzy kochają chrupanie
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SKRYPTY ===== -->
+    <script>
+        function toggleNav() {
+            const nav = document.querySelector('.nav-links');
+            nav.classList.toggle('active');
+        }
+
+        // Navbar scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
