@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 import math
 
-# ===== KOLORY (ciemny motyw) =====
+# ===== KOLORY =====
 COLOR_BG = "#1a1a2e"
 COLOR_FRAME = "#16213e"
 COLOR_BUTTON = "#0f3460"
@@ -21,7 +21,7 @@ reset_screen = False
 
 def update_display(value):
     entry_display.delete(0, tk.END)
-    entry_display.insert(tk.END, value)
+    entry_display.insert(0, value)
 
 def click_number(num):
     global reset_screen
@@ -113,193 +113,137 @@ def click_sqrt():
             result = int(result)
         update_display(str(result))
     except ValueError:
-        update_display("Błąd")
+        pass
 
-def click_square():
-    try:
-        val = float(entry_display.get())
-        result = val ** 2
-        if result == int(result):
-            result = int(result)
-        update_display(str(result))
-    except ValueError:
-        update_display("Błąd")
-
-def click_toggle_sign():
+def click_plus_minus():
     try:
         val = float(entry_display.get())
         update_display(str(-val))
     except ValueError:
         pass
 
-def click_power():
-    global first_num, current_op, reset_screen
-    try:
-        first_num = float(entry_display.get())
-        current_op = "^"
-        reset_screen = True
-        label_operation.config(text=f"{first_num} ^")
-    except ValueError:
-        pass
+def on_button_enter(e):
+    e.widget.config(bg=COLOR_BUTTON_HOVER)
 
-def on_enter(e, btn):
-    btn.config(bg=COLOR_BUTTON_HOVER)
+def on_button_leave(e):
+    e.widget.config(bg=COLOR_BUTTON)
 
-def on_leave(e, btn):
-    bg = btn.cget("bg")
-    if bg != COLOR_ACCENT:
-        btn.config(bg=COLOR_BUTTON)
+def on_accent_enter(e):
+    e.widget.config(bg=COLOR_ACCENT)
 
-# ===== GŁÓWNE OKNO =====
+def on_accent_leave(e):
+    e.widget.config(bg=COLOR_ACCENT)
+
+def key_handler(event):
+    key = event.char
+    if key.isdigit() or key == ".":
+        click_number(key)
+    elif key == "+":
+        click_operator("+")
+    elif key == "-":
+        click_operator("-")
+    elif key == "*":
+        click_operator("×")
+    elif key == "/":
+        click_operator("÷")
+    elif key == "^":
+        click_operator("^")
+    elif key == "\r" or key == "=":
+        click_equals()
+    elif key == "\x08":  # Backspace
+        click_backspace()
+    elif key == "\x1b":  # Escape
+        click_clear()
+
+# ===== GUI =====
 root = tk.Tk()
 root.title("Kalkulator")
-root.geometry("380x560")
+root.geometry("340x500")
 root.resizable(False, False)
 root.configure(bg=COLOR_BG)
-root.eval("tk::PlaceWindow . center")
+root.bind("<Key>", key_handler)
 
-# ===== STYL =====
-style = {
-    "bg": COLOR_BUTTON,
-    "fg": COLOR_TEXT,
-    "font": ("Segoe UI", 14, "bold"),
-    "relief": "flat",
-    "bd": 0,
-    "activebackground": COLOR_BUTTON_HOVER,
-    "activeforeground": COLOR_TEXT,
-    "cursor": "hand2",
-}
+# === WYŚWIETLACZ ===
+display_frame = tk.Frame(root, bg=COLOR_BG)
+display_frame.pack(fill="x", padx=15, pady=(20, 5))
 
-style_op = {
-    **style,
-    "bg": COLOR_ACCENT,
-    "activebackground": "#c0392b",
-}
-
-style_func = {
-    **style,
-    "bg": "#0d7377",
-    "activebackground": "#0a5c5e",
-}
-
-# ===== NAGŁÓWEK =====
-header = tk.Frame(root, bg=COLOR_BG)
-header.pack(fill="x", padx=20, pady=(15, 5))
-
-tk.Label(header, text="⚡ KALKULATOR", font=("Segoe UI", 18, "bold"),
-         bg=COLOR_BG, fg=COLOR_ACCENT).pack(anchor="w")
-
-tk.Label(header, text="nowoczesny kalkulator naukowy", font=("Segoe UI", 9),
-         bg=COLOR_BG, fg=COLOR_TEXT_SECONDARY).pack(anchor="w")
-
-# ===== WYŚWIETLACZ =====
-display_frame = tk.Frame(root, bg=COLOR_BG, padx=20, pady=(5, 0))
-display_frame.pack(fill="x")
-
-# Etykieta operacji
 label_operation = tk.Label(display_frame, text="", font=("Segoe UI", 11),
-                           bg=COLOR_FRAME, fg=COLOR_TEXT_SECONDARY, anchor="e",
-                           height=1, padx=15)
-label_operation.pack(fill="x", padx=0, pady=0)
-label_operation.config(bg=COLOR_FRAME)
+                           bg=COLOR_BG, fg=COLOR_TEXT_SECONDARY, anchor="e")
+label_operation.pack(fill="x", pady=(0, 2))
 
-# Pole wyświetlacza
-entry_display = tk.Entry(display_frame, font=("Segoe UI", 28, "bold"),
-                         bg=COLOR_ENTRY_BG, fg=COLOR_TEXT, insertbackground=COLOR_ACCENT,
-                         relief="flat", bd=0, justify="right", padx=15)
-entry_display.pack(fill="x", ipady=12, pady=(0, 0))
+entry_display = tk.Entry(display_frame, font=("Segoe UI", 26, "bold"),
+                         bg=COLOR_ENTRY_BG, fg=COLOR_ENTRY_FG,
+                         bd=0, relief="flat", justify="right",
+                         highlightthickness=0)
+entry_display.pack(fill="x", ipady=12)
 entry_display.insert(0, "0")
 
-# ===== PRZYCISKI =====
-button_frame = tk.Frame(root, bg=COLOR_BG, padx=15, pady=10)
-button_frame.pack(fill="both", expand=True)
+# === PRZYCISKI ===
+btn_frame = tk.Frame(root, bg=COLOR_BG)
+btn_frame.pack(fill="both", expand=True, padx=12, pady=(10, 15))
 
-buttons = [
-    # [tekst, komenda, styl, colspan]
-    ["C", click_clear, style_func, 1],
-    ["⌫", click_backspace, style_func, 1],
-    ["%", click_percent, style_func, 1],
-    ["÷", lambda: click_operator("÷"), style_op, 1],
-    ["7", lambda: click_number(7), style, 1],
-    ["8", lambda: click_number(8), style, 1],
-    ["9", lambda: click_number(9), style, 1],
-    ["×", lambda: click_operator("×"), style_op, 1],
-    ["4", lambda: click_number(4), style, 1],
-    ["5", lambda: click_number(5), style, 1],
-    ["6", lambda: click_number(6), style, 1],
-    ["−", lambda: click_operator("-"), style_op, 1],
-    ["1", lambda: click_number(1), style, 1],
-    ["2", lambda: click_number(2), style, 1],
-    ["3", lambda: click_number(3), style, 1],
-    ["+", lambda: click_operator("+"), style_op, 1],
-    ["±", click_toggle_sign, style_func, 1],
-    ["0", lambda: click_number(0), style, 1],
-    [".", lambda: click_number("."), style, 1],
-    ["=", click_equals, style_op, 1],
-]
-
-# Dodatkowe przyciski naukowe
-science_buttons = [
-    ["√x", click_sqrt, style_func],
-    ["x²", click_square, style_func],
-    ["x^y", click_power, style_func],
-]
-
-# Ramka na przyciski naukowe
-science_frame = tk.Frame(button_frame, bg=COLOR_BG)
-science_frame.grid(row=0, column=0, columnspan=4, sticky="ew", pady=(0, 8))
-for i, (txt, cmd, stl) in enumerate(science_buttons):
-    btn = tk.Button(science_frame, text=txt, command=cmd, **stl)
-    btn.pack(side="left", fill="x", expand=True, padx=2, ipady=6)
-    btn.bind("<Enter>", lambda e, b=btn: on_enter(e, b))
-    btn.bind("<Leave>", lambda e, b=btn: on_leave(e, b))
-
-# Główna siatka przycisków
-for idx, (text, command, btn_style, colspan) in enumerate(buttons):
-    row = (idx // 4) + 1
-    col = idx % 4
-
-    btn = tk.Button(button_frame, text=text, command=command, **btn_style)
-
-    if text == "=":
-        btn.config(bg="#e94560")
-    elif text == "C":
-        btn.config(bg="#c0392b")
-    elif text == "⌫":
-        btn.config(bg="#7f8c8d")
-    elif text == "0":
-        btn.config(bg="#1a5276")
-
-    btn.grid(row=row, column=col, columnspan=colspan,
-             sticky="nsew", padx=3, pady=3, ipady=12)
-
-    btn.bind("<Enter>", lambda e, b=btn: on_enter(e, b))
-    btn.bind("<Leave>", lambda e, b=btn: on_leave(e, b))
-
-# Konfiguracja wag kolumn
+# Konfiguracja siatki
 for i in range(4):
-    button_frame.grid_columnconfigure(i, weight=1, uniform="btn")
+    btn_frame.grid_columnconfigure(i, weight=1, uniform="col")
 
-# ===== SKRÓTY KLAWISZOWE =====
-root.bind("<Return>", lambda e: click_equals())
-root.bind("<BackSpace>", lambda e: click_backspace())
-root.bind("<Escape>", lambda e: click_clear())
-root.bind("<c>", lambda e: click_clear())
-root.bind("<plus>", lambda e: click_operator("+"))
-root.bind("<minus>", lambda e: click_operator("-"))
-root.bind("<asterisk>", lambda e: click_operator("×"))
-root.bind("<slash>", lambda e: click_operator("÷"))
-root.bind("^", lambda e: click_power())
+# (wiersz, kolumna, tekst, komenda, kolor_tła, colspan)
+buttons = [
+    # Wiersz 0
+    ("C", click_clear, COLOR_ACCENT, 1, 0),
+    ("⌫", click_backspace, COLOR_BUTTON, 1, 1),
+    ("%", click_percent, COLOR_BUTTON, 1, 2),
+    ("÷", lambda: click_operator("÷"), COLOR_BUTTON, 1, 3),
+    # Wiersz 1
+    ("7", lambda: click_number("7"), COLOR_BUTTON, 1, 0),
+    ("8", lambda: click_number("8"), COLOR_BUTTON, 1, 1),
+    ("9", lambda: click_number("9"), COLOR_BUTTON, 1, 2),
+    ("×", lambda: click_operator("×"), COLOR_BUTTON, 1, 3),
+    # Wiersz 2
+    ("4", lambda: click_number("4"), COLOR_BUTTON, 1, 0),
+    ("5", lambda: click_number("5"), COLOR_BUTTON, 1, 1),
+    ("6", lambda: click_number("6"), COLOR_BUTTON, 1, 2),
+    ("-", lambda: click_operator("-"), COLOR_BUTTON, 1, 3),
+    # Wiersz 3
+    ("1", lambda: click_number("1"), COLOR_BUTTON, 1, 0),
+    ("2", lambda: click_number("2"), COLOR_BUTTON, 1, 1),
+    ("3", lambda: click_number("3"), COLOR_BUTTON, 1, 2),
+    ("+", lambda: click_operator("+"), COLOR_BUTTON, 1, 3),
+    # Wiersz 4
+    ("±", click_plus_minus, COLOR_BUTTON, 1, 0),
+    ("0", lambda: click_number("0"), COLOR_BUTTON, 1, 1),
+    (".", lambda: click_number("."), COLOR_BUTTON, 1, 2),
+    ("=", click_equals, COLOR_RESULT, 1, 3),
+]
 
-for i in range(10):
-    root.bind(str(i), lambda e, n=i: click_number(n))
-root.bind("<period>", lambda e: click_number("."))
+# Dodaj przyciski z potęgowaniem w dodatkowym wierszu
+extra_buttons = [
+    ("^", lambda: click_operator("^"), COLOR_BUTTON, 1, 0),
+    ("√", click_sqrt, COLOR_BUTTON, 1, 1),
+]
 
-# ===== STOPKA =====
-footer = tk.Frame(root, bg=COLOR_BG)
-footer.pack(fill="x", padx=20, pady=(0, 10))
-tk.Label(footer, text="🧮 klawiatura: cyfry + Enter · Esc · Backspace",
-         font=("Segoe UI", 8), bg=COLOR_BG, fg=COLOR_TEXT_SECONDARY).pack()
+for btn in buttons:
+    text, cmd, color, colspan, row = btn
+    b = tk.Button(btn_frame, text=text, font=("Segoe UI", 14, "bold"),
+                  bg=color, fg=COLOR_TEXT, bd=0, padx=5, pady=8,
+                  activebackground=color, activeforeground=COLOR_TEXT,
+                  cursor="hand2", command=cmd)
+    b.grid(row=row, column=colspan, padx=2, pady=2, sticky="nsew")
 
-# ===== URUCHOMIENIE =====
+# Dodaj przyciski ^ i √ w osobnej ramce poniżej
+extra_frame = tk.Frame(root, bg=COLOR_BG)
+extra_frame.pack(fill="x", padx=12, pady=(0, 15))
+for i in range(4):
+    extra_frame.grid_columnconfigure(i, weight=1, uniform="col")
+
+for text, cmd, color, *pos in extra_buttons:
+    b = tk.Button(extra_frame, text=text, font=("Segoe UI", 12, "bold"),
+                  bg=color, fg=COLOR_TEXT, bd=0, padx=5, pady=6,
+                  activebackground=color, activeforeground=COLOR_TEXT,
+                  cursor="hand2", command=cmd)
+    b.grid(row=0, column=pos[1] if pos else 0, padx=2, pady=2, sticky="nsew")
+
+# Stopka
+tk.Label(root, text="⌨️ Klawiatura: cyfry, +-*/, Enter=, Esc=C, Backspace",
+         font=("Segoe UI", 7), bg=COLOR_BG, fg=COLOR_TEXT_SECONDARY).pack(pady=(0, 8))
+
 root.mainloop()
