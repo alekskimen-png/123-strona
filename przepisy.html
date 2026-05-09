@@ -8,45 +8,39 @@
 </head>
 <body>
     <header>
-        <h1>☕ Świat Kawy</h1>
+        <h1>📖 Przepisy Kawowe</h1>
         <nav>
-            <ul>
-                <li><a href="index.html">Strona Główna</a></li>
-                <li><a href="rodzaje.html">Rodzaje Kawy</a></li>
-                <li><a href="przepisy.html">Przepisy</a></li>
-                <li><a href="ciekawostki.html">Ciekawostki</a></li>
-            </ul>
+            <a href="index.html">Strona Główna</a>
+            <a href="rodzaje.html">Rodzaje Kawy</a>
+            <a href="przepisy.html">Przepisy</a>
+            <a href="ciekawostki.html">Ciekawostki</a>
         </nav>
     </header>
 
     <main>
-        <h2>Przepisy Kawowe</h2>
-        <div class="recipes">
-            <article class="recipe-card">
-                <h3>☕ Espresso</h3>
-                <p><strong>Składniki:</strong> 18-20g kawy mielonej, woda</p>
-                <p><strong>Przygotowanie:</strong> Zmiel kawę, ubij w portafilterze i zaparz przez 25-30 sekund. Idealne espresso ma cremę o złocistym kolorze.</p>
-            </article>
-            <article class="recipe-card">
-                <h3>🥛 Latte</h3>
-                <p><strong>Składniki:</strong> 1 porcja espresso, 200ml mleka</p>
-                <p><strong>Przygotowanie:</strong> Zaparz espresso, spień mleko i wlej do kawy. Możesz ozdobić latte art.</p>
-            </article>
-            <article class="recipe-card">
-                <h3>🧊 Iced Coffee</h3>
-                <p><strong>Składniki:</strong> 2 porcje espresso, lód, 100ml mleka, syrop smakowy</p>
-                <p><strong>Przygotowanie:</strong> Napełnij szklankę lodem, wlej syrop, espresso i mleko. Wymieszaj i podawaj.</p>
-            </article>
-            <article class="recipe-card">
+        <section class="content-list">
+            <div class="item">
                 <h3>🍫 Mocha</h3>
-                <p><strong>Składniki:</strong> 1 porcja espresso, 150ml mleka, 2 łyżki kakao, bita śmietana</p>
-                <p><strong>Przygotowanie:</strong> Wymieszaj kakao z gorącym mlekiem, dodaj espresso. Udekoruj bitą śmietaną.</p>
-            </article>
-        </div>
+                <p>Espresso + gorąca czekolada + spienione mleko + bita śmietana.</p>
+            </div>
+            <div class="item">
+                <h3>🧊 Iced Caramel Latte</h3>
+                <p>Espresso, mleko, lód i syrop karmelowy.</p>
+            </div>
+            <div class="item">
+                <h3>🥃 Irish Coffee</h3>
+                <p>Kawa, whiskey, cukier i bita śmietana.</p>
+            </div>
+            <div class="item">
+                <h3>🌿 Kawa z Cynamonem</h3>
+                <p>Parzona kawa z dodatkiem cynamonu i miodu.</p>
+            </div>
+        </section>
+        <button class="back-btn" onclick="location.href='index.html'">← Powrót</button>
     </main>
 
     <footer>
-        <p>&copy; 2024 Świat Kawy. Wszystkie prawa zastrzeżone.</p>
+        <p>&copy; 2025 Strona o Kawie</p>
     </footer>
 </body>
 </html>
