@@ -3,44 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strona o Kawie</title>
+    <title>TaskFlow - Menedżer Zadań</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>☕ Witaj na stronie o kawie!</h1>
-        <nav>
-            <a href="index.html">Strona Główna</a>
-            <a href="rodzaje.html">Rodzaje Kawy</a>
-            <a href="przepisy.html">Przepisy</a>
-            <a href="ciekawostki.html">Ciekawostki</a>
-        </nav>
-    </header>
-
-    <main>
-        <section class="hero">
-            <h2>Najlepszy napój na świecie</h2>
-            <p>Odkryj fascynujący świat kawy – od ziarna po filiżankę.</p>
-        </section>
-
-        <section class="cards">
-            <div class="card" onclick="location.href='rodzaje.html'">
-                <h3>🫘 Rodzaje Kawy</h3>
-                <p>Poznaj różne odmiany i sposoby parzenia.</p>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <span class="logo-icon">✓</span>
+                <h1>TaskFlow</h1>
             </div>
-            <div class="card" onclick="location.href='przepisy.html'">
-                <h3>📖 Przepisy</h3>
-                <p>Sprawdź nasze ulubione przepisy kawowe.</p>
-            </div>
-            <div class="card" onclick="location.href='ciekawostki.html'">
-                <h3>💡 Ciekawostki</h3>
-                <p>Zaskakujące fakty o kawie.</p>
-            </div>
-        </section>
-    </main>
+            <p class="subtitle">Prosty menedżer zadań z backendem Flask</p>
+        </header>
 
-    <footer>
-        <p>&copy; 2025 Strona o Kawie</p>
-    </footer>
+        <main class="app-main">
+            <section class="add-task-section">
+                <form id="task-form" class="task-form">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="task-input" 
+                            placeholder="Dodaj nowe zadanie..." 
+                            required 
+                            autocomplete="off"
+                            aria-label="Treść zadania"
+                        >
+                        <button type="submit" class="btn btn-primary" aria-label="Dodaj zadanie">
+                            <span class="btn-icon">+</span>
+                            Dodaj
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="tasks-section">
+                <div class="tasks-header">
+                    <h2>Lista zadań</h2>
+                    <span class="tasks-count" id="tasks-count">0</span>
+                </div>
+                
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">Wszystkie</button>
+                    <button class="filter-btn" data-filter="active">Aktywne</button>
+                    <button class="filter-btn" data-filter="completed">Zakończone</button>
+                </div>
+
+                <div id="tasks-list" class="tasks-list" role="list" aria-label="Lista zadań">
+                    <!-- Zadania będą renderowane przez JS -->
+                </div>
+
+                <div id="empty-state" class="empty-state">
+                    <div class="empty-icon">📋</div>
+                    <p class="empty-title">Brak zadań</p>
+                    <p class="empty-desc">Dodaj swoje pierwsze zadanie powyżej!</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>TaskFlow &copy; 2024 &mdash; Zbudowane z Flask &amp; Vanilla JS</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
