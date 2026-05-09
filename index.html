@@ -4,193 +4,396 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Świat Kawy ☕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
     <!-- HEADER -->
     <header>
+        <div class="header-bg"></div>
         <div class="container header-content">
-            <h1>☕ Świat Kawy</h1>
-            <p class="subtitle">Odkryj magię ulubionego napoju świata</p>
+            <span class="header-badge">☕ Odkryj smak</span>
+            <h1 class="header-title">Świat Kawy</h1>
+            <p class="header-subtitle">Podróż przez aromat, historię i pasję</p>
+            <div class="header-decoration">
+                <span class="deco-line"></span>
+                <span class="deco-dot">✦</span>
+                <span class="deco-line"></span>
+            </div>
+            <a href="#historia" class="header-cta">Poznaj więcej ↓</a>
         </div>
     </header>
 
     <!-- NAVIGATION -->
-    <nav>
-        <div class="container">
-            <ul>
+    <nav id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">☕ Świat Kawy</a>
+            <ul class="nav-links">
                 <li><a href="#historia">Historia</a></li>
                 <li><a href="#rodzaje">Rodzaje</a></li>
                 <li><a href="#przepisy">Przepisy</a></li>
                 <li><a href="#ciekawostki">Ciekawostki</a></li>
                 <li><a href="#kontakt">Kontakt</a></li>
             </ul>
+            <button class="nav-toggle" aria-label="Menu" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
     <!-- HERO -->
     <section id="hero">
-        <div class="container hero-text">
-            <h2>Kawa – energia i pasja w każdej filiżance</h2>
-            <p>Poznaj historię, rodzaje i sekrety parzenia kawy.</p>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="hero-badge">✦ Energia i pasja</span>
+            <h2 class="hero-title">Kawa to nie tylko napój</h2>
+            <p class="hero-desc">To rytuał, chwila zatrzymania i miliony historii w każdej filiżance.</p>
         </div>
     </section>
 
     <!-- HISTORIA -->
-    <section id="historia">
+    <section id="historia" class="scroll-section">
         <div class="container">
-            <h2>📜 Historia Kawy</h2>
-            <div class="content-grid">
-                <div class="text">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">📜 Historia Kawy</h2>
+                <p class="section-subtitle">Od etiopskich wzgórz do kawiarni na całym świecie</p>
+            </div>
+            <div class="history-grid">
+                <div class="history-image">
+                    <div class="history-image-inner">
+                        <span class="history-emoji">☕</span>
+                        <span class="history-emoji history-emoji-2">🌍</span>
+                        <span class="history-emoji history-emoji-3">🏔️</span>
+                    </div>
+                </div>
+                <div class="history-text">
                     <p>
-                        Kawa ma swoje korzenie w Etiopii, gdzie według legendy pasterz Kaldi
+                        Kawa ma swoje korzenie w <strong>Etiopii</strong>, gdzie według legendy pasterz Kaldi
                         odkrył pobudzające działanie czerwonych owoców kawowca. Stamtąd
                         trafiła do Jemenu, a później na cały świat.
                     </p>
                     <p>
-                        W XVII wieku kawa dotarła do Europy, szybko zdobywając popularność
+                        W XVII wieku kawa dotarła do <strong>Europy</strong>, szybko zdobywając popularność
                         w Wiedniu, Paryżu czy Londynie. Powstały pierwsze kawiarnie, które
                         stały się miejscami spotkań artystów i intelektualistów.
                     </p>
-                    <p>
-                        Dziś kawa to jeden z najpopularniejszych napojów na świecie –
-                        każdego dnia wypija się ponad <strong>2 miliardy</strong> filiżanek kawy!
+                    <p class="history-stat">
+                        <span class="stat-number">2 mld</span>
+                        <span class="stat-label">filiżanek kawy wypijanych dziennie na świecie</span>
                     </p>
-                </div>
-                <div class="image-placeholder">
-                    <span>☕ 🌍</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- RODZAJE -->
-    <section id="rodzaje">
+    <section id="rodzaje" class="scroll-section alt-bg">
         <div class="container">
-            <h2>🫘 Rodzaje Kawy</h2>
-            <div class="cards">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">🫘 Rodzaje Kawy</h2>
+                <p class="section-subtitle">Poznaj najważniejsze gatunki kawowca</p>
+            </div>
+            <div class="cards-grid">
                 <div class="card">
-                    <h3>Arabica</h3>
-                    <p>
-                        Najpopularniejszy gatunek (ok. 60% produkcji). Delikatna,
-                        owocowa, o niskiej zawartości kofeiny. Uprawiana w wysokich
-                        partiach gór.
+                    <div class="card-icon">🌿</div>
+                    <h3 class="card-title">Arabica</h3>
+                    <div class="card-tag">Najpopularniejsza</div>
+                    <p class="card-desc">
+                        Delikatna, owocowa, o niskiej zawartości kofeiny. Uprawiana w wysokich
+                        partiach gór. Stanowi ok. 60% światowej produkcji.
                     </p>
+                    <div class="card-stats">
+                        <span>☕☕☕☕◐</span>
+                        <span class="card-stats-label">Popularność</span>
+                    </div>
                 </div>
                 <div class="card">
-                    <h3>Robusta</h3>
-                    <p>
+                    <div class="card-icon">💪</div>
+                    <h3 class="card-title">Robusta</h3>
+                    <div class="card-tag card-tag-energy">Bardziej energetyczna</div>
+                    <p class="card-desc">
                         Bardziej gorzka i intensywna, zawiera więcej kofeiny.
-                        Odporna na choroby, uprawiana na niższych wysokościach.
-                        Często używana w espresso.
+                        Odporna na choroby, często używana w espresso i kawach rozpuszczalnych.
                     </p>
+                    <div class="card-stats">
+                        <span>☕☕☕☕☕</span>
+                        <span class="card-stats-label">Kofeina</span>
+                    </div>
                 </div>
                 <div class="card">
-                    <h3>Liberica</h3>
-                    <p>
-                        Rzadki gatunek o charakterystycznym, dymno-owocowym
-                        smaku. Uprawiana głównie w Azji Południowo-Wschodniej.
+                    <div class="card-icon">🔥</div>
+                    <h3 class="card-title">Liberica</h3>
+                    <div class="card-tag card-tag-rare">Rzadki gatunek</div>
+                    <p class="card-desc">
+                        Charakterystyczny, dymno-owocowy smak. Uprawiana głównie w Azji
+                        Południowo-Wschodniej. Duże, nieregularne ziarna.
                     </p>
+                    <div class="card-stats">
+                        <span>☕☕☕◐◐</span>
+                        <span class="card-stats-label">Dostępność</span>
+                    </div>
                 </div>
                 <div class="card">
-                    <h3>Excelsa</h3>
-                    <p>
+                    <div class="card-icon">✨</div>
+                    <h3 class="card-title">Excelsa</h3>
+                    <div class="card-tag card-tag-special">Wyjątkowy profil</div>
+                    <p class="card-desc">
                         Odmiana Liberiki o wyrazistym, kwaskowatym profilu.
-                        Dodaje głębi mieszankom kawowym.
+                        Dodaje głębi mieszankom kawowym. Ceniona przez koneserów.
                     </p>
+                    <div class="card-stats">
+                        <span>☕☕☕☕◐</span>
+                        <span class="card-stats-label">Smak</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- PRZEPISY -->
-    <section id="przepisy">
+    <section id="przepisy" class="scroll-section">
         <div class="container">
-            <h2>☕ Popularne Napoje Kawowe</h2>
-            <div class="cards">
-                <div class="card">
-                    <h3>Espresso</h3>
-                    <p>
-                        Mała, skoncentrowana porcja kawy (ok. 30 ml) parzona pod
-                        ciśnieniem. Baza dla wielu innych napojów.
-                    </p>
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">☕ Popularne Napoje Kawowe</h2>
+                <p class="section-subtitle">Klasyka i nowoczesność w jednej filiżance</p>
+            </div>
+            <div class="drinks-grid">
+                <div class="drink-card">
+                    <div class="drink-icon-wrapper">
+                        <span class="drink-icon">🔴</span>
+                        <span class="drink-badge">Klasyk</span>
+                    </div>
+                    <h3 class="drink-title">Espresso</h3>
+                    <p class="drink-desc">Mała, skoncentrowana porcja kawy (ok. 30 ml) parzona pod ciśnieniem. Baza wielu napojów.</p>
+                    <div class="drink-meta">
+                        <span>☕ 30 ml</span>
+                        <span>⚡ Mocne</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Cappuccino</h3>
-                    <p>
-                        Espresso z gorącym mlekiem i gęstą pianką mleczną.
-                        Idealne na śniadanie we włoskim stylu.
-                    </p>
+                <div class="drink-card">
+                    <div class="drink-icon-wrapper">
+                        <span class="drink-icon drink-icon-cream">🤍</span>
+                        <span class="drink-badge">Włoski</span>
+                    </div>
+                    <h3 class="drink-title">Cappuccino</h3>
+                    <p class="drink-desc">Espresso z gorącym mlekiem i gęstą pianką. Idealne na śniadanie po włosku.</p>
+                    <div class="drink-meta">
+                        <span>🥛 200 ml</span>
+                        <span>🌡️ 60°C</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Latte</h3>
-                    <p>
-                        Espresso z dużą ilością gorącego mleka i cienką warstwą
-                        pianki. Bardziej mleczny niż cappuccino.
-                    </p>
+                <div class="drink-card">
+                    <div class="drink-icon-wrapper">
+                        <span class="drink-icon drink-icon-milk">🥛</span>
+                        <span class="drink-badge">Kremowy</span>
+                    </div>
+                    <h3 class="drink-title">Latte</h3>
+                    <p class="drink-desc">Espresso z dużą ilością gorącego mleka i cienką warstwą pianki. Bardziej mleczny.</p>
+                    <div class="drink-meta">
+                        <span>🥛 300 ml</span>
+                        <span>☕ Łagodne</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Americano</h3>
-                    <p>
-                        Espresso zalane gorącą wodą. Łagodniejszy smak, podobny
-                        do kawy filtrowanej.
-                    </p>
+                <div class="drink-card">
+                    <div class="drink-icon-wrapper">
+                        <span class="drink-icon drink-icon-water">💧</span>
+                        <span class="drink-badge">Klasyk</span>
+                    </div>
+                    <h3 class="drink-title">Americano</h3>
+                    <p class="drink-desc">Espresso zalane gorącą wodą. Łagodniejszy smak, podobny do kawy filtrowanej.</p>
+                    <div class="drink-meta">
+                        <span>💧 200 ml</span>
+                        <span>☕ Łagodne</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Flat White</h3>
-                    <p>
-                        Espresso z podwójną porcją i aksamitnym, gładkim mlekiem
-                        bez pianki. Popularne w Australii i Nowej Zelandii.
-                    </p>
+                <div class="drink-card">
+                    <div class="drink-icon-wrapper">
+                        <span class="drink-icon drink-icon-flat">🫧</span>
+                        <span class="drink-badge">Aksamitny</span>
+                    </div>
+                    <h3 class="drink-title">Flat White</h3>
+                    <p class="drink-desc">Podwójne espresso z aksamitnym, gładkim mlekiem bez pianki. Australijski hit.</p>
+                    <div class="drink-meta">
+                        <span>🥛 200 ml</span>
+                        <span>⚡ Mocne</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Mocha</h3>
-                    <p>
-                        Espresso z gorącym mlekiem i czekoladą. Połączenie kawy
-                        i deseru w jednej filiżance.
-                    </p>
+                <div class="drink-card">
+                    <div class="drink-icon-wrapper">
+                        <span class="drink-icon drink-icon-choco">🍫</span>
+                        <span class="drink-badge">Deser</span>
+                    </div>
+                    <h3 class="drink-title">Mocha</h3>
+                    <p class="drink-desc">Espresso z gorącym mlekiem i czekoladą. Połączenie kawy i deseru w jednym.</p>
+                    <div class="drink-meta">
+                        <span>🍫 300 ml</span>
+                        <span>✨ Słodkie</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CIEKAWOSTKI -->
-    <section id="ciekawostki">
+    <section id="ciekawostki" class="scroll-section alt-bg">
         <div class="container">
-            <h2>💡 Ciekawostki o Kawie</h2>
-            <ul class="facts-list">
-                <li>Kawa jest <strong>drugim</strong> najczęściej sprzedawanym surowcem na świecie (zaraz po ropie naftowej).</li>
-                <li>Fińska kultura kawy jest jedną z najmocniejszych – Finowie piją średnio <strong>4 filiżanki</strong> dziennie.</li>
-                <li>Kawa bezkofeinowa nie jest całkowicie pozbawiona kofeiny – zawiera ok. 2–3 mg na filiżankę (zwykła ma ok. 95 mg).</li>
-                <li>Ziarna kawy to tak naprawdę <strong>pestki</strong> owocu kawowca, a nie nasiona.</li>
-                <li>Najdroższa kawa świata – <em>Kopi Luwak</em> – pochodzi z ziaren przechodzących przez układ pokarmowy łaskuna.</li>
-                <li>Espresso zawiera mniej kofeiny niż kawa filtrowana – porcja espresso to ok. 63 mg, a filiżanka filtrowanej ok. 95–165 mg.</li>
-                <li>27 marca obchodzimy <strong>Międzynarodowy Dzień Kawy</strong>.</li>
-            </ul>
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">💡 Ciekawostki o Kawie</h2>
+                <p class="section-subtitle">Zaskakujące fakty, które musisz poznać</p>
+            </div>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <div class="fact-number">1</div>
+                    <p>Kawa jest <strong>drugim</strong> najczęściej sprzedawanym surowcem na świecie – zaraz po ropie naftowej.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-number">2</div>
+                    <p>Finowie piją średnio <strong>4 filiżanki</strong> dziennie – to najwięcej na świecie!</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-number">3</div>
+                    <p>Kawa bezkofeinowa zawiera ok. <strong>2–3 mg</strong> kofeiny na filiżankę (zwykła ma ok. 95 mg).</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-number">4</div>
+                    <p>Ziarna kawy to tak naprawdę <strong>pestki</strong> owocu kawowca, a nie nasiona.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-number">5</div>
+                    <p>Najdroższa kawa świata – <em>Kopi Luwak</em> – pochodzi z ziaren przechodzących przez układ pokarmowy łaskuna.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-number">6</div>
+                    <p>Espresso zawiera <strong>mniej kofeiny</strong> niż kawa filtrowana – ok. 63 mg vs 95–165 mg.</p>
+                </div>
+                <div class="fact-card fact-card-wide">
+                    <div class="fact-number">7</div>
+                    <p><strong>27 marca</strong> obchodzimy Międzynarodowy Dzień Kawy ☕</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- KONTAKT -->
-    <section id="kontakt">
+    <section id="kontakt" class="scroll-section">
         <div class="container">
-            <h2>✉️ Masz pytania o kawę?</h2>
-            <p>Napisz do nas! Chętnie podzielimy się wiedzą i poradami.</p>
-            <form>
-                <input type="text" placeholder="Imię" required />
-                <input type="email" placeholder="E-mail" required />
-                <textarea rows="5" placeholder="Twoja wiadomość..." required></textarea>
-                <button type="submit">Wyślij ☕</button>
-            </form>
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">✉️ Masz pytania o kawę?</h2>
+                <p class="section-subtitle">Napisz do nas – chętnie podzielimy się wiedzą</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <strong>E-mail</strong>
+                            <p>kawa@swiatkawy.pl</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <strong>Telefon</strong>
+                            <p>+48 123 456 789</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <strong>Adres</strong>
+                            <p>ul. Kawowa 42, 00-001 Warszawa</p>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <span class="social-icon">📷</span>
+                        <span class="social-icon">🐦</span>
+                        <span class="social-icon">📘</span>
+                        <span class="social-icon">🎵</span>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-row">
+                        <input type="text" placeholder="Imię" required />
+                        <input type="email" placeholder="E-mail" required />
+                    </div>
+                    <textarea rows="5" placeholder="Twoja wiadomość o kawie..." required></textarea>
+                    <button type="submit">
+                        <span>Wyślij wiadomość</span>
+                        <span class="btn-icon">☕</span>
+                    </button>
+                </form>
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Świat Kawy. Stworzono z miłością do kawy ☕</p>
+        <div class="container footer-content">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="footer-logo">☕ Świat Kawy</span>
+                    <p>Stworzone z miłością do kawy i dobrego designu.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Linki</h4>
+                    <a href="#historia">Historia</a>
+                    <a href="#rodzaje">Rodzaje</a>
+                    <a href="#przepisy">Przepisy</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Media</h4>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Świat Kawy. Wszystkie prawa zastrzeżone.</p>
+                <p class="footer-heart">☕ Zrobione z ❤️</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Sticky nav shadow on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 80) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile nav toggle
+        function toggleNav() {
+            document.querySelector('.nav-links').classList.toggle('open');
+            document.querySelector('.nav-toggle').classList.toggle('active');
+        }
+
+        // Scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.scroll-section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 
 </body>
 </html>
