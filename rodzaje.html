@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodzaje jaj – Jajko</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #fff9e6; color: #3e2723; }
+        header {
+            background: linear-gradient(135deg, #aed581, #81c784);
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        header h1 { font-size: 2.8rem; }
+        nav {
+            background: #e8f5e9;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 3px solid #81c784;
+        }
+        nav a {
+            color: #3e2723;
+            text-decoration: none;
+            margin: 0 1.2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: #2e7d32; }
+        .container { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+        .card h2 { color: #2e7d32; margin-bottom: 1rem; }
+        .egg-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .type-box {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border-top: 5px solid #81c784;
+        }
+        .type-box .emoji { font-size: 3rem; margin-bottom: 0.5rem; }
+        .type-box h3 { color: #1b5e20; margin-bottom: 0.5rem; }
+        .type-box p { font-size: 0.95rem; }
+        .back-link { text-align: center; margin: 2rem 0; }
+        .back-link a { color: #2e7d32; font-weight: 600; text-decoration: none; }
+        .back-link a:hover { text-decoration: underline; }
+        footer {
+            background: #3e2723;
+            color: #fff9e6;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            nav a { display: block; margin: 0.5rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🥚 Rodzaje jaj</h1>
+    <p>Różne ptaki, różne jaja – poznaj je wszystkie!</p>
+</header>
+
+<nav>
+    <a href="index.html">🏠 Strona główna</a>
+    <a href="rodzaje.html">🥚 Rodzaje jaj</a>
+    <a href="przepisy.html">🍳 Przepisy</a>
+    <a href="ciekawostki.html">✨ Ciekawostki</a>
+</nav>
+
+<div class="container">
+
+    <div class="card">
+        <h2>🐔 Jaja kurze</h2>
+        <p>Najpopularniejsze na całym świecie. Występują w różnych kolorach skorupki – białe, brązowe, a nawet niebieskie. Smak i wartość odżywcza są podobne niezależnie od koloru.</p>
+    </div>
+
+    <div class="egg-types">
+        <div class="type-box">
+            <div class="emoji">🦆</div>
+            <h3>Jaja kacze</h3>
+            <p>Większe od kurzych, o intensywniejszym smaku i wyższej zawartości tłuszczu. Idealne do wypieków.</p>
+        </div>
+        <div class="type-box">
+            <div class="emoji">🦃</div>
+            <h3>Jaja indycze</h3>
+            <p>Duże, o kremowej skorupce. Smak delikatny, podobny do kurzego, ale bardziej wyrazisty.</p>
+        </div>
+        <div class="type-box">
+            <div class="emoji">🪿</div>
+            <h3>Jaja gęsie</h3>
+            <p>Bardzo duże – jedno gęsie jajo to odpowiednik 2-3 kurzych. Smak bogaty, maślany.</p>
+        </div>
+        <div class="type-box">
+            <div class="emoji">🐦</div>
+            <h3>Jaja przepiórcze</h3>
+            <p>Maleńkie, w cętkowanej skorupce. Delikatne, często używane jako dekoracja dań.</p>
+        </div>
+        <div class="type-box">
+            <div class="emoji">🕊️</div>
+            <h3>Jaja gołębie</h3>
+            <p>Małe, białe, o subtelnym smaku. Rzadko spotykane w codziennej kuchni.</p>
+        </div>
+        <div class="type-box">
+            <div class="emoji">🐊</div>
+            <h3>Jaja strusie</h3>
+            <p>Największe jajo na świecie – jedno waży nawet 1,5 kg! Odpowiada ok. 24 kurzym jajom.</p>
+        </div>
+    </div>
+
+    <div class="back-link">
+        <a href="index.html">← Powrót do strony głównej</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>🥚 Strona o jajku &bull; różnorodność jajek jest niesamowita</p>
+</footer>
+
+</body>
+</html>
