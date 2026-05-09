@@ -3,49 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kawa - Strona Główna</title>
+    <title>Strona o Kawie</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>☕ Świat Kawy</h1>
+        <h1>☕ Witaj na stronie o kawie!</h1>
         <nav>
-            <ul>
-                <li><a href="index.html">Strona Główna</a></li>
-                <li><a href="rodzaje.html">Rodzaje Kawy</a></li>
-                <li><a href="przepisy.html">Przepisy</a></li>
-                <li><a href="ciekawostki.html">Ciekawostki</a></li>
-            </ul>
+            <a href="index.html">Strona Główna</a>
+            <a href="rodzaje.html">Rodzaje Kawy</a>
+            <a href="przepisy.html">Przepisy</a>
+            <a href="ciekawostki.html">Ciekawostki</a>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <h2>Witaj w świecie kawy!</h2>
-            <p>Odkryj bogactwo smaków, aromatów i tradycji związanych z jednym z najpopularniejszych napojów na świecie.</p>
+            <h2>Najlepszy napój na świecie</h2>
+            <p>Odkryj fascynujący świat kawy – od ziarna po filiżankę.</p>
         </section>
 
-        <section class="features">
-            <article>
-                <h3>🌱 Rodzaje Kawy</h3>
-                <p>Poznaj różne gatunki kawy - od Arabiki po Robustę.</p>
-                <a href="rodzaje.html" class="btn">Dowiedz się więcej</a>
-            </article>
-            <article>
-                <h3>🍳 Przepisy</h3>
-                <p>Naucz się przygotowywać idealne espresso, latte i inne.</p>
-                <a href="przepisy.html" class="btn">Zobacz przepisy</a>
-            </article>
-            <article>
+        <section class="cards">
+            <div class="card" onclick="location.href='rodzaje.html'">
+                <h3>🫘 Rodzaje Kawy</h3>
+                <p>Poznaj różne odmiany i sposoby parzenia.</p>
+            </div>
+            <div class="card" onclick="location.href='przepisy.html'">
+                <h3>📖 Przepisy</h3>
+                <p>Sprawdź nasze ulubione przepisy kawowe.</p>
+            </div>
+            <div class="card" onclick="location.href='ciekawostki.html'">
                 <h3>💡 Ciekawostki</h3>
-                <p>Interesujące fakty o kawie, które Cię zaskoczą.</p>
-                <a href="ciekawostki.html" class="btn">Czytaj więcej</a>
-            </article>
+                <p>Zaskakujące fakty o kawie.</p>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Świat Kawy. Wszystkie prawa zastrzeżone.</p>
+        <p>&copy; 2025 Strona o Kawie</p>
     </footer>
 </body>
 </html>
