@@ -1,0 +1,303 @@
+/* === RESET & BASE === */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3e2c1b;
+    line-height: 1.6;
+    background-color: #faf6f0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* === HEADER === */
+header {
+    background: linear-gradient(135deg, #6f4e37, #4a3425);
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+
+header h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    opacity: 0.85;
+    margin-top: 8px;
+}
+
+/* === NAVIGATION === */
+nav {
+    background-color: #5a3d2b;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    display: block;
+    padding: 14px 22px;
+    color: #f5ede4;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #8b5e3c;
+    color: #fff;
+}
+
+/* === HERO === */
+#hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200') center/cover no-repeat;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-text h2 {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* === SECTIONS === */
+section {
+    padding: 70px 0;
+}
+
+section:nth-child(even) {
+    background-color: #f0e8dc;
+}
+
+section h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #4a3425;
+    position: relative;
+}
+
+section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #8b5e3c;
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+/* === HISTORIA === */
+.content-grid {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.content-grid .text {
+    flex: 2;
+    min-width: 280px;
+}
+
+.content-grid .text p {
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+}
+
+.image-placeholder {
+    flex: 1;
+    min-width: 180px;
+    background: #d9c5b0;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* === CARDS === */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #e6d7c4;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    color: #6f4e37;
+    margin-bottom: 12px;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #5a4a3a;
+}
+
+/* === CIEKAWOSTKI === */
+.facts-list {
+    max-width: 800px;
+    margin: 0 auto;
+    list-style: none;
+}
+
+.facts-list li {
+    background: #fff;
+    padding: 16px 20px 16px 50px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    font-size: 1.05rem;
+    position: relative;
+    border-left: 5px solid #8b5e3c;
+}
+
+.facts-list li::before {
+    content: '☕';
+    position: absolute;
+    left: 16px;
+    top: 14px;
+    font-size: 1.2rem;
+}
+
+/* === FORM === */
+form {
+    max-width: 550px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+input,
+textarea {
+    padding: 14px 16px;
+    border: 1px solid #d6c4b0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #fff;
+    transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #8b5e3c;
+    box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.15);
+}
+
+button {
+    padding: 14px;
+    background: #6f4e37;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #4a3425;
+}
+
+/* === FOOTER === */
+footer {
+    background: #3e2c1b;
+    color: #e6d7c4;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.95rem;
+}
+
+/* === RESPONSYWNOŚĆ === */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-text h2 {
+        font-size: 1.6rem;
+    }
+
+    .content-grid {
+        flex-direction: column;
+    }
+
+    nav ul li a {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+}
