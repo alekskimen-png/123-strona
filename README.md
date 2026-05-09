@@ -1,15 +1,15 @@
-# Strona o Kawie ☕
+# Strona o Kupie 💩
 
-Nowoczesna, responsywna strona HTML/CSS poświęcona kawie.
+Nowoczesna, responsywna strona HTML/CSS poświęcona kupie.
 
 ## ✨ Funkcje
 
-- **Nowoczesny design** z paletą barw inspirowaną kawą
+- **Nowoczesny design** z paletą barw inspirowaną... kupą
 - **Typografia**: Playfair Display + Inter (Google Fonts)
 - **Efekty glassmorphism** w nawigacji
 - **Animacje**: scroll reveal, floating elements, morphing blob
 - **Responsywność** - mobile-first z hamburger menu
-- **Sekcje**: Historia, Rodzaje, Przepisy, Ciekawostki, Kontakt
+- **Sekcje**: Historia, Rodzaje, Zastosowania, Ciekawostki, Kontakt
 
 ## 🛠 Technologie
 
