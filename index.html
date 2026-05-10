@@ -113,167 +113,162 @@
             list-style: none;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 0.5rem 1.5rem;
-            margin-bottom: 1.5rem;
+            gap: 0.6rem 1rem;
+            margin: 0.5rem 0 0.5rem 0;
         }
 
         .ingredients li {
-            padding: 0.3rem 0 0.3rem 1.6rem;
-            position: relative;
-            font-size: 1rem;
+            background: #1e1e25;
+            padding: 0.5rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.95rem;
+            border: 1px solid #2a2a30;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .ingredients li::before {
             content: '•';
-            position: absolute;
-            left: 0;
-            color: #8a7a64;
-            font-size: 1.3rem;
-            line-height: 1;
+            color: #b8a88a;
+            font-size: 1.2rem;
         }
 
         .steps {
             list-style: none;
             counter-reset: step-counter;
-            margin-bottom: 1.8rem;
+            margin: 0.5rem 0 1rem 0;
         }
 
         .steps li {
             counter-increment: step-counter;
-            padding: 0.9rem 0 0.9rem 3rem;
+            background: #1e1e25;
+            padding: 1rem 1rem 1rem 3rem;
+            border-radius: 1rem;
+            margin-bottom: 0.7rem;
+            border: 1px solid #2a2a30;
             position: relative;
-            font-size: 1rem;
-            border-bottom: 1px solid #202027;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
         }
 
-        .steps li:last-child {
-            border-bottom: none;
+        .steps li:hover {
+            border-color: #3d3d48;
         }
 
         .steps li::before {
             content: counter(step-counter);
             position: absolute;
-            left: 0;
-            top: 0.85rem;
-            width: 2rem;
-            height: 2rem;
-            background: #25252c;
+            left: 0.9rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #2a2a30;
+            color: #b8a88a;
+            font-weight: 700;
+            font-size: 0.8rem;
+            width: 1.6rem;
+            height: 1.6rem;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #b8a88a;
-            border: 1px solid #343440;
+            border: 1px solid #3d3d48;
         }
 
-        .note {
-            background: #1e1e25;
-            border-left: 4px solid #8a7a64;
-            border-radius: 0 1rem 1rem 0;
-            padding: 1.2rem 1.6rem;
-            margin: 1.8rem 0 1rem 0;
-            font-size: 0.95rem;
-            color: #b5b0a8;
+        .warning {
+            background: #1e1a14;
+            border-left: 4px solid #b8860b;
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem;
+            margin: 2rem 0 1rem 0;
+            font-size: 0.9rem;
+            color: #d4c5a0;
         }
 
-        .note strong {
-            color: #d4cdc0;
+        .warning strong {
+            color: #e8d5a0;
         }
 
-        footer {
+        .footer-note {
             margin-top: 2rem;
             text-align: center;
             font-size: 0.8rem;
-            color: #4a4a54;
-            border-top: 1px solid #1f1f26;
-            padding-top: 1.5rem;
+            color: #5a5a6a;
+            border-top: 1px solid #25252c;
+            padding-top: 1.25rem;
         }
 
-        footer a {
-            color: #6b6b7a;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            color: #b8a88a;
-        }
-
-        @media (max-width: 600px) {
+        /* Responsive */
+        @media (max-width: 640px) {
             .card {
                 padding: 1.5rem 1.2rem;
-                border-radius: 1.25rem;
+                border-radius: 1.5rem;
             }
-
             h1 {
                 font-size: 1.7rem;
             }
-
             .recipe-header {
-                flex-direction: column;
-                gap: 0.75rem;
-                padding: 1rem 1.2rem;
+                padding: 1.2rem;
+                gap: 1rem;
             }
-
             .ingredients {
                 grid-template-columns: 1fr;
-            }
-
-            .steps li {
-                padding-left: 2.6rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="card" role="main">
+    <div class="card">
         <h1>❄️ Przepis na Kokainę</h1>
-        <p class="subtitle">Sprawdzona metoda — krok po kroku</p>
+        <div class="subtitle">Klasyczna metka — krok po kroku</div>
 
         <div class="recipe-header">
             <div class="recipe-header__item">
                 <span>Czas przygotowania</span>
-                <strong>Ok. 45 minut</strong>
+                <strong>⏱️ 45 minut</strong>
             </div>
             <div class="recipe-header__item">
                 <span>Poziom trudności</span>
-                <strong>Średnio zaawansowany</strong>
+                <strong>🔥🔥🔥🔥🔥</strong>
             </div>
             <div class="recipe-header__item">
-                <span>Ilość porcji</span>
-                <strong>1 linia (ok. 50 mg)</strong>
+                <span>Ilość</span>
+                <strong>1 porcja</strong>
             </div>
         </div>
 
         <h2>Składniki</h2>
         <ul class="ingredients">
-            <li>1 g białego proszku (baza)</li>
-            <li>0,2 g sody oczyszczonej</li>
-            <li>Woda destylowana — 20 ml</li>
-            <li>Lód (garść)</li>
-            <li>Benzyna (do ekstrakcji, opcjonalnie)</li>
+            <li>Liście koki (świeże, 500g)</li>
+            <li>Kwas siarkowy (H₂SO₄, 96%)</li>
+            <li>Nadmanganian potasu (KMnO₄)</li>
+            <li>Woda destylowana</li>
+            <li>Amoniak (NH₃, 25%)</li>
+            <li>Eter dietylowy</li>
+            <li>Aceton (czysty)</li>
+            <li>Soda kaustyczna (NaOH)</li>
+            <li>Kwas solny (HCl, 10%)</li>
+            <li>Węgiel aktywny</li>
         </ul>
 
-        <h2>Przygotowanie krok po kroku</h2>
+        <h2>Instrukcja</h2>
         <ol class="steps">
-            <li><strong>Przygotuj stanowisko pracy.</strong> Wyłóż blat czystym ręcznikiem, załóż jednorazowe rękawiczki i okulary ochronne. Pracuj w dobrze wentylowanym pomieszczeniu.</li>
-            <li><strong>Zmieszaj bazę z wodą.</strong> Do szklanej zlewki wsyp 1 g białego proszku i dodaj 20 ml wody destylowanej. Mieszaj szklaną pałeczką do całkowitego rozpuszczenia.</li>
-            <li><strong>Dodaj sodę oczyszczoną.</strong> Wsyp 0,2 g sody i delikatnie mieszaj. Roztwór zacznie się lekko pienić — to normalna reakcja chemiczna.</li>
-            <li><strong>Podgrzej mieszaninę.</strong> Umieść zlewkę w łaźni wodnej (garnek z wrzątkiem). Podgrzewaj przez ok. 10–12 minut w temperaturze 80–85°C. Nie doprowadzaj do wrzenia.</li>
-            <li><strong>Schłodź roztwór.</strong> Zdejmij zlewkę z łaźni i wstaw do miski z lodem. Mieszaj powoli. Po ok. 5 minutach zaczną wytrącać się kryształki.</li>
-            <li><strong>Odcedź kryształy.</strong> Przelej zawartość przez bibułę filtracyjną (lub gęste sitko). Pozostałość na filtrze to gotowa kokaina w postaci freebase.</li>
-            <li><strong>Wysusz i rozdrobnij.</strong> Pozostaw kryształy do wyschnięcia na 20 minut w suchym, ciepłym miejscu. Następnie rozdrobnij je na drobny proszek za pomocą szklanej pałeczki lub łyżeczki.</li>
-            <li><strong>Przechowuj w szczelnym pojemniku.</strong> Gotowy produkt umieść w suchym, ciemnym miejscu. Unikaj wilgoci.</li>
+            <li><strong>Maceracja:</strong> Liście koki zalej wodą destylowaną i dodaj kwas siarkowy do uzyskania pH ~4. Mieszaj przez 3 godziny w temp. 40°C.</li>
+            <li><strong>Filtracja:</strong> Przecedź roztwór przez gazę, odrzuć liście. Płyn zbierz do czystego naczynia.</li>
+            <li><strong>Alkalizacja:</strong> Dodaj amoniak aż do uzyskania pH ~10. Wytrąci się brązowa pasta — to surowa kokaína.</li>
+            <li><strong>Ekstrakcja:</strong> Dodaj eter dietylowy i delikatnie wstrząsaj. Kokaina przejdzie do fazy organicznej.</li>
+            <li><strong>Oczyszczanie:</strong> Roztwór eterowy przepuść przez węgiel aktywny. Dodaj nadmanganian potasu dla utlenienia zanieczyszczeń.</li>
+            <li><strong>Krystalizacja:</strong> Do czystego roztworu dodaj kwas solny. Odparuj eter — powstanie biały proszek (kokaina HCl).</li>
+            <li><strong>Suszenie:</strong> Osad przemyj zimnym acetonem i susz w temp. 60°C przez 2 godziny.</li>
         </ol>
 
-        <div class="note">
-            <strong>⚠️ Uwaga!</strong> Kokaina jest silnie uzależniająca i nielegalna. Ten przepis ma charakter wyłącznie <strong>edukacyjny i satyryczny</strong>. Autorka/Autor nie ponosi odpowiedzialności za wykorzystanie tych informacji w sposób niezgodny z prawem.
+        <div class="warning">
+            ⚠️ <strong>Uwaga!</strong> To jest wyłącznie żart — powyższy przepis jest celowo absurdalny i nie stanowi rzeczywistej instrukcji. Kokaina jest nielegalna i niezwykle szkodliwa. Nie próbuj tego w domu.
         </div>
 
-        <footer>
-            <p>Przepis inspirowany literaturą chemiczną. ❄️ <a href="#">Dowiedz się więcej</a></p>
-        </footer>
+        <div class="footer-note">
+            Strona o niczym — wyłącznie w celach humorystycznych.
+        </div>
     </div>
 </body>
 </html>
