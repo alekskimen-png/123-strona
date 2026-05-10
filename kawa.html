@@ -12,262 +12,280 @@
         }
 
         body {
-            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: #1a120b;
-            color: #e8ddd0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #f7f3ee;
+            color: #2c2416;
             line-height: 1.7;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .container {
             max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem 4rem;
+            width: 100%;
+            padding: 2rem 1.5rem;
         }
 
-        /* ─── Hero ─── */
+        /* Hero */
         .hero {
             text-align: center;
-            padding: 4rem 1rem 3rem;
+            padding: 3rem 1.5rem 2.5rem;
+            background: linear-gradient(135deg, #3e2723, #5d4037, #4e342e);
+            border-radius: 20px;
+            margin-bottom: 2.5rem;
             position: relative;
+            overflow: hidden;
         }
 
         .hero::before {
-            content: '';
+            content: '☕';
             position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 120px;
-            background: radial-gradient(circle, #b47c4c33 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .hero-icon {
-            font-size: 3.5rem;
-            display: block;
-            margin-bottom: 1rem;
+            font-size: 12rem;
+            opacity: 0.06;
+            right: -1rem;
+            bottom: -2rem;
+            transform: rotate(15deg);
         }
 
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 800;
-            color: #f5ede4;
-            letter-spacing: -1px;
+            color: #fff;
+            letter-spacing: -0.5px;
+            position: relative;
         }
 
         .hero h1 span {
-            color: #c8956c;
+            background: linear-gradient(135deg, #ffb300, #ff8f00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero p {
+            color: #bcaaa4;
             font-size: 1.1rem;
-            color: #b8a392;
             margin-top: 0.75rem;
-            max-width: 560px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            position: relative;
         }
 
-        /* ─── Section ─── */
+        /* Sekcje */
         .section-title {
             font-size: 1.6rem;
             font-weight: 700;
-            color: #f5ede4;
-            margin: 3rem 0 1.5rem;
+            color: #3e2723;
+            margin-bottom: 1.25rem;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
         }
 
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, #5a3e2a 0%, transparent 100%);
-        }
-
-        /* ─── Karty ─── */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.25rem;
+        .section-title .icon {
+            font-size: 1.4rem;
         }
 
         .card {
-            background: #241c14;
-            border: 1px solid #3a2b1d;
+            background: #fff;
+            border: 1px solid #e8ddd5;
             border-radius: 16px;
-            padding: 1.5rem;
-            transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+            padding: 1.75rem 1.5rem;
+            margin-bottom: 1.25rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .card:hover {
-            border-color: #6b4c30;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-            display: block;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(62, 39, 35, 0.08);
         }
 
         .card h3 {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 600;
-            color: #f5ede4;
+            color: #3e2723;
             margin-bottom: 0.5rem;
         }
 
         .card p {
-            font-size: 0.95rem;
-            color: #b8a392;
+            color: #5d4a3a;
+            font-size: 1rem;
         }
 
         .card ul {
-            list-style: none;
-            margin-top: 0.5rem;
+            margin: 0.5rem 0 0 1.2rem;
+            color: #5d4a3a;
         }
 
-        .card ul li {
-            font-size: 0.9rem;
-            color: #c8b09a;
-            padding: 0.2rem 0;
-            padding-left: 1.2rem;
-            position: relative;
+        .card li {
+            margin-bottom: 0.3rem;
         }
 
-        .card ul li::before {
-            content: '☕';
-            position: absolute;
-            left: 0;
-            font-size: 0.75rem;
+        .card li strong {
+            color: #3e2723;
         }
 
-        /* ─── Paragraf z cytatem ─── */
-        .intro-text {
-            font-size: 1.05rem;
-            color: #c8b09a;
-            margin-bottom: 2rem;
-            text-align: center;
-            max-width: 680px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .quote {
-            background: #241c14;
-            border-left: 4px solid #c8956c;
-            padding: 1.25rem 1.5rem;
-            border-radius: 0 12px 12px 0;
-            margin: 2rem 0;
-            font-style: italic;
-            color: #d4bfab;
-            font-size: 1.05rem;
-        }
-
-        .quote-author {
-            display: block;
-            margin-top: 0.5rem;
-            font-style: normal;
-            color: #a0836a;
-            font-size: 0.9rem;
-        }
-
-        /* ─── Metody parzenia ─── */
-        .method-list {
+        /* Siatka rodzajów kawy */
+        .coffee-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 1rem;
-            margin: 1.5rem 0;
+            margin-bottom: 2rem;
         }
 
-        .method-item {
-            background: #241c14;
-            border: 1px solid #3a2b1d;
-            border-radius: 12px;
-            padding: 1.25rem;
+        .coffee-card {
+            background: #fff;
+            border: 1px solid #e8ddd5;
+            border-radius: 14px;
+            padding: 1.5rem 1.25rem;
             text-align: center;
-            transition: border-color 0.2s;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .method-item:hover {
-            border-color: #6b4c30;
+        .coffee-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(62, 39, 35, 0.1);
         }
 
-        .method-item .emoji {
-            font-size: 2rem;
-            display: block;
+        .coffee-card .emoji {
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
         }
 
-        .method-item h4 {
-            font-size: 1rem;
-            color: #f5ede4;
-            margin-bottom: 0.25rem;
+        .coffee-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #3e2723;
+            margin-bottom: 0.4rem;
         }
 
-        .method-item p {
-            font-size: 0.85rem;
-            color: #b8a392;
+        .coffee-card p {
+            font-size: 0.95rem;
+            color: #6d5a4a;
         }
 
-        /* ─── Ciekawostki (lista) ─── */
+        /* Ciekawostki */
         .fact-list {
-            list-style: none;
-            margin: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
         }
 
-        .fact-list li {
-            background: #241c14;
-            border: 1px solid #3a2b1d;
-            border-radius: 12px;
+        .fact-item {
+            background: #fff;
+            border: 1px solid #e8ddd5;
+            border-left: 4px solid #6d4c41;
+            border-radius: 10px;
             padding: 1rem 1.25rem;
-            margin-bottom: 0.75rem;
             display: flex;
             align-items: flex-start;
-            gap: 0.85rem;
-            transition: border-color 0.2s;
+            gap: 0.75rem;
         }
 
-        .fact-list li:hover {
-            border-color: #6b4c30;
-        }
-
-        .fact-list li .fact-icon {
+        .fact-item .fact-icon {
             font-size: 1.3rem;
             flex-shrink: 0;
-            margin-top: 0.1rem;
+            margin-top: 0.15rem;
         }
 
-        .fact-list li .fact-text {
-            color: #c8b09a;
+        .fact-item p {
+            color: #4a3a2a;
+            font-size: 1rem;
+        }
+
+        .fact-item p strong {
+            color: #3e2723;
+        }
+
+        /* Cytat */
+        .quote {
+            background: linear-gradient(135deg, #3e2723, #4e342e);
+            border-radius: 16px;
+            padding: 2rem 2rem 1.75rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .quote blockquote {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: #efebe9;
+            line-height: 1.6;
+        }
+
+        .quote blockquote::before {
+            content: '\201C';
+            font-size: 2.5rem;
+            color: #ffb300;
+            display: block;
+            margin-bottom: -0.25rem;
+        }
+
+        .quote cite {
+            display: block;
+            margin-top: 0.75rem;
+            color: #bcaaa4;
+            font-size: 0.95rem;
+            font-style: normal;
+        }
+
+        /* Instrukcja parzenia */
+        .brew-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: #fff;
+            border: 1px solid #e8ddd5;
+            border-radius: 12px;
+            padding: 1.25rem 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .brew-step .num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: #6d4c41;
+            color: #fff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .brew-step .content h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #3e2723;
+            margin-bottom: 0.15rem;
+        }
+
+        .brew-step .content p {
+            color: #5d4a3a;
             font-size: 0.95rem;
         }
 
-        .fact-list li .fact-text strong {
-            color: #f5ede4;
-        }
-
-        /* ─── Stopka ─── */
+        /* Stopka */
         footer {
             text-align: center;
-            padding: 3rem 1rem 1.5rem;
-            border-top: 1px solid #2a1f15;
-            margin-top: 3rem;
+            padding: 2rem 0;
+            border-top: 1px solid #e8ddd5;
+            margin-top: 1rem;
         }
 
         footer p {
-            color: #7a6553;
-            font-size: 0.85rem;
+            color: #8d7a6a;
+            font-size: 0.9rem;
         }
 
         footer a {
-            color: #c8956c;
+            color: #6d4c41;
             text-decoration: none;
         }
 
@@ -275,28 +293,20 @@
             text-decoration: underline;
         }
 
-        /* ─── Responsywność ─── */
+        /* Responsywność */
         @media (max-width: 600px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
-            .hero {
-                padding: 2.5rem 1rem 2rem;
-            }
-            .section-title {
-                font-size: 1.3rem;
-            }
-            .card-grid {
+            .coffee-grid {
                 grid-template-columns: 1fr;
             }
-            .method-list {
-                grid-template-columns: 1fr 1fr;
+            .brew-step {
+                flex-direction: column;
+                align-items: stretch;
             }
-        }
-
-        @media (max-width: 400px) {
-            .method-list {
-                grid-template-columns: 1fr;
+            .brew-step .num {
+                align-self: flex-start;
             }
         }
     </style>
@@ -306,160 +316,148 @@
 <div class="container">
 
     <!-- Hero -->
-    <div class="hero">
-        <span class="hero-icon">☕</span>
-        <h1>Świat <span>kawy</span></h1>
-        <p>Od ziarna do filiżanki – przewodnik po aromatycznym uniwersum kawy</p>
-    </div>
+    <header class="hero">
+        <h1>☕ <span>Kawa</span> – czarna magia</h1>
+        <p>Przewodnik po najlepszym napoju świata – od ziarna do filiżanki</p>
+    </header>
 
-    <div class="intro-text">
-        Kawa to nie tylko napój – to rytuał, pasja i styl życia. 
-        Poznaj jej rodzaje, metody parzenia i ciekawostki, które zaskoczą nawet doświadczonych kawoszy.
-    </div>
+    <!-- Wstęp -->
+    <section>
+        <h2 class="section-title"><span class="icon">🌍</span> Dlaczego kawa?</h2>
+        <div class="card">
+            <p>Kawa to nie tylko napój – to rytuał, spotkanie, chwila wytchnienia. Na całym świecie pije się ją na setki sposobów, a każde ziarno kryje w sobie unikalny smak i aromat. Niezależnie od tego, czy wolisz espresso, latte, czy kawę przelewową – dobra kawa potrafi zmienić cały dzień.</p>
+        </div>
+    </section>
+
+    <!-- Rodzaje kawy -->
+    <section>
+        <h2 class="section-title"><span class="icon">☕</span> Rodzaje kawy</h2>
+        <div class="coffee-grid">
+
+            <div class="coffee-card">
+                <div class="emoji">🟤</div>
+                <h4>Espresso</h4>
+                <p>Intensywny, skoncentrowany napój o kremowej pianie. Baza dla wielu innych kaw.</p>
+            </div>
+
+            <div class="coffee-card">
+                <div class="emoji">🥛</div>
+                <h4>Latte</h4>
+                <p>Espresso z dużą ilością gorącego mleka i cienką warstwą pianki. Delikatne i kremowe.</p>
+            </div>
+
+            <div class="coffee-card">
+                <div class="emoji">🤎</div>
+                <h4>Cappuccino</h4>
+                <p>Espresso z mlekiem i gęstą, mleczną pianą. Klasyka włoskich kawiarni.</p>
+            </div>
+
+            <div class="coffee-card">
+                <div class="emoji">🧊</div>
+                <h4>Cold Brew</h4>
+                <p>Kawa parzona na zimno przez 12–24 godziny. Gładka, orzeźwiająca i mniej kwaśna.</p>
+            </div>
+
+            <div class="coffee-card">
+                <div class="emoji">💧</div>
+                <h4>Pour Over</h4>
+                <p>Metoda przelewowa – gorąca woda powoli przesącza się przez fusy. Czysty, aromatyczny smak.</p>
+            </div>
+
+            <div class="coffee-card">
+                <div class="emoji">🇹🇷</div>
+                <h4>Kawa po turecku</h4>
+                <p>Drobno zmielona kawa gotowana w tygielku (dżezwie). Mocna i intensywna.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Ciekawostki -->
+    <section>
+        <h2 class="section-title"><span class="icon">💡</span> Ciekawostki o kawie</h2>
+        <div class="fact-list">
+
+            <div class="fact-item">
+                <span class="fact-icon">☕</span>
+                <p><strong>Drugi najczęściej handlowany towar na świecie</strong> – po ropie naftowej. Kawa jest jednym z najważniejszych surowców eksportowych.</p>
+            </div>
+
+            <div class="fact-item">
+                <span class="fact-icon">🏔️</span>
+                <p><strong>Pochodzi z Etiopii</strong> – legenda głosi, że pasterz Kaldi odkrył kawę, gdy jego kozy zaczęły dziwnie się zachowywać po zjedzeniu czerwonych owoców.</p>
+            </div>
+
+            <div class="fact-item">
+                <span class="fact-icon">🌱</span>
+                <p><strong>Dwa główne gatunki</strong> – Arabica (łagodniejsza, bardziej aromatyczna) i Robusta (mocniejsza, więcej kofeiny).</p>
+            </div>
+
+            <div class="fact-item">
+                <span class="fact-icon">🍒</span>
+                <p><strong>Ziarna to pestki owoców</strong> – kawowe owoce (tzw. wiśnie kawowe) są słodkie i soczyste. To pestki w środku stają się ziarnami kawy.</p>
+            </div>
+
+            <div class="fact-item">
+                <span class="fact-icon">🧠</span>
+                <p><strong>Kofeina działa po 15–30 minutach</strong> – a jej działanie utrzymuje się nawet do 6 godzin. Dlatego nie warto pić kawy przed snem.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Jak parzyć -->
+    <section>
+        <h2 class="section-title"><span class="icon">👨‍🍳</span> Jak zaparzyć idealną kawę?</h2>
+        <div class="card" style="margin-bottom: 1rem;">
+            <p>Niezależnie od metody, kilka zasad zawsze się sprawdza. Świeżo zmielone ziarna, dobra woda (filtrowana, ok. 92–96°C) i odpowiednie proporcje – to podstawa sukcesu.</p>
+        </div>
+
+        <div class="brew-step">
+            <span class="num">1</span>
+            <div class="content">
+                <h4>Zalej filiżankę wrzątkiem</h4>
+                <p>Podgrzej naczynie – to stabilizuje temperaturę parzenia. Wylej wodę po chwili.</p>
+            </div>
+        </div>
+
+        <div class="brew-step">
+            <span class="num">2</span>
+            <div class="content">
+                <h4>Wsyp kawę</h4>
+                <p>Zazwyczaj 7–8 g na 100 ml wody. Dostosuj do preferowanej mocy.</p>
+            </div>
+        </div>
+
+        <div class="brew-step">
+            <span class="num">3</span>
+            <div class="content">
+                <h4>Zalej wodą i odczekaj</h4>
+                <p>Wlej wodę okrężnym ruchem. Parzenie metodą przelewową zajmuje ok. 2,5–3 minuty.</p>
+            </div>
+        </div>
+
+        <div class="brew-step">
+            <span class="num">4</span>
+            <div class="content">
+                <h4>Smakuj!</h4>
+                <p>Nie dodawaj cukru za pierwszym razem – pozwól sobie poczuć prawdziwy smak kawy.</p>
+            </div>
+        </div>
+
+    </section>
 
     <!-- Cytat -->
     <div class="quote">
-        „Kawa powinna być czarna jak noc, gorąca jak piekło i słodka jak miłość.”
-        <span class="quote-author">– przysłowie tureckie</span>
+        <blockquote>
+            Życie jest zbyt krótkie, żeby pić złą kawę.
+        </blockquote>
+        <cite>— nieznane, ale prawdziwe</cite>
     </div>
 
-    <!-- Rodzaje kawy -->
-    <h2 class="section-title">☕ Rodzaje kawy</h2>
-    <div class="card-grid">
-        <div class="card">
-            <span class="card-icon">🫘</span>
-            <h3>Arabica</h3>
-            <p>Najpopularniejszy gatunek (60% światowej produkcji). Łagodna, owocowa, o złożonym aromacie. Uprawiana w wysokich górach.</p>
-            <ul>
-                <li>Mniej kofeiny (1,2%)</li>
-                <li>Delikatniejszy smak</li>
-                <li>Wyższa cena</li>
-            </ul>
-        </div>
-        <div class="card">
-            <span class="card-icon">🌱</span>
-            <h3>Robusta</h3>
-            <p>Bardziej gorzka, intensywna i odporna na choroby. Zawiera więcej kofeiny. Często używana w espresso i kawach rozpuszczalnych.</p>
-            <ul>
-                <li>Więcej kofeiny (2,2%)</li>
-                <li>Wyraźna goryczka</li>
-                <li>Kremowa pianka</li>
-            </ul>
-        </div>
-        <div class="card">
-            <span class="card-icon">🧉</span>
-            <h3>Liberica</h3>
-            <p>Rzadki gatunek o dymnym, owocowym aromacie. Uprawiany głównie w Azji Południowo-Wschodniej. Dla poszukiwaczy nietypowych smaków.</p>
-            <ul>
-                <li>Niszowy wybór</li>
-                <li>Intensywny aromat</li>
-                <li>Mała dostępność</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Metody parzenia -->
-    <h2 class="section-title">☕ Metody parzenia</h2>
-    <div class="method-list">
-        <div class="method-item">
-            <span class="emoji">💧</span>
-            <h4>Drip (przelew)</h4>
-            <p>Delikatna, czysta kawa. Aromatyczna i lekka.</p>
-        </div>
-        <div class="method-item">
-            <span class="emoji">🔥</span>
-            <h4>Espresso</h4>
-            <p>Intensywny, skoncentrowany smak pod ciśnieniem.</p>
-        </div>
-        <div class="method-item">
-            <span class="emoji">🫖</span>
-            <h4>French Press</h4>
-            <p>Pełne ciało, oleista konsystencja, bogaty smak.</p>
-        </div>
-        <div class="method-item">
-            <span class="emoji">🧊</span>
-            <h4>Cold Brew</h4>
-            <p>Kawa parzona na zimno – gładka, słodka, bez goryczki.</p>
-        </div>
-        <div class="method-item">
-            <span class="emoji">🏺</span>
-            <h4>Aeropress</h4>
-            <p>Szybkie parzenie, czysty smak, mnóstwo możliwości.</p>
-        </div>
-        <div class="method-item">
-            <span class="emoji">⚱️</span>
-            <h4>Moka (kawiarka)</h4>
-            <p>Klasyczna włoska metoda – mocna, aromatyczna kawa.</p>
-        </div>
-    </div>
-
-    <!-- Napoje kawowe -->
-    <h2 class="section-title">☕ Najpopularniejsze napoje</h2>
-    <div class="card-grid">
-        <div class="card">
-            <span class="card-icon">☕</span>
-            <h3>Latte</h3>
-            <p>Espresso z dużą ilością spienionego mleka. Delikatna, kremowa, idealna na początek dnia.</p>
-        </div>
-        <div class="card">
-            <span class="card-icon">🫗</span>
-            <h3>Cappuccino</h3>
-            <p>Espresso z mlekiem i gęstą pianką. Proporcje 1:1:1 – klasyka włoskich poranków.</p>
-        </div>
-        <div class="card">
-            <span class="card-icon">🥛</span>
-            <h3>Flat White</h3>
-            <p>Podwójne espresso z aksamitnym mlekiem. Mniej pianki, więcej kawy. Australijski hit.</p>
-        </div>
-        <div class="card">
-            <span class="card-icon">🍫</span>
-            <h3>Mocha</h3>
-            <p>Espresso z czekoladą i mlekiem. Deserowa przyjemność w filiżance.</p>
-        </div>
-        <div class="card">
-            <span class="card-icon">🧊</span>
-            <h3>Frappé</h3>
-            <p>Kawa mrożona z lodem, mlekiem i bitą śmietaną. Orzeźwienie w upalny dzień.</p>
-        </div>
-        <div class="card">
-            <span class="card-icon">🇻🇳</span>
-            <h3>Kawa po wietnamsku</h3>
-            <p>Mocna kawa przelewana przez filtr, podawana ze słodzonym mlekiem skondensowanym.</p>
-        </div>
-    </div>
-
-    <!-- Ciekawostki -->
-    <h2 class="section-title">☕ Ciekawostki kawowe</h2>
-    <ul class="fact-list">
-        <li>
-            <span class="fact-icon">🏔️</span>
-            <span class="fact-text"><strong>Kawa to wiśnia.</strong> Ziarna kawy to pestki owocu kawowca – czerwonej wiśni kawowej.</span>
-        </li>
-        <li>
-            <span class="fact-icon">🦥</span>
-            <span class="fact-text"><strong>Najdroższa kawa świata</strong> – Kopi Luwak – powstaje z ziaren przechodzących przez układ pokarmowy cywety.</span>
-        </li>
-        <li>
-            <span class="fact-icon">🎶</span>
-            <span class="fact-text"><strong>Bach pisał o kawie.</strong> Kompozytor stworzył „Kantatę o kawie” – utwór opowiadający o uzależnieniu od tego napoju.</span>
-        </li>
-        <li>
-            <span class="fact-icon">⚡</span>
-            <span class="fact-text"><strong>Kofeina działa po 15 minutach</strong> od wypicia, a jej maksymalne stężenie we krwi osiągane jest po 30–60 minutach.</span>
-        </li>
-        <li>
-            <span class="fact-icon">🌍</span>
-            <span class="fact-text"><strong>Ponad 2 miliardy filiżanek</strong> kawy wypija się codziennie na całym świecie.</span>
-        </li>
-        <li>
-            <span class="fact-icon">🇫🇮</span>
-            <span class="fact-text"><strong>Finlandia pije najwięcej kawy.</strong> Przeciętny Fin wypija około 12 kg kawy rocznie – to prawie 4 filiżanki dziennie!</span>
-        </li>
-    </ul>
-
-    <!-- Stopka -->
+    <!-- Footer -->
     <footer>
-        <p>☕ Strona o kawie &copy; 2025 | <a href="index.html">Strona główna</a></p>
+        <p>☕ Strona o kawie &bull; 2025 &bull; <a href="index.html">Powrót do strony głównej</a></p>
     </footer>
 
 </div>
