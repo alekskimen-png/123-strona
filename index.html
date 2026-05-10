@@ -113,103 +113,97 @@
             list-style: none;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 0.6rem 1rem;
-            margin: 0.5rem 0 0.5rem 0;
+            gap: 0.6rem 1.5rem;
+            margin: 0.5rem 0 1.5rem 0;
         }
 
         .ingredients li {
-            background: #1e1e25;
-            padding: 0.5rem 1rem;
-            border-radius: 0.75rem;
+            padding: 0.4rem 0.8rem 0.4rem 1.6rem;
+            background: #1e1e26;
+            border-radius: 0.6rem;
+            position: relative;
             font-size: 0.95rem;
-            border: 1px solid #2a2a30;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .ingredients li::before {
             content: '•';
+            position: absolute;
+            left: 0.6rem;
             color: #b8a88a;
-            font-size: 1.2rem;
+            font-weight: 700;
         }
 
         .steps {
             list-style: none;
             counter-reset: step-counter;
-            margin: 0.5rem 0 1rem 0;
+            margin: 0.5rem 0 1.5rem 0;
         }
 
         .steps li {
             counter-increment: step-counter;
-            background: #1e1e25;
-            padding: 1rem 1rem 1rem 3rem;
-            border-radius: 1rem;
-            margin-bottom: 0.7rem;
-            border: 1px solid #2a2a30;
+            padding: 0.8rem 1rem 0.8rem 3rem;
+            background: #1a1a21;
+            border-radius: 0.8rem;
+            margin-bottom: 0.6rem;
             position: relative;
             font-size: 0.95rem;
-            transition: border-color 0.2s;
+            transition: background 0.2s ease;
         }
 
         .steps li:hover {
-            border-color: #3d3d48;
+            background: #22222b;
         }
 
         .steps li::before {
             content: counter(step-counter);
             position: absolute;
-            left: 0.9rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #2a2a30;
-            color: #b8a88a;
-            font-weight: 700;
-            font-size: 0.8rem;
+            left: 0.8rem;
+            top: 0.8rem;
             width: 1.6rem;
             height: 1.6rem;
-            border-radius: 50%;
+            background: #2a2a33;
+            color: #c8b89a;
+            border-radius: 0.4rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid #3d3d48;
+            font-size: 0.8rem;
+            font-weight: 700;
         }
 
-        .warning {
-            background: #1e1a14;
-            border-left: 4px solid #b8860b;
-            padding: 1rem 1.5rem;
-            border-radius: 0.75rem;
-            margin: 2rem 0 1rem 0;
-            font-size: 0.9rem;
-            color: #d4c5a0;
+        .notice {
+            background: #1e1e28;
+            border-left: 4px solid #b8a88a;
+            border-radius: 0.8rem;
+            padding: 1.2rem 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 0.92rem;
+            color: #b5b0a8;
         }
 
-        .warning strong {
-            color: #e8d5a0;
+        .notice strong {
+            color: #d4cdc0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #25252c;
+            margin: 1.8rem 0;
         }
 
         .footer-note {
-            margin-top: 2rem;
+            font-size: 0.82rem;
+            color: #5c5c6a;
             text-align: center;
-            font-size: 0.8rem;
-            color: #5a5a6a;
-            border-top: 1px solid #25252c;
-            padding-top: 1.25rem;
+            margin-top: 2rem;
         }
 
-        /* Responsive */
-        @media (max-width: 640px) {
+        @media (max-width: 600px) {
             .card {
                 padding: 1.5rem 1.2rem;
-                border-radius: 1.5rem;
             }
             h1 {
                 font-size: 1.7rem;
-            }
-            .recipe-header {
-                padding: 1.2rem;
-                gap: 1rem;
             }
             .ingredients {
                 grid-template-columns: 1fr;
@@ -219,55 +213,65 @@
 </head>
 <body>
     <div class="card">
-        <h1>❄️ Przepis na Kokainę</h1>
-        <div class="subtitle">Klasyczna metka — krok po kroku</div>
+        <h1>Przepis na Kokainę</h1>
+        <p class="subtitle">Krok po kroku – w domowym zaciszu</p>
 
         <div class="recipe-header">
             <div class="recipe-header__item">
-                <span>Czas przygotowania</span>
-                <strong>⏱️ 45 minut</strong>
+                <span>⏱ Czas</span>
+                <strong>~30 minut</strong>
             </div>
             <div class="recipe-header__item">
-                <span>Poziom trudności</span>
-                <strong>🔥🔥🔥🔥🔥</strong>
+                <span>📊 Poziom</span>
+                <strong>Średnio zaawansowany</strong>
             </div>
             <div class="recipe-header__item">
-                <span>Ilość</span>
+                <span>🍽 Porcja</span>
                 <strong>1 porcja</strong>
             </div>
         </div>
 
+        <p>Oto prosty i sprawdzony przepis na <strong>kokainę</strong> – aromatyczny, domowy <strong>napój kakaowo-kokosowy</strong>, idealny na chłodne wieczory. Kokaina to połączenie kakao i kokosa, które rozgrzewa i poprawia nastrój. Poniżej znajdziesz wszystkie składniki i szczegółową instrukcję przygotowania.</p>
+
+        <hr>
+
         <h2>Składniki</h2>
         <ul class="ingredients">
-            <li>Liście koki (świeże, 500g)</li>
-            <li>Kwas siarkowy (H₂SO₄, 96%)</li>
-            <li>Nadmanganian potasu (KMnO₄)</li>
-            <li>Woda destylowana</li>
-            <li>Amoniak (NH₃, 25%)</li>
-            <li>Eter dietylowy</li>
-            <li>Aceton (czysty)</li>
-            <li>Soda kaustyczna (NaOH)</li>
-            <li>Kwas solny (HCl, 10%)</li>
-            <li>Węgiel aktywny</li>
+            <li>2 łyżeczki kakao</li>
+            <li>1 łyżka wiórków kokosowych</li>
+            <li>250 ml mleka (krowiego lub roślinnego)</li>
+            <li>1 łyżeczka miodu lub syropu klonowego</li>
+            <li>Szczypta cynamonu</li>
+            <li>Opcjonalnie: bita śmietana</li>
         </ul>
 
-        <h2>Instrukcja</h2>
+        <h2>Przygotowanie krok po kroku</h2>
         <ol class="steps">
-            <li><strong>Maceracja:</strong> Liście koki zalej wodą destylowaną i dodaj kwas siarkowy do uzyskania pH ~4. Mieszaj przez 3 godziny w temp. 40°C.</li>
-            <li><strong>Filtracja:</strong> Przecedź roztwór przez gazę, odrzuć liście. Płyn zbierz do czystego naczynia.</li>
-            <li><strong>Alkalizacja:</strong> Dodaj amoniak aż do uzyskania pH ~10. Wytrąci się brązowa pasta — to surowa kokaína.</li>
-            <li><strong>Ekstrakcja:</strong> Dodaj eter dietylowy i delikatnie wstrząsaj. Kokaina przejdzie do fazy organicznej.</li>
-            <li><strong>Oczyszczanie:</strong> Roztwór eterowy przepuść przez węgiel aktywny. Dodaj nadmanganian potasu dla utlenienia zanieczyszczeń.</li>
-            <li><strong>Krystalizacja:</strong> Do czystego roztworu dodaj kwas solny. Odparuj eter — powstanie biały proszek (kokaina HCl).</li>
-            <li><strong>Suszenie:</strong> Osad przemyj zimnym acetonem i susz w temp. 60°C przez 2 godziny.</li>
+            <li>Podgrzej mleko w garnku na średnim ogniu, ale nie doprowadzaj do wrzenia.</li>
+            <li>Dodaj kakao i dokładnie wymieszaj trzepaczką, aż powstanie gładka masa.</li>
+            <li>Wsyp wiórki kokosowe i cynamon, kontynuując mieszanie.</li>
+            <li>Dodaj miód lub syrop klonowy – dostosuj słodkość do smaku.</li>
+            <li>Gotuj na małym ogniu przez 2-3 minuty, ciągle mieszając.</li>
+            <li>Przelej do ulubionego kubka. Udekoruj bitą śmietaną i szczyptą kakao.</li>
+            <li>Smacznego! Napój najlepiej smakuje podany od razu na ciepło.</li>
         </ol>
 
-        <div class="warning">
-            ⚠️ <strong>Uwaga!</strong> To jest wyłącznie żart — powyższy przepis jest celowo absurdalny i nie stanowi rzeczywistej instrukcji. Kokaina jest nielegalna i niezwykle szkodliwa. Nie próbuj tego w domu.
+        <div class="notice">
+            <strong>💡 Wskazówka:</strong> Dla bardziej kremowej konsystencji możesz dodać łyżkę mascarpone lub użyć mleka kokosowego zamiast zwykłego mleka.
         </div>
 
+        <hr>
+
+        <h2>Wartości odżywcze (1 porcja)</h2>
+        <ul class="ingredients">
+            <li>Kalorie: ~180 kcal</li>
+            <li>Białko: 6 g</li>
+            <li>Tłuszcz: 9 g</li>
+            <li>Węglowodany: 20 g</li>
+        </ul>
+
         <div class="footer-note">
-            Strona o niczym — wyłącznie w celach humorystycznych.
+            Przepis wegański (jeśli użyjesz mleka roślinnego i syropu klonowego) • Bezglutenowy
         </div>
     </div>
 </body>
