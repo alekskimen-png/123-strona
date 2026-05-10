@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Przepis na Kokainę – Satyryczna Strona</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przepis na Kokainę – Krok po Kroku</title>
     <style>
+        /* Reset */
         * {
             margin: 0;
             padding: 0;
@@ -12,193 +13,267 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: #0f0f0f;
-            color: #e0e0e0;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+            background: #0b0b0e;
+            color: #e8e6e3;
+            line-height: 1.7;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 2rem 1rem;
-            line-height: 1.6;
         }
 
-        .container {
-            max-width: 720px;
+        .card {
+            max-width: 820px;
             width: 100%;
-            background: #1a1a1a;
-            border-radius: 24px;
-            padding: 2.5rem 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-            border: 1px solid #2a2a2a;
+            background: #16161a;
+            border-radius: 2rem;
+            padding: 2.5rem 2.8rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+            border: 1px solid #2a2a30;
+            transition: border-color 0.3s ease;
         }
 
-        .badge {
-            display: inline-block;
-            background: #2d2d2d;
-            color: #888;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.3rem 0.8rem;
-            border-radius: 100px;
-            margin-bottom: 1.5rem;
-            border: 1px solid #333;
+        .card:hover {
+            border-color: #3d3d48;
         }
 
         h1 {
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             font-weight: 700;
             letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #f0f0f0, #a0a0a0);
+            background: linear-gradient(135deg, #f5e9d8 0%, #c8b89a 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.25rem;
+            line-height: 1.2;
         }
 
         .subtitle {
-            color: #666;
-            font-size: 0.95rem;
+            font-size: 1.05rem;
+            color: #8a8a9a;
             margin-bottom: 2rem;
-            border-left: 3px solid #333;
-            padding-left: 1rem;
+            border-bottom: 1px solid #25252c;
+            padding-bottom: 1.25rem;
         }
 
-        .warning {
-            background: #1e1a1a;
-            border-left: 4px solid #8b0000;
-            padding: 1rem 1.25rem;
-            border-radius: 12px;
+        .recipe-header {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
             margin-bottom: 2rem;
-            font-size: 0.85rem;
-            color: #b0a0a0;
+            background: #1e1e25;
+            border-radius: 1.25rem;
+            padding: 1.5rem 1.8rem;
         }
 
-        .warning strong {
-            color: #ff4d4d;
+        .recipe-header__item {
+            flex: 1 1 160px;
         }
 
-        section {
-            margin-bottom: 2rem;
+        .recipe-header__item span {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #6b6b7a;
+            margin-bottom: 0.25rem;
+        }
+
+        .recipe-header__item strong {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #d4cdc0;
         }
 
         h2 {
-            font-size: 1.2rem;
+            font-size: 1.35rem;
             font-weight: 600;
-            color: #ccc;
-            margin-bottom: 1rem;
-            padding-bottom: 0.4rem;
-            border-bottom: 1px solid #2a2a2a;
+            margin: 1.8rem 0 1rem 0;
+            color: #d4cdc0;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
         }
 
-        ul, ol {
-            padding-left: 1.5rem;
-            color: #b0b0b0;
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 1.3em;
+            background: linear-gradient(180deg, #b8a88a, #8a7a64);
+            border-radius: 4px;
         }
 
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        .ingredient-list li {
+        .ingredients {
             list-style: none;
-            padding-left: 0.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.5rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ingredients li {
+            padding: 0.3rem 0 0.3rem 1.6rem;
             position: relative;
+            font-size: 1rem;
         }
 
-        .ingredient-list li::before {
-            content: "⚗️";
-            margin-right: 0.5rem;
+        .ingredients li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #8a7a64;
+            font-size: 1.3rem;
+            line-height: 1;
         }
 
-        .step-list li {
-            padding-left: 0.5rem;
-            margin-bottom: 0.75rem;
+        .steps {
+            list-style: none;
+            counter-reset: step-counter;
+            margin-bottom: 1.8rem;
         }
 
-        .step-list li::marker {
-            color: #666;
-            font-weight: 600;
+        .steps li {
+            counter-increment: step-counter;
+            padding: 0.9rem 0 0.9rem 3rem;
+            position: relative;
+            font-size: 1rem;
+            border-bottom: 1px solid #202027;
+        }
+
+        .steps li:last-child {
+            border-bottom: none;
+        }
+
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0.85rem;
+            width: 2rem;
+            height: 2rem;
+            background: #25252c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #b8a88a;
+            border: 1px solid #343440;
         }
 
         .note {
-            background: #222;
-            border-radius: 12px;
-            padding: 1rem 1.25rem;
-            font-size: 0.85rem;
-            color: #999;
-            margin-top: 1rem;
-            border: 1px solid #2a2a2a;
+            background: #1e1e25;
+            border-left: 4px solid #8a7a64;
+            border-radius: 0 1rem 1rem 0;
+            padding: 1.2rem 1.6rem;
+            margin: 1.8rem 0 1rem 0;
+            font-size: 0.95rem;
+            color: #b5b0a8;
         }
 
-        .footer-note {
+        .note strong {
+            color: #d4cdc0;
+        }
+
+        footer {
             margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #2a2a2a;
             text-align: center;
-            font-size: 0.75rem;
-            color: #555;
+            font-size: 0.8rem;
+            color: #4a4a54;
+            border-top: 1px solid #1f1f26;
+            padding-top: 1.5rem;
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 1.5rem 1rem;
+        footer a {
+            color: #6b6b7a;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #b8a88a;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 1.5rem 1.2rem;
+                border-radius: 1.25rem;
             }
+
             h1 {
-                font-size: 1.6rem;
+                font-size: 1.7rem;
+            }
+
+            .recipe-header {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 1rem 1.2rem;
+            }
+
+            .ingredients {
+                grid-template-columns: 1fr;
+            }
+
+            .steps li {
+                padding-left: 2.6rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <span class="badge">🔞 Satyra &bull; 18+</span>
+    <div class="card" role="main">
+        <h1>❄️ Przepis na Kokainę</h1>
+        <p class="subtitle">Sprawdzona metoda — krok po kroku</p>
 
-        <h1>Przepis na Kokainę</h1>
-        <p class="subtitle">Krok po kroku do &bdquo;sukcesu&rdquo; &mdash; wersja dla odważnych</p>
-
-        <div class="warning">
-            <strong>⚠️ Uwaga!</strong> Poniższy przepis jest <strong>całkowicie fikcyjny</strong> i ma charakter wyłącznie satyryczny.
-            Nie próbuj go realizować. Kokaina jest nielegalna, szkodliwa i niszczy życie.
-            Ten tekst to czarna komedia, a nie poradnik.
+        <div class="recipe-header">
+            <div class="recipe-header__item">
+                <span>Czas przygotowania</span>
+                <strong>Ok. 45 minut</strong>
+            </div>
+            <div class="recipe-header__item">
+                <span>Poziom trudności</span>
+                <strong>Średnio zaawansowany</strong>
+            </div>
+            <div class="recipe-header__item">
+                <span>Ilość porcji</span>
+                <strong>1 linia (ok. 50 mg)</strong>
+            </div>
         </div>
 
-        <section>
-            <h2>🧪 Składniki (fikcyjne)</h2>
-            <ul class="ingredient-list">
-                <li>1 kg liści koki (lub wyobraźni)</li>
-                <li>5 litrów rozpuszczalnika &bdquo;Marzenie&rdquo;</li>
-                <li>2 kg sody oczyszczonej (magia kuchni)</li>
-                <li>1 litr kwasu solnego (nie mylić z sosem)</li>
-                <li>0,5 kg węgla aktywnego (na kaca)</li>
-                <li>Dużo lodu &ndash; dosłownie i w przenośni</li>
-            </ul>
-        </section>
+        <h2>Składniki</h2>
+        <ul class="ingredients">
+            <li>1 g białego proszku (baza)</li>
+            <li>0,2 g sody oczyszczonej</li>
+            <li>Woda destylowana — 20 ml</li>
+            <li>Lód (garść)</li>
+            <li>Benzyna (do ekstrakcji, opcjonalnie)</li>
+        </ul>
 
-        <section>
-            <h2>👨‍🔬 Instrukcja (dla odważnych w myślach)</h2>
-            <ol class="step-list">
-                <li><strong>Krok 1:</strong> Zmiel liście koki na proszek &ndash; najlepiej w młynku do kawy, ale uwaga na sąsiadów.</li>
-                <li><strong>Krok 2:</strong> Zalej rozpuszczalnikiem i odstaw na 24h &ndash; w tym czasie obejrzyj wszystkie sezony &bdquo;Narcos&rdquo;.</li>
-                <li><strong>Krok 3:</strong> Odcedź płyn przez filtr do kawy &ndash; nie pij go, to nie jest poranna kawa.</li>
-                <li><strong>Krok 4:</strong> Dodaj sodę i podgrzewaj do 80°C &ndash; nie wyżej, bo pożegnasz się z brwiami.</li>
-                <li><strong>Krok 5:</strong> Schłódź w lodzie &ndash; pasta wytrąci się jak zły humor w poniedziałek.</li>
-                <li><strong>Krok 6:</strong> Odsącz i rozpuść w kwasie solnym &ndash; załóż rękawice, chyba że lubisz uczucie palenia.</li>
-                <li><strong>Krok 7:</strong> Dodaj węgiel aktywny, przefiltruj &ndash; voilà, krystaliczna &bdquo;nagroda&rdquo;.</li>
-                <li><strong>Krok 8:</strong> Wysusz i sprzedaj &hellip; swojej wyobraźni. Bo w realu czeka cię więzienie.</li>
-            </ol>
-        </section>
+        <h2>Przygotowanie krok po kroku</h2>
+        <ol class="steps">
+            <li><strong>Przygotuj stanowisko pracy.</strong> Wyłóż blat czystym ręcznikiem, załóż jednorazowe rękawiczki i okulary ochronne. Pracuj w dobrze wentylowanym pomieszczeniu.</li>
+            <li><strong>Zmieszaj bazę z wodą.</strong> Do szklanej zlewki wsyp 1 g białego proszku i dodaj 20 ml wody destylowanej. Mieszaj szklaną pałeczką do całkowitego rozpuszczenia.</li>
+            <li><strong>Dodaj sodę oczyszczoną.</strong> Wsyp 0,2 g sody i delikatnie mieszaj. Roztwór zacznie się lekko pienić — to normalna reakcja chemiczna.</li>
+            <li><strong>Podgrzej mieszaninę.</strong> Umieść zlewkę w łaźni wodnej (garnek z wrzątkiem). Podgrzewaj przez ok. 10–12 minut w temperaturze 80–85°C. Nie doprowadzaj do wrzenia.</li>
+            <li><strong>Schłodź roztwór.</strong> Zdejmij zlewkę z łaźni i wstaw do miski z lodem. Mieszaj powoli. Po ok. 5 minutach zaczną wytrącać się kryształki.</li>
+            <li><strong>Odcedź kryształy.</strong> Przelej zawartość przez bibułę filtracyjną (lub gęste sitko). Pozostałość na filtrze to gotowa kokaina w postaci freebase.</li>
+            <li><strong>Wysusz i rozdrobnij.</strong> Pozostaw kryształy do wyschnięcia na 20 minut w suchym, ciepłym miejscu. Następnie rozdrobnij je na drobny proszek za pomocą szklanej pałeczki lub łyżeczki.</li>
+            <li><strong>Przechowuj w szczelnym pojemniku.</strong> Gotowy produkt umieść w suchym, ciemnym miejscu. Unikaj wilgoci.</li>
+        </ol>
 
         <div class="note">
-            💡 <strong>Did you know?</strong> Proces ekstrakcji kokainy jest skomplikowany, niebezpieczny i w 100% nielegalny.
-            W rzeczywistości zakończyłbyś w szpitalu lub w kajdankach. Ta strona to czarny humor &ndash; nie bądź głupi, nie próbuj.
+            <strong>⚠️ Uwaga!</strong> Kokaina jest silnie uzależniająca i nielegalna. Ten przepis ma charakter wyłącznie <strong>edukacyjny i satyryczny</strong>. Autorka/Autor nie ponosi odpowiedzialności za wykorzystanie tych informacji w sposób niezgodny z prawem.
         </div>
 
-        <div class="footer-note">
-            &copy; 2025 Satyryczne Przepisy. Wszystkie prawa zastrzeżone &bull; Nie naśladuj, nie próbuj, nie udostępniaj nieletnim.
-        </div>
+        <footer>
+            <p>Przepis inspirowany literaturą chemiczną. ❄️ <a href="#">Dowiedz się więcej</a></p>
+        </footer>
     </div>
 </body>
 </html>
