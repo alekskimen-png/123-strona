@@ -23,6 +23,10 @@ def save_tasks(tasks):
 def index():
     return send_from_directory('.', 'index.html')
 
+@app.route('/todo')
+def todo():
+    return send_from_directory('.', 'todo.html')
+
 @app.route('/api/tasks', methods=['GET'])
 def get_tasks():
     tasks = load_tasks()
