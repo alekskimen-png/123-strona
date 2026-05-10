@@ -1,72 +1,204 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskFlow - Menedżer Zadań</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Przepis na Kokainę – Satyryczna Strona</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0f0f0f;
+            color: #e0e0e0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 720px;
+            width: 100%;
+            background: #1a1a1a;
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+            border: 1px solid #2a2a2a;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #2d2d2d;
+            color: #888;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #333;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #f0f0f0, #a0a0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            border-left: 3px solid #333;
+            padding-left: 1rem;
+        }
+
+        .warning {
+            background: #1e1a1a;
+            border-left: 4px solid #8b0000;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            font-size: 0.85rem;
+            color: #b0a0a0;
+        }
+
+        .warning strong {
+            color: #ff4d4d;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ccc;
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+            color: #b0b0b0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .ingredient-list li {
+            list-style: none;
+            padding-left: 0.5rem;
+            position: relative;
+        }
+
+        .ingredient-list li::before {
+            content: "⚗️";
+            margin-right: 0.5rem;
+        }
+
+        .step-list li {
+            padding-left: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .step-list li::marker {
+            color: #666;
+            font-weight: 600;
+        }
+
+        .note {
+            background: #222;
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            font-size: 0.85rem;
+            color: #999;
+            margin-top: 1rem;
+            border: 1px solid #2a2a2a;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #2a2a2a;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #555;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1.5rem 1rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="app-container">
-        <header class="app-header">
-            <div class="logo">
-                <span class="logo-icon">✓</span>
-                <h1>TaskFlow</h1>
-            </div>
-            <p class="subtitle">Prosty menedżer zadań z backendem Flask</p>
-        </header>
+    <div class="container">
+        <span class="badge">🔞 Satyra &bull; 18+</span>
 
-        <main class="app-main">
-            <section class="add-task-section">
-                <form id="task-form" class="task-form">
-                    <div class="input-group">
-                        <input 
-                            type="text" 
-                            id="task-input" 
-                            placeholder="Dodaj nowe zadanie..." 
-                            required 
-                            autocomplete="off"
-                            aria-label="Treść zadania"
-                        >
-                        <button type="submit" class="btn btn-primary" aria-label="Dodaj zadanie">
-                            <span class="btn-icon">+</span>
-                            Dodaj
-                        </button>
-                    </div>
-                </form>
-            </section>
+        <h1>Przepis na Kokainę</h1>
+        <p class="subtitle">Krok po kroku do &bdquo;sukcesu&rdquo; &mdash; wersja dla odważnych</p>
 
-            <section class="tasks-section">
-                <div class="tasks-header">
-                    <h2>Lista zadań</h2>
-                    <span class="tasks-count" id="tasks-count">0</span>
-                </div>
-                
-                <div class="filter-bar">
-                    <button class="filter-btn active" data-filter="all">Wszystkie</button>
-                    <button class="filter-btn" data-filter="active">Aktywne</button>
-                    <button class="filter-btn" data-filter="completed">Zakończone</button>
-                </div>
+        <div class="warning">
+            <strong>⚠️ Uwaga!</strong> Poniższy przepis jest <strong>całkowicie fikcyjny</strong> i ma charakter wyłącznie satyryczny.
+            Nie próbuj go realizować. Kokaina jest nielegalna, szkodliwa i niszczy życie.
+            Ten tekst to czarna komedia, a nie poradnik.
+        </div>
 
-                <div id="tasks-list" class="tasks-list" role="list" aria-label="Lista zadań">
-                    <!-- Zadania będą renderowane przez JS -->
-                </div>
+        <section>
+            <h2>🧪 Składniki (fikcyjne)</h2>
+            <ul class="ingredient-list">
+                <li>1 kg liści koki (lub wyobraźni)</li>
+                <li>5 litrów rozpuszczalnika &bdquo;Marzenie&rdquo;</li>
+                <li>2 kg sody oczyszczonej (magia kuchni)</li>
+                <li>1 litr kwasu solnego (nie mylić z sosem)</li>
+                <li>0,5 kg węgla aktywnego (na kaca)</li>
+                <li>Dużo lodu &ndash; dosłownie i w przenośni</li>
+            </ul>
+        </section>
 
-                <div id="empty-state" class="empty-state">
-                    <div class="empty-icon">📋</div>
-                    <p class="empty-title">Brak zadań</p>
-                    <p class="empty-desc">Dodaj swoje pierwsze zadanie powyżej!</p>
-                </div>
-            </section>
-        </main>
+        <section>
+            <h2>👨‍🔬 Instrukcja (dla odważnych w myślach)</h2>
+            <ol class="step-list">
+                <li><strong>Krok 1:</strong> Zmiel liście koki na proszek &ndash; najlepiej w młynku do kawy, ale uwaga na sąsiadów.</li>
+                <li><strong>Krok 2:</strong> Zalej rozpuszczalnikiem i odstaw na 24h &ndash; w tym czasie obejrzyj wszystkie sezony &bdquo;Narcos&rdquo;.</li>
+                <li><strong>Krok 3:</strong> Odcedź płyn przez filtr do kawy &ndash; nie pij go, to nie jest poranna kawa.</li>
+                <li><strong>Krok 4:</strong> Dodaj sodę i podgrzewaj do 80°C &ndash; nie wyżej, bo pożegnasz się z brwiami.</li>
+                <li><strong>Krok 5:</strong> Schłódź w lodzie &ndash; pasta wytrąci się jak zły humor w poniedziałek.</li>
+                <li><strong>Krok 6:</strong> Odsącz i rozpuść w kwasie solnym &ndash; załóż rękawice, chyba że lubisz uczucie palenia.</li>
+                <li><strong>Krok 7:</strong> Dodaj węgiel aktywny, przefiltruj &ndash; voilà, krystaliczna &bdquo;nagroda&rdquo;.</li>
+                <li><strong>Krok 8:</strong> Wysusz i sprzedaj &hellip; swojej wyobraźni. Bo w realu czeka cię więzienie.</li>
+            </ol>
+        </section>
 
-        <footer class="app-footer">
-            <p>TaskFlow &copy; 2024 &mdash; Zbudowane z Flask &amp; Vanilla JS</p>
-        </footer>
+        <div class="note">
+            💡 <strong>Did you know?</strong> Proces ekstrakcji kokainy jest skomplikowany, niebezpieczny i w 100% nielegalny.
+            W rzeczywistości zakończyłbyś w szpitalu lub w kajdankach. Ta strona to czarny humor &ndash; nie bądź głupi, nie próbuj.
+        </div>
+
+        <div class="footer-note">
+            &copy; 2025 Satyryczne Przepisy. Wszystkie prawa zastrzeżone &bull; Nie naśladuj, nie próbuj, nie udostępniaj nieletnim.
+        </div>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
