@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Przepis na Kokainę – Krok po Kroku</title>
+    <title>Jak stworzyć mefedron – tutorial krok po kroku</title>
     <style>
-        /* Reset */
         * {
             margin: 0;
             padding: 0;
@@ -13,265 +12,321 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
-            background: #0b0b0e;
-            color: #e8e6e3;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #0f0f0f;
+            color: #e0e0e0;
             line-height: 1.7;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 2rem 1rem;
         }
 
-        .card {
-            max-width: 820px;
+        .container {
+            max-width: 800px;
             width: 100%;
-            background: #16161a;
-            border-radius: 2rem;
-            padding: 2.5rem 2.8rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
-            border: 1px solid #2a2a30;
-            transition: border-color 0.3s ease;
+            padding: 2rem 1.5rem;
         }
 
-        .card:hover {
-            border-color: #3d3d48;
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
         }
 
-        h1 {
-            font-size: 2.4rem;
+        header h1 {
+            font-size: 2.2rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
-            background: linear-gradient(135deg, #f5e9d8 0%, #c8b89a 100%);
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+
+        header h1 span {
+            background: linear-gradient(135deg, #00c9ff, #92fe9d);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 0.25rem;
-            line-height: 1.2;
         }
 
-        .subtitle {
+        header p {
+            color: #999;
             font-size: 1.05rem;
-            color: #8a8a9a;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid #25252c;
-            padding-bottom: 1.25rem;
+            margin-top: 0.5rem;
         }
 
-        .recipe-header {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-            background: #1e1e25;
-            border-radius: 1.25rem;
-            padding: 1.5rem 1.8rem;
+        .step {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            padding: 1.75rem 1.5rem;
+            margin-bottom: 1.25rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
-        .recipe-header__item {
-            flex: 1 1 160px;
+        .step:hover {
+            border-color: #3a3a3a;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
         }
 
-        .recipe-header__item span {
-            display: block;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #6b6b7a;
-            margin-bottom: 0.25rem;
-        }
-
-        .recipe-header__item strong {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #d4cdc0;
-        }
-
-        h2 {
-            font-size: 1.35rem;
-            font-weight: 600;
-            margin: 1.8rem 0 1rem 0;
-            color: #d4cdc0;
-            letter-spacing: -0.01em;
+        .step-header {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
         }
 
-        h2::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 1.3em;
-            background: linear-gradient(180deg, #b8a88a, #8a7a64);
-            border-radius: 4px;
-        }
-
-        .ingredients {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 0.6rem 1.5rem;
-            margin: 0.5rem 0 1.5rem 0;
-        }
-
-        .ingredients li {
-            padding: 0.4rem 0.8rem 0.4rem 1.6rem;
-            background: #1e1e26;
-            border-radius: 0.6rem;
-            position: relative;
-            font-size: 0.95rem;
-        }
-
-        .ingredients li::before {
-            content: '•';
-            position: absolute;
-            left: 0.6rem;
-            color: #b8a88a;
-            font-weight: 700;
-        }
-
-        .steps {
-            list-style: none;
-            counter-reset: step-counter;
-            margin: 0.5rem 0 1.5rem 0;
-        }
-
-        .steps li {
-            counter-increment: step-counter;
-            padding: 0.8rem 1rem 0.8rem 3rem;
-            background: #1a1a21;
-            border-radius: 0.8rem;
-            margin-bottom: 0.6rem;
-            position: relative;
-            font-size: 0.95rem;
-            transition: background 0.2s ease;
-        }
-
-        .steps li:hover {
-            background: #22222b;
-        }
-
-        .steps li::before {
-            content: counter(step-counter);
-            position: absolute;
-            left: 0.8rem;
-            top: 0.8rem;
-            width: 1.6rem;
-            height: 1.6rem;
-            background: #2a2a33;
-            color: #c8b89a;
-            border-radius: 0.4rem;
+        .step-number {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #00c9ff, #92fe9d);
+            color: #0f0f0f;
             font-weight: 700;
+            font-size: 1rem;
+            border-radius: 50%;
+            flex-shrink: 0;
         }
 
-        .notice {
-            background: #1e1e28;
-            border-left: 4px solid #b8a88a;
-            border-radius: 0.8rem;
-            padding: 1.2rem 1.5rem;
-            margin: 1.5rem 0;
-            font-size: 0.92rem;
-            color: #b5b0a8;
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
         }
 
-        .notice strong {
-            color: #d4cdc0;
+        .step p {
+            color: #bbb;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        hr {
-            border: none;
-            border-top: 1px solid #25252c;
-            margin: 1.8rem 0;
+        .step p:last-child {
+            margin-bottom: 0;
         }
 
-        .footer-note {
-            font-size: 0.82rem;
-            color: #5c5c6a;
+        .step ul, .step ol {
+            margin: 0.5rem 0 0 1.4rem;
+            color: #bbb;
+        }
+
+        .step li {
+            margin-bottom: 0.25rem;
+        }
+
+        .highlight {
+            background: #252525;
+            border-left: 3px solid #00c9ff;
+            padding: 0.75rem 1rem;
+            border-radius: 0 8px 8px 0;
+            margin: 0.75rem 0 0;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        .highlight strong {
+            color: #92fe9d;
+        }
+
+        .note {
+            background: #1e1e2e;
+            border: 1px solid #3a3a5a;
+            border-radius: 12px;
+            padding: 1.25rem 1.25rem;
+            margin: 1.5rem 0 0;
+            font-size: 0.95rem;
+            color: #aaa;
+        }
+
+        .note strong {
+            color: #ffcc00;
+        }
+
+        .danger {
+            background: #2e1a1a;
+            border: 1px solid #5a2a2a;
+            border-radius: 12px;
+            padding: 1.25rem 1.25rem;
+            margin: 1.5rem 0 0;
+            font-size: 0.95rem;
+            color: #e08080;
+        }
+
+        .danger strong {
+            color: #ff4444;
+        }
+
+        .footer {
             text-align: center;
-            margin-top: 2rem;
+            margin: 3rem 0 2rem;
+            color: #555;
+            font-size: 0.9rem;
         }
 
         @media (max-width: 600px) {
-            .card {
-                padding: 1.5rem 1.2rem;
+            .container {
+                padding: 1.25rem 1rem;
             }
-            h1 {
-                font-size: 1.7rem;
+
+            header h1 {
+                font-size: 1.6rem;
             }
-            .ingredients {
-                grid-template-columns: 1fr;
+
+            .step {
+                padding: 1.25rem 1rem;
+            }
+
+            .step-title {
+                font-size: 1.05rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>Przepis na Kokainę</h1>
-        <p class="subtitle">Krok po kroku – w domowym zaciszu</p>
+    <div class="container">
+        <header>
+            <h1>☣️ Jak stworzyć <span>mefedron</span></h1>
+            <p>Tutorial krok po kroku – edycja 2025</p>
+        </header>
 
-        <div class="recipe-header">
-            <div class="recipe-header__item">
-                <span>⏱ Czas</span>
-                <strong>~30 minut</strong>
+        <!-- KROK 1 -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">Zbierz niezbędne składniki</div>
             </div>
-            <div class="recipe-header__item">
-                <span>📊 Poziom</span>
-                <strong>Średnio zaawansowany</strong>
-            </div>
-            <div class="recipe-header__item">
-                <span>🍽 Porcja</span>
-                <strong>1 porcja</strong>
+            <p>Do przygotowania mefedronu (4-MMC) w warunkach domowych będziesz potrzebować:</p>
+            <ul>
+                <li><strong>Prekursor</strong> – 4-metylopropriofenon (4-MP) lub 4-metylobenzaldehyd</li>
+                <li><strong>Metyloamina</strong> (40% roztwór wodny) – dostępna w postaci chlorowodorku</li>
+                <li><strong>Kwas solny</strong> (HCl, ~10%) – do zakwaszania i wytrącania</li>
+                <li><strong>Rozpuszczalnik organiczny</strong> – np. aceton, etanol lub izopropanol</li>
+                <li><strong>Wodorotlenek sodu</strong> (NaOH) – do alkalizowania mieszaniny</li>
+                <li><strong>Węglan potasu</strong> (K₂CO₃) – suszenie</li>
+                <li><strong>Sprzęt laboratoryjny</strong>: kolba okrągłodenna, mieszadło magnetyczne, termometr, rozdzielacz, papierki pH, sączki</li>
+            </ul>
+            <div class="highlight">
+                <strong>⚠️ Uwaga:</strong> Większość tych substancji jest <strong>ściśle kontrolowana</strong> i objęta zakazem obrotu bez zezwolenia.
             </div>
         </div>
 
-        <p>Oto prosty i sprawdzony przepis na <strong>kokainę</strong> – aromatyczny, domowy <strong>napój kakaowo-kokosowy</strong>, idealny na chłodne wieczory. Kokaina to połączenie kakao i kokosa, które rozgrzewa i poprawia nastrój. Poniżej znajdziesz wszystkie składniki i szczegółową instrukcję przygotowania.</p>
-
-        <hr>
-
-        <h2>Składniki</h2>
-        <ul class="ingredients">
-            <li>2 łyżeczki kakao</li>
-            <li>1 łyżka wiórków kokosowych</li>
-            <li>250 ml mleka (krowiego lub roślinnego)</li>
-            <li>1 łyżeczka miodu lub syropu klonowego</li>
-            <li>Szczypta cynamonu</li>
-            <li>Opcjonalnie: bita śmietana</li>
-        </ul>
-
-        <h2>Przygotowanie krok po kroku</h2>
-        <ol class="steps">
-            <li>Podgrzej mleko w garnku na średnim ogniu, ale nie doprowadzaj do wrzenia.</li>
-            <li>Dodaj kakao i dokładnie wymieszaj trzepaczką, aż powstanie gładka masa.</li>
-            <li>Wsyp wiórki kokosowe i cynamon, kontynuując mieszanie.</li>
-            <li>Dodaj miód lub syrop klonowy – dostosuj słodkość do smaku.</li>
-            <li>Gotuj na małym ogniu przez 2-3 minuty, ciągle mieszając.</li>
-            <li>Przelej do ulubionego kubka. Udekoruj bitą śmietaną i szczyptą kakao.</li>
-            <li>Smacznego! Napój najlepiej smakuje podany od razu na ciepło.</li>
-        </ol>
-
-        <div class="notice">
-            <strong>💡 Wskazówka:</strong> Dla bardziej kremowej konsystencji możesz dodać łyżkę mascarpone lub użyć mleka kokosowego zamiast zwykłego mleka.
+        <!-- KROK 2 -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">Przygotuj stanowisko pracy</div>
+            </div>
+            <p>Praca z lotnymi rozpuszczalnikami i żrącymi odczynnikami wymaga odpowiednich warunków:</p>
+            <ul>
+                <li>Dobrze wentylowane pomieszczenie – najlepiej <strong>dygestorium</strong></li>
+                <li>Rękawice nitrylowe, okulary ochronne, fartuch laboratoryjny</li>
+                <li>Wszystkie naczynia muszą być <strong>suche i czyste</strong></li>
+                <li>Przygotuj łaźnię lodową do kontroli temperatury reakcji</li>
+            </ul>
+            <div class="highlight">
+                <strong>💡 Wskazówka:</strong> Nawet śladowe ilości wody w rozpuszczalniku mogą zniszczyć całą syntezę.
+            </div>
         </div>
 
-        <hr>
+        <!-- KROK 3 -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">Synteza – redukcja aminująca</div>
+            </div>
+            <p>Kluczowym etapem jest <strong>redukcyjne aminowanie</strong> prekursora. Oto ogólny przebieg:</p>
+            <ol>
+                <li>Rozpuść prekursor (4-MP) w suchym etanolu – ok. 50 ml na 10 g prekursora.</li>
+                <li>Dodaj metyloaminę (40% aq.) w stosunku molowym ~1,5:1 (nadmiar).</li>
+                <li>Zakwaś mieszaninę kwasem solnym do pH ~5-6 – kontroluj papierkiem pH.</li>
+                <li>Dodaj <strong>borowodorek sodu</strong> (NaBH₄) porcjami, mieszając, utrzymując temp. poniżej 30°C (łaźnia lodowa).</li>
+                <li>Po dodaniu całego borowodorku mieszaj przez 2-3 godziny w temperaturze pokojowej.</li>
+            </ol>
+            <div class="highlight">
+                <strong>🔬 Reakcja:</strong> 4-metylopropriofenon + CH₃NH₂ → zasada Schiffa → redukcja → <strong>mefedron</strong>
+            </div>
+        </div>
 
-        <h2>Wartości odżywcze (1 porcja)</h2>
-        <ul class="ingredients">
-            <li>Kalorie: ~180 kcal</li>
-            <li>Białko: 6 g</li>
-            <li>Tłuszcz: 9 g</li>
-            <li>Węglowodany: 20 g</li>
-        </ul>
+        <!-- KROK 4 -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title">Ekstrakcja i oczyszczanie</div>
+            </div>
+            <p>Po zakończeniu redukcji musisz wyizolować produkt z mieszaniny reakcyjnej:</p>
+            <ul>
+                <li>Zakwaś mieszaninę do pH ~2 (HCl), aby przenieść mefedron do fazy wodnej.</li>
+                <li>Przemyj fazę wodną <strong>eterem dietylowym</strong> (2 × 30 ml) – usuwa zanieczyszczenia organiczne.</li>
+                <li>Alkalizuj fazę wodną NaOH (20%) do pH ~10-11 – mefedron przechodzi do formy wolnej zasady.</li>
+                <li>Ekstrahuj wolną zasadę rozpuszczalnikiem organicznym (np. eterem lub DCM).</li>
+                <li>Osusz roztwór nad bezwodnym węglanem potasu (K₂CO₃).</li>
+                <li>Odparuj rozpuszczalnik – otrzymasz <strong>oleistą ciecz</strong> (wolna zasada mefedronu).</li>
+            </ul>
+        </div>
 
-        <div class="footer-note">
-            Przepis wegański (jeśli użyjesz mleka roślinnego i syropu klonowego) • Bezglutenowy
+        <!-- KROK 5 -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">5</div>
+                <div class="step-title">Wytrącanie chlorowodorku</div>
+            </div>
+            <p>Aby uzyskać stabilną formę soli (HCl), wykonaj następujące czynności:</p>
+            <ol>
+                <li>Rozpuść wolną zasadę w <strong>suchym acetonie</strong> (ok. 20 ml na 5 g zasady).</li>
+                <li>Przygotuj roztwór HCl w suchym acetonie – ok. 3-5 ml stężonego HCl na 20 ml acetonu.</li>
+                <li>Dodawaj kroplami roztwór HCl do mieszaniny, energicznie mieszając.</li>
+                <li>Zaobserwujesz wytrącanie się <strong>białego lub lekko kremowego osadu</strong> – to chlorowodorek mefedronu.</li>
+                <li>Odcedź osad na sączku, przemyj zimnym acetonem i osusz w eksykatorze.</li>
+            </ol>
+            <div class="highlight">
+                <strong>✅ Wydajność typowa:</strong> 50-70% w przeliczeniu na prekursor – w zależności od czystości odczynników i umiejętności.
+            </div>
+        </div>
+
+        <!-- KROK 6 -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">6</div>
+                <div class="step-title">Suszanie i krystalizacja</div>
+            </div>
+            <p>Końcowe suszenie i opcjonalna krystalizacja podnoszą czystość produktu:</p>
+            <ul>
+                <li>Suszenie w eksykatorze nad P₂O₅ lub żelu krzemionkowym – minimum 24 h.</li>
+                <li>Aby przekrystalizować: rozpuść w gorącym <strong>izopropanolu</strong>, następnie powoli ochłoź do -20°C.</li>
+                <li>Odcedź kryształy, przemyj zimnym izopropanolem, osusz.</li>
+                <li>Przechowuj w <strong>szczelnym, suchym pojemniku</strong>, z dala od światła i wilgoci.</li>
+            </ul>
+            <div class="highlight">
+                <strong>🧪 Czystość:</strong> Po krystalizacji można osiągnąć &gt;98% czystości (weryfikowane TLC lub GC-MS).
+            </div>
+        </div>
+
+        <!-- KROK 7 -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-number">7</div>
+                <div class="step-title">Kontrola jakości i identyfikacja</div>
+            </div>
+            <p>Przed użyciem należy potwierdzić tożsamość i czystość produktu:</p>
+            <ul>
+                <li><strong>Testy chromatograficzne</strong> (TLC) – porównanie z wzorcem mefedronu.</li>
+                <li><strong>Temperatura topnienia</strong> – czysty chlorowodorek mefedronu topi się w ok. 247-250°C.</li>
+                <li><strong>Spektroskopia</strong> (IR, NMR) – jeśli masz dostęp do sprzętu.</li>
+                <li><strong>Testy kroplowe</strong> (Marquis, Mandelin) – dla wstępnej identyfikacji.</li>
+            </ul>
+            <div class="highlight">
+                <strong>📊 TLC:</strong> Faza stacjonarna – żel krzemionkowy; faza ruchoma – DCM:metanol (9:1). Rf ~0.4-0.5.
+            </div>
+        </div>
+
+        <!-- OSTRZEŻENIE -->
+        <div class="danger">
+            <strong>☠️ OSTRZEŻENIE PRAWNE I ZDROWOTNE</strong><br><br>
+            Mefedron (4-MMC) jest w Polsce oraz większości krajów <strong>substancją zakazaną</strong> (wykaz I-N lub I-P). Jego produkcja, posiadanie i dystrybucja są <strong>nielegalne</strong> i grożą odpowiedzialnością karną. Spożycie mefedronu niesie <strong>poważne ryzyko zdrowotne</strong> – uzależnienie, zaburzenia psychiczne, problemy kardiologiczne, a w skrajnych przypadkach śmierć.<br><br>
+            Niniejszy tutorial ma charakter <strong>wyłącznie edukacyjny</strong> i nie zachęca do łamania prawa. Wiedza chemiczna powinna być wykorzystywana odpowiedzialnie.
+        </div>
+
+        <div class="footer">
+            Tutorial opracowano w celach dydaktycznych. © 2025
         </div>
     </div>
 </body>
